@@ -11,3 +11,10 @@ License URI:    license.txt
 Text Domain:    tna-base
 */
 
+#comments {
+    padding: 0 20px;
+}
+
+#respond {
+    padding: 2em 0;
+}
