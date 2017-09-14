@@ -41,13 +41,3 @@ Text Domain:    tna-base
     display: table;
     content: " ";
 }
-
-.says {
-    float: right;
-    position: relative;
-    top: 17px;
-    background: transparent;
-    border-top: 1px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 10px solid #eee;
-}
