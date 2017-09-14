@@ -18,3 +18,14 @@ Text Domain:    tna-base
 #respond {
     padding: 2em 0;
 }
+
+#respond input[type="submit"] {
+    float: right;
+    border-radius: 0;
+}
+
+#respond .form-submit:after {
+    clear: both;
+    display: table;
+    content: " ";
+}
