@@ -15,6 +15,18 @@ Text Domain:    tna-base
     padding: 0 20px;
 }
 
+#comments cite {
+    font-style: normal;
+}
+
+.emphasis-alert {
+    margin: 1em 0;
+    padding: 1.6em 1em;
+    font-size: 1em;
+    background-color: #fff2ae;
+    border-left: #FCE45C 4px solid;
+}
+
 #respond {
     padding: 2em 0;
 }
@@ -28,4 +40,14 @@ Text Domain:    tna-base
     clear: both;
     display: table;
     content: " ";
+}
+
+.says {
+    float: right;
+    position: relative;
+    top: 17px;
+    background: transparent;
+    border-top: 1px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #eee;
 }
