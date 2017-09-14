@@ -11,14 +11,7 @@
 					endwhile;
 					?>
 				</main>
-				<?php
-				$sidebar = get_post_meta( $post->ID, 'sidebar', true );
-				if ( $sidebar == 'false' ) {
-					// do nothing
-				} else {
-					get_sidebar( $sidebar );
-				}
-				?>
+				<?php get_sidebar() ?>
 			</div>
 		</div>
 	</div>
