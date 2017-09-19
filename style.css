@@ -58,12 +58,16 @@ Text Domain:    tna-base
     font-size: 1.3em;
 }
 
-.single article .entry-header {
+.tags a:hover {
+    text-decoration: underline;
+}
+
+.single .blog article .entry-header {
     padding: 0;
     background: none;
 }
 
-.single article .entry-header h1 {
+.single .blog article .entry-header h2 {
     background-color: transparent;
     margin: 0;
     padding: 20px;
@@ -71,10 +75,16 @@ Text Domain:    tna-base
     color: #000;
 }
 
-.single article .entry-header:after {
+.single .blog article .entry-header:after {
     content: '';
     display: block;
     height: 10px;
     margin: 0;
     background: none;
+}
+
+.blog-header .entry-header {
+    height: 200px;
+    background-position: center right;
+    background-size: cover;
 }
