@@ -92,3 +92,15 @@ Text Domain:    tna-base
 .blog-header article .entry-header {
     background: none;
 }
+
+.blog-header article .entry-content {
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: #000;
+    background: rgba(0,0,0,.66);
+    color: #ddd;
+    width: 100%;
+    padding: 20px;
+}

@@ -16,6 +16,9 @@
 						get_option('blog_img_caption'),
 						get_option('blog_img_url')
 					); ?>
+					<div class="entry-content">
+
+					</div>
 				</article>
 			</div>
 		</div>
