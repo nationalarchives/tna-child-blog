@@ -28,8 +28,8 @@ if (post_password_required()) {
                 printf(
                 /* translators: 1: number of comments, 2: post title */
                     _nx(
-                        '%1$s thought on &ldquo;%2$s&rdquo;',
-                        '%1$s thoughts on &ldquo;%2$s&rdquo;',
+                        '%1$s comments',
+                        '%1$s comments',
                         $comments_number,
                         'comments title'
                     ),
@@ -49,7 +49,6 @@ if (post_password_required()) {
             <?php
             wp_list_comments(array(
                 'style' => 'ol',
-                'short_ping' => true,
                 'avatar_size' => 42,
             ));
             ?>
@@ -73,7 +72,15 @@ if (post_password_required()) {
     comment_form(array(
         'title_reply_before' => '<h2 id="reply-title" class="comment-reply-title">',
         'title_reply_after' => '</h2>',
+        'comment_notes_after' => '',
+        'title_reply'       => __( 'Leave a comment' ),
     ));
     ?>
+
+    <div class="disclaimer clearfix">
+        <div class="emphasis-alert">
+            We will not be able to respond to personal family history research questions on the blog.<br> See our <a href="/moderation-policy">moderation policy</a> for more details.
+        </div>
+    </div>
 
 </div><!-- .comments-area -->

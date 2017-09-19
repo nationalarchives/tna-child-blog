@@ -11,3 +11,33 @@ License URI:    license.txt
 Text Domain:    tna-base
 */
 
+#comments {
+    padding: 0 20px;
+}
+
+#comments cite {
+    font-style: normal;
+}
+
+.emphasis-alert {
+    margin: 1em 0;
+    padding: 1.6em 1em;
+    font-size: 1em;
+    background-color: #fff2ae;
+    border-left: #FCE45C 4px solid;
+}
+
+#respond {
+    padding: 2em 0;
+}
+
+#respond input[type="submit"] {
+    float: right;
+    border-radius: 0;
+}
+
+#respond .form-submit:after {
+    clear: both;
+    display: table;
+    content: " ";
+}
