@@ -83,8 +83,12 @@ Text Domain:    tna-base
     background: none;
 }
 
-.blog-header .entry-header {
+.blog-header article {
     height: 200px;
-    background-position: center right;
+    background-position: center center;
     background-size: cover;
+}
+
+.blog-header article .entry-header {
+    background: none;
 }
