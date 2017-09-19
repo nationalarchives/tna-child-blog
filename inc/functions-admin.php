@@ -36,7 +36,7 @@ function blog_admin_page() {
 				<td><input type="text" name="blog_img_caption" value="<?php echo esc_attr( get_option('blog_img_caption') ); ?>" /></td>
 			</tr>
 			<tr valign="top">
-				<th scope="row"><label for="blog_img_url">Image URL</label></th>
+				<th scope="row"><label for="blog_img_url">Library image URL</label></th>
 				<td><input type="text" name="blog_img_url" value="<?php echo esc_attr( get_option('blog_img_url') ); ?>" /></td>
 			</tr>
 		</table>

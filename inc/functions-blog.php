@@ -21,17 +21,19 @@ function tna_child_styles()
 	wp_enqueue_style('tna-child-styles');
 }
 
-function get_blog_image_caption( $caption, $url ) {
+function get_blog_image_caption( $caption, $url='' ) {
 
-	if(!empty($caption) && !empty($url)) : ?>
+	if (!empty($caption)) { ?>
 		<div class="feature-img-caption img-caption-top">
 			<button class="eye_caption">&nbsp;</button>
 			<div class="image_caption_back">
 				<span class="clearfix"><?php echo $caption; ?></span>
+				<?php if ($url) { ?>
 				<a href="<?php echo $url ?>" target="_blank">
 						View in the image library
 				</a>
+				<?php } ?>
 			</div>
 		</div>
-	<?php endif;
+	<?php }
 }
