@@ -41,3 +41,40 @@ Text Domain:    tna-base
     display: table;
     content: " ";
 }
+
+.entry-meta {
+    margin: 0 20px 20px;
+    border-bottom: 1px dotted #ccc;
+}
+
+.tags {
+    margin: 20px;
+    border-bottom: 1px dotted #ccc;
+}
+
+.tags a {
+    text-decoration: none;
+    font-family: 'Bitter', sans-serif;
+    font-size: 1.3em;
+}
+
+.single article .entry-header {
+    padding: 0;
+    background: none;
+}
+
+.single article .entry-header h1 {
+    background-color: transparent;
+    margin: 0;
+    padding: 20px;
+    display: block;
+    color: #000;
+}
+
+.single article .entry-header:after {
+    content: '';
+    display: block;
+    height: 10px;
+    margin: 0;
+    background: none;
+}

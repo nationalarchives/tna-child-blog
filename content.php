@@ -15,6 +15,7 @@
 			<h1><?php the_title(); ?></h1>
 		</div>
 		<div class="entry-meta">
+			<p>
 			<?php the_time('l j F Y ') ?>
 			|
 			<?php the_author_posts_link(); ?>
@@ -22,6 +23,7 @@
 			<?php echo get_the_category_list( ', ' ); ?>
 			|
 			<?php comments_popup_link( 'Comment', '1 comment', '% comments' ); ?>
+			</p>
 		</div>
 		<div class="entry-content clearfix">
 			<?php the_content(); ?>
