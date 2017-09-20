@@ -49,3 +49,4 @@ function blog_sidebar_widgets() {
 		'after_title' => '</h2></div><div class="sidebar-content clearfix">',
 	) );
 }
+
