@@ -180,3 +180,7 @@ ul.search-results li {
     list-style: none;
     border-bottom: 1px dotted #ccc;
 }
+
+.page-numbers {
+    padding: 0 4px;
+}
