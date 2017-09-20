@@ -151,6 +151,11 @@ Text Domain:    tna-base
     width: 40px;
 }
 
-.sidebar-content {
+.sidebar-widget {
     margin-bottom: 1em;
+}
+
+.sidebar-content {
+    background-color: #fff;
+    padding: 20px 15px 0 20px;
 }

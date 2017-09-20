@@ -37,3 +37,15 @@ function get_blog_image_caption( $caption, $url='' ) {
 		</div>
 	<?php }
 }
+
+function blog_sidebar_widgets() {
+	register_sidebar( array(
+		'name' => 'Sidebar' ,
+		'id' => 'blog-sidebar',
+		'description' => __( 'Appears on posts and pages' ),
+		'before_widget' => '<div id="%1$s" class="sidebar-widget %2$s">',
+		'after_widget' => '</div></div>',
+		'before_title' => '<div class="sidebar-header"><h2>',
+		'after_title' => '</h2></div><div class="sidebar-content clearfix">',
+	) );
+}
