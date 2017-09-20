@@ -40,11 +40,9 @@
 						</div>
 						<div class="col-md-4">
 							<div class="search-wrapper">
-								<form id="search-form" method="get" role="search" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-									<label class="sr-only" for="s">Search</label>
-									<input type="text" name="s" id="s" class="search-field" placeholder="Search our blog" />
-									<input type="submit" id="searchsubmit" class="search-button search-button-blog" alt="Submit search" value="" title="Submit" />
-								</form>
+								<div class="search-wrapper">
+									<?php get_search_form(); ?>
+								</div>
 							</div>
 						</div>
 					</div>
