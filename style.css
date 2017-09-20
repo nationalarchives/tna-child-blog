@@ -150,3 +150,7 @@ Text Domain:    tna-base
     margin: 0;
     width: 40px;
 }
+
+.sidebar-content {
+    margin-bottom: 1em;
+}
