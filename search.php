@@ -52,7 +52,10 @@
                         ) );
                         ?>
 
-                    <?php } ?>
+                    <?php } else {
+                        _e( 'Sorry, but nothing matched your search terms. Please try again with different keywords.', 'tna-base' );
+                        get_search_form();
+                    }?>
                     </div>
                 </article>
             </main>
