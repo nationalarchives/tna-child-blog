@@ -104,3 +104,40 @@ Text Domain:    tna-base
     width: 100%;
     padding: 20px;
 }
+
+.blog-header form {
+    color: #444;
+}
+
+.blog-header .search-wrapper {
+    position: relative;
+    display: block;
+}
+
+.blog-header .search-wrapper input[type=submit] {
+    position: absolute;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 0;
+    background-image: url(img/search-white.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.blog-header .search-wrapper input[type="text"] {
+    float: right;
+    margin-right: 40px;
+    width: 100%;
+    max-width: 320px;
+    height: 40px;
+    padding: 4px;
+    text-indent: 10px;
+    border-radius: 0;
+}
+
+.blog-header select {
+    float: left;
+    width: 45% !important;
+    margin-right: 2%;
+}
