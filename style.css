@@ -42,11 +42,6 @@ Text Domain:    tna-base
     content: " ";
 }
 
-.entry-meta {
-    margin: 0 20px 20px;
-    border-bottom: 1px dotted #ccc;
-}
-
 .tags {
     margin: 20px;
     border-bottom: 1px dotted #ccc;
@@ -81,6 +76,15 @@ Text Domain:    tna-base
     height: 10px;
     margin: 0;
     background: none;
+}
+
+.single .blog article .entry-meta {
+    margin: 0 20px;
+    border-bottom: 1px dotted #ccc;
+}
+
+.blog-header h1 a {
+    color: #fff;
 }
 
 .blog-header article {
@@ -140,4 +144,9 @@ Text Domain:    tna-base
     float: left;
     width: 45% !important;
     margin-right: 2%;
+}
+
+.blog-header .follow-us a img {
+    margin: 0;
+    width: 40px;
 }
