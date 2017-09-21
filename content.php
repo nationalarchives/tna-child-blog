@@ -2,7 +2,7 @@
 	<!-- page.php -->
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<div class="entry-header">
-			<h1><?php the_title(); ?></h1>
+			<h2><?php the_title(); ?></h2>
 		</div>
 		<div class="entry-content clearfix">
 			<?php the_content(); ?>
