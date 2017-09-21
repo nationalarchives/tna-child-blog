@@ -32,6 +32,9 @@ get_header(); ?>
 						</div>
 					</article>
 				</div>
+				<?php if ( is_active_sidebar( 'blog-homepage' ) ) : ?>
+						<?php dynamic_sidebar( 'blog-homepage' ); ?>
+				<?php endif; ?>
 			</main>
 		</div>
 	</div>

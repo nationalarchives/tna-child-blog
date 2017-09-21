@@ -54,5 +54,14 @@ function blog_sidebar_widgets() {
 		'before_title' => '<div class="sidebar-header"><h2>',
 		'after_title' => '</h2></div><div class="sidebar-content clearfix">',
 	) );
+	register_sidebar( array(
+		'name' => 'Homepage' ,
+		'id' => 'blog-homepage',
+		'description' => __( 'Appears on homepage' ),
+		'before_widget' => '<div class="col-md-6"><article id="%1$s" class="hompage-widget %2$s">',
+		'after_widget' => '</div></article></div>',
+		'before_title' => '<div class="entry-header"><h2>',
+		'after_title' => '</h2></div><div class="entry-content clearfix">',
+	) );
 }
 

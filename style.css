@@ -207,3 +207,8 @@ ul.loop-results li {
     background-color: #eee;
     border-radius: 0;
 }
+
+.no-js .tab-content>.tab-pane {
+    display: block;
+    margin-bottom: 1em;
+}
