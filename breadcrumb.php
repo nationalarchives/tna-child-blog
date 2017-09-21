@@ -14,8 +14,14 @@
 					<span class="current">
 						<?php
 						if ( is_search() ) {
-							echo 'Search results found for: ';
+							_e( 'Search results found for: ', 'tna-base' );
 							the_search_query();
+						} elseif ( is_category()  ) {
+							_e( 'Category: ', 'tna-base' );
+							single_cat_title();
+						} elseif ( is_tag()  ) {
+							_e( 'Tag: ', 'tna-base' );
+							single_tag_title();
 						} else {
 							the_title();
 						} ?>
