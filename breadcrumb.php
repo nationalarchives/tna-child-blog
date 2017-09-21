@@ -23,6 +23,8 @@
 						} elseif ( is_tag()  ) {
 							_e( 'Tag: ', 'tna-base' );
 							single_tag_title();
+						} elseif ( is_home() ) {
+							_e( 'All posts', 'tna-base' );
 						} else {
 							the_title();
 						} ?>

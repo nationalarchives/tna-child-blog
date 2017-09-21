@@ -13,3 +13,15 @@ WP dashboard -> Settings -> General -> Date Format -> Custom = 'D j M Y'
 WP dashboard -> Blog settings -> Blog header
 
 Add image URL and caption
+
+### 3. Front page displays - A static page
+
+WP dashboard -> Settings -> Reading
+
+#### Front page
+
+Set 'Front page' to the page 'Blog'
+
+#### Posts page
+
+Set 'Posts page' to the page 'Blogposts'
