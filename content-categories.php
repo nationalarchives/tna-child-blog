@@ -1,10 +1,30 @@
 <?php
 
-$categories = get_categories();
+$categories = get_categories(); ?>
 
-foreach ( $categories as $cat ) {
+<ul class="nav nav-pills" role="tablist">
+	<li class="active">
+		<a  href="#records-research" role="tab" data-toggle="pill">Records and research</a>
+	</li>
+	<li>
+		<a href="#behind-the-scenes" role="tab" data-toggle="pill">Behind the scenes</a>
+	</li>
+	<li>
+		<a href="#technology-innovation" role="tab" data-toggle="pill">Technology and innovation</a>
+	</li>
+	<li>
+		<a href="#managing-information" role="tab" data-toggle="pill">Managing information</a>
+	</li>
+	<li>
+		<a href="#archives-and-archivists" role="tab" data-toggle="pill">Archives and archivists</a>
+	</li>
+</ul>
+<div class="tab-content clearfix">
+<?php foreach ( $categories as $cat ) {
 
 	if ( $cat->slug != 'uncategorized' ) {
+
+		$active = ($cat->slug == 'records-research') ? 'active' : '';
 
 		$args = array(
 			'category_name'  => $cat->slug,
@@ -18,7 +38,7 @@ foreach ( $categories as $cat ) {
 		$the_query = new WP_Query( $args ); ?>
 
 		<?php if ( $the_query->have_posts() ) : ?>
-			<div id="<?php echo $cat->slug; ?>" class="row">
+			<div role="tabpanel" class="row tab-pane <?php echo $active; ?>" id="<?php echo $cat->slug; ?>">
 
 				<!-- the loop -->
 				<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
@@ -48,7 +68,9 @@ foreach ( $categories as $cat ) {
 					</div>
 				<?php endwhile; ?>
 				<!-- end of the loop -->
-
+				<div class="col-md-12">
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>category/<?php echo $cat->slug; ?>" class="button pull-right">View all posts in this category</a>
+				</div>
 			</div>
 			<?php wp_reset_postdata(); ?>
 
@@ -57,3 +79,4 @@ foreach ( $categories as $cat ) {
 		<?php endif;
 	}
 } ?>
+</div>

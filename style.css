@@ -193,3 +193,17 @@ ul.loop-results li {
     background-position: center center;
     background-size: cover;
 }
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus {
+    background-color: #008484;
+    border-radius: 0;
+}
+.nav-pills>li.active>a:hover {
+    background: #FCE45C;
+    color: #000;
+}
+.nav>li>a:focus, .nav>li>a:hover {
+    text-decoration: none;
+    background-color: #eee;
+    border-radius: 0;
+}

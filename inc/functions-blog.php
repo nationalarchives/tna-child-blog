@@ -21,6 +21,12 @@ function tna_child_styles()
 	wp_enqueue_style('tna-child-styles');
 }
 
+function tna_child_scripts()
+{
+	wp_register_script( 'bootstrap-js', 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js', array(), '3.3.2', true );
+	wp_enqueue_script( 'bootstrap-js' );
+}
+
 function get_blog_image_caption( $caption, $url='' ) {
 
 	if (!empty($caption)) { ?>
