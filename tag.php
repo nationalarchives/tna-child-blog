@@ -2,18 +2,18 @@
 <?php get_template_part('breadcrumb'); ?>
 <?php get_template_part( 'header-blog' ); ?>
 
-<div id="primary" class="content-area category-page">
+<div id="primary" class="content-area tag-page">
     <div class="container">
         <div class="row">
             <main id="main" class="col-xs-12 col-sm-8 col-md-8" role="main">
                 <article>
                     <div class="entry-header">
                         <h2>
-                            <?php _e( 'Category', 'tna-base' ); ?>: <?php single_cat_title(); ?>
+                            <?php _e( 'Tag', 'tna-base' ); ?>: <?php single_tag_title(); ?>
                         </h2>
                     </div>
                     <div class="entry-content clearfix">
-	                    <?php get_template_part('content', 'loop'); ?>
+                        <?php get_template_part('content', 'loop'); ?>
                     </div>
                 </article>
             </main>

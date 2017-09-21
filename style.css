@@ -172,11 +172,11 @@ Text Domain:    tna-base
     padding: 20px 15px 0 20px;
 }
 
-ul.search-results {
+ul.loop-results {
     padding: 0;
 }
 
-ul.search-results li {
+ul.loop-results li {
     list-style: none;
     border-bottom: 1px dotted #ccc;
 }
