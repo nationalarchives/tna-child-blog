@@ -10,6 +10,7 @@
 					</span>
 					<span class="sep">&gt;</span>
 					<span><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Blog</a></span>
+					<?php if ( !is_front_page() ) { ?>
 					<span class="sep">&gt;</span>
 					<span class="current">
 						<?php
@@ -26,6 +27,7 @@
 							the_title();
 						} ?>
 					</span>
+					<?php } ?>
 				</div>
 			</div>
 		</div>
