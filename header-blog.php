@@ -29,14 +29,12 @@
 							</div>
 						</div>
 						<div class="col-md-6">
-							<!-- <form action="<?php bloginfo('url'); ?>" method="get">
-								<select name="archive-dropdown" onchange="document.location.href=this.options[this.selectedIndex].value;">
-									<option value=""><?php echo esc_attr( __( 'Select Month' ) ); ?></option>
-									<?php wp_get_archives( array( 'type' => 'monthly', 'format' => 'option', 'show_post_count' => 1 ) ); ?>
-								</select>
-								<?php wp_dropdown_users(array('name' => 'author','show_option_none' => 'Select author...')); ?>
-								<input class="sr-only" type="submit" name="submit" />
-							</form> -->
+							<a href="#" type="button" class="button" data-toggle="modal" data-target="#myModal">Select an author</a>
+							<!--<form action="<?php /*bloginfo('url'); */?>" method="get" class="author-list">
+								<label class="sr-only" for="author">Select an author</label>
+								<?php /*wp_dropdown_users(array('name' => 'author','show_option_none' => 'Select an author...')); */?>
+								<input type="submit" name="submit" value="view" />
+							</form>-->
 						</div>
 						<div class="col-md-4">
 							<div class="search-wrapper">
@@ -48,6 +46,31 @@
 					</div>
 				</article>
 			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<!-- Modal -->
+	<div id="myModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Authors</h4>
+				</div>
+				<div class="modal-body clearfix">
+					<ul class="child">
+						<?php wp_list_authors() ?>
+					</ul>
+				</div>
+				<div class="modal-footer">
+					<a href="#" type="button" class="button" data-dismiss="modal">Close</a>
+				</div>
+			</div>
+
 		</div>
 	</div>
 </div>
