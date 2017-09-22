@@ -165,10 +165,6 @@ a.button:focus, input[type=submit]:focus {
     margin-right: 2%;
 }
 
-/*.js .blog-header .author-list input[type="submit"] {
-    display: none !important;
-}*/
-
 .blog-header .follow-us a img {
     margin: 0;
     width: 40px;

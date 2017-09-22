@@ -32,8 +32,21 @@
 							<form action="<?php bloginfo('url'); ?>" method="get" class="author-list">
 								<label class="sr-only" for="author">Select an author</label>
 								<?php wp_dropdown_users(array('name' => 'author','show_option_none' => 'Select an author...')); ?>
-								<input type="submit" name="submit" value="view" />
+								<noscript>
+									<input type="submit" name="submit" value="view" />
+								</noscript>
 							</form>
+							<script type="text/javascript">
+								<!--
+								var dropdown = document.getElementById("author");
+								function onAuChange() {
+									if ( dropdown.options[dropdown.selectedIndex].value > 0 ) {
+										location.href = "<?php echo esc_url( home_url( '/' ) ); ?>?author="+dropdown.options[dropdown.selectedIndex].value;
+									}
+								}
+								dropdown.onchange = onAuChange;
+								-->
+							</script>
 						</div>
 						<div class="col-md-4">
 							<div class="search-wrapper">
