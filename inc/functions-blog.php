@@ -24,7 +24,9 @@ function tna_child_styles()
 function tna_child_scripts()
 {
 	wp_register_script( 'bootstrap-js', 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js', array(), '3.3.2', true );
+	wp_register_script( 'blog-js', get_stylesheet_directory_uri() . '/js/tna-child-blog.js', array(), '0.1', true );
 	wp_enqueue_script( 'bootstrap-js' );
+	wp_enqueue_script( 'blog-js' );
 }
 
 function get_blog_image_caption( $caption, $url='' ) {
