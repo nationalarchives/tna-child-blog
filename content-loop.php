@@ -12,7 +12,7 @@
 					<p>
 						<?php the_time('l j F Y ') ?>
 						|
-						<?php the_author_posts_link(); ?>
+						<?php get_blog_authors(); ?>
 						|
 						<?php if (get_the_category_list()) {
 							echo get_the_category_list( ', ' ).' |';

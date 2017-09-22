@@ -4,7 +4,7 @@ Child them for TNA's blog.
 
 ## Configuration
 
-### 1. Change date format
+### 1. Date format
 
 WP dashboard -> Settings -> General -> Date Format -> Custom = 'D j M Y'
 
@@ -25,3 +25,8 @@ Set 'Front page' to the page 'Blog'
 #### Posts page
 
 Set 'Posts page' to the page 'Blogposts'
+
+### 4. Co-authors
+
+Add [Co-Authors Plus plugin](https://en-gb.wordpress.org/plugins/co-authors-plus/)
+

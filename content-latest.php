@@ -28,7 +28,7 @@ $the_query = new WP_Query( $args ); ?>
 				<p>
 					<?php the_time('l j F Y ') ?>
 					<br>
-					<?php the_author_posts_link(); ?>
+					<?php get_blog_authors(); ?>
 					|
 					<?php comments_popup_link( 'Comment', '1 comment', '% comments' ); ?>
 				</p>

@@ -65,3 +65,11 @@ function blog_sidebar_widgets() {
 	) );
 }
 
+function get_blog_authors() {
+	if ( function_exists( 'coauthors_posts_links' ) ) {
+		coauthors_posts_links();
+	} else {
+		the_author_posts_link();
+	}
+}
+
