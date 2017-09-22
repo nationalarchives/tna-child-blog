@@ -14,9 +14,11 @@ function dequeue_parent_style()
 // Enqueue styles in correct order
 function tna_child_styles()
 {
+	wp_register_style('tna-child-modals', get_stylesheet_directory_uri() . '/css/modals.css', array(), '0.1', 'all');
 	wp_register_style('tna-parent-styles', get_template_directory_uri() . '/css/base-sass.css.min', array(),
 		EDD_VERSION, 'all');
 	wp_register_style('tna-child-styles', get_stylesheet_directory_uri() . '/style.css', array(), '0.1', 'all');
+	wp_enqueue_style('tna-child-modals');
 	wp_enqueue_style('tna-parent-styles');
 	wp_enqueue_style('tna-child-styles');
 }
@@ -71,5 +73,34 @@ function get_blog_authors() {
 	} else {
 		the_author_posts_link();
 	}
+}
+
+function get_blog_list_authors() {
+	$contributor_ids = get_users( array(
+		'orderby' => 'display_name',
+		'order'   => 'ASC',
+		'count_total'  => true,
+	) );
+
+	var_dump($contributor_ids);
+
+
+	/*foreach ( $contributor_ids as $contributor_id ) :
+		$post_count = count_user_posts( $contributor_id );
+
+		if ( ! $post_count ) {
+			continue;
+		}
+		*/?><!--
+
+		<li>
+			<a href="<?php /*echo esc_url( get_author_posts_url( $contributor_id ) ); */?>">
+				<?php /*echo get_the_author_meta( 'display_name', $contributor_id ); */?>
+			</a>
+			<?php /*printf( _n( '%d Article', '%d Articles', $post_count, 'tna-base' ), $post_count ); */?>
+		</li>
+
+		--><?php
+/*	endforeach;*/
 }
 
