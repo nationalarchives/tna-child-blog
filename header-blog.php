@@ -29,7 +29,6 @@
 							</div>
 						</div>
 						<div class="col-md-6">
-<!--							<a href="#" type="button" class="button" data-toggle="modal" data-target="#myModal">Select an author</a>-->
 							<form action="<?php bloginfo('url'); ?>" method="get" class="author-list">
 								<label class="sr-only" for="author">Select an author</label>
 								<?php wp_dropdown_users(array('name' => 'author','show_option_none' => 'Select an author...')); ?>
@@ -46,31 +45,6 @@
 					</div>
 				</article>
 			</div>
-		</div>
-	</div>
-</div>
-
-<div class="container">
-	<!-- Modal -->
-	<div id="myModal" class="modal" role="dialog">
-		<div class="modal-dialog">
-
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Authors</h4>
-				</div>
-				<div class="modal-body clearfix">
-					<ul class="child">
-						<?php get_blog_list_authors() ?>
-					</ul>
-				</div>
-				<div class="modal-footer">
-					<a href="#" type="button" class="button" data-dismiss="modal">Close</a>
-				</div>
-			</div>
-
 		</div>
 	</div>
 </div>

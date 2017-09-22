@@ -77,30 +77,27 @@ function get_blog_authors() {
 
 function get_blog_list_authors() {
 	$contributor_ids = get_users( array(
+		'fields'  => 'ID',
 		'orderby' => 'display_name',
-		'order'   => 'ASC',
-		'count_total'  => true,
+		'order'   => 'ASC'
 	) );
 
-	var_dump($contributor_ids);
-
-
-	/*foreach ( $contributor_ids as $contributor_id ) :
+	foreach ( $contributor_ids as $contributor_id ) :
 		$post_count = count_user_posts( $contributor_id );
 
 		if ( ! $post_count ) {
 			continue;
 		}
-		*/?><!--
+		?>
 
 		<li>
-			<a href="<?php /*echo esc_url( get_author_posts_url( $contributor_id ) ); */?>">
-				<?php /*echo get_the_author_meta( 'display_name', $contributor_id ); */?>
+			<a href="<?php echo esc_url( get_author_posts_url( $contributor_id ) ); ?>">
+				<?php echo get_the_author_meta( 'display_name', $contributor_id ); ?>
 			</a>
-			<?php /*printf( _n( '%d Article', '%d Articles', $post_count, 'tna-base' ), $post_count ); */?>
+			<?php printf( _n( '%d Article', '%d Articles', $post_count, 'tna-base' ), $post_count ); ?>
 		</li>
 
-		--><?php
-/*	endforeach;*/
+		<?php
+	endforeach;
 }
 

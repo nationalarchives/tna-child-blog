@@ -165,33 +165,13 @@ a.button:focus, input[type=submit]:focus {
     margin-right: 2%;
 }
 
-.js .blog-header .author-list input[type="submit"] {
+/*.js .blog-header .author-list input[type="submit"] {
     display: none !important;
-}
+}*/
 
 .blog-header .follow-us a img {
     margin: 0;
     width: 40px;
-}
-
-.modal {
-    z-index: 9050;
-}
-.modal-dialog {
-    z-index: 9051;
-}
-.modal-content {
-    border-radius: 0;
-}
-@media (min-width: 768px) {
-    .modal-dialog {
-        width: 100%;
-        max-width: 960px;
-    }
-    .modal-dialog ul.child li {
-        width: 30%;
-        margin-right: 3%;
-    }
 }
 
 .sidebar-widget {
