@@ -21,3 +21,47 @@ function tna_child_styles()
 	wp_enqueue_style('tna-child-styles');
 }
 
+function tna_child_scripts()
+{
+	wp_register_script( 'bootstrap-js', 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js', array(), '3.3.2', true );
+	wp_enqueue_script( 'bootstrap-js' );
+}
+
+function get_blog_image_caption( $caption, $url='' ) {
+
+	if (!empty($caption)) { ?>
+		<div class="feature-img-caption img-caption-top">
+			<button class="eye_caption">&nbsp;</button>
+			<div class="image_caption_back">
+				<span class="clearfix"><?php echo $caption; ?></span>
+				<?php if ($url) { ?>
+				<a href="<?php echo $url ?>" target="_blank">
+						View in the image library
+				</a>
+				<?php } ?>
+			</div>
+		</div>
+	<?php }
+}
+
+function blog_sidebar_widgets() {
+	register_sidebar( array(
+		'name' => 'Sidebar' ,
+		'id' => 'blog-sidebar',
+		'description' => __( 'Appears on posts and pages' ),
+		'before_widget' => '<div id="%1$s" class="sidebar-widget %2$s">',
+		'after_widget' => '</div></div>',
+		'before_title' => '<div class="sidebar-header"><h2>',
+		'after_title' => '</h2></div><div class="sidebar-content clearfix">',
+	) );
+	register_sidebar( array(
+		'name' => 'Homepage' ,
+		'id' => 'blog-homepage',
+		'description' => __( 'Appears on homepage' ),
+		'before_widget' => '<div class="col-md-6"><article id="%1$s" class="hompage-widget %2$s">',
+		'after_widget' => '</div></article></div>',
+		'before_title' => '<div class="entry-header"><h2>',
+		'after_title' => '</h2></div><div class="entry-content clearfix">',
+	) );
+}
+

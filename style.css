@@ -1,8 +1,8 @@
 /*
 Theme Name:     TNA blog - child theme
-Theme URI:      http://www.nationalarchives.gov.uk/
+Theme URI:      https://github.com/nationalarchives/tna-child-blog
 Author:         The National Archives
-Author URI:     http://www.nationalarchives.gov.uk/
+Author URI:     https://github.com/nationalarchives/
 Description:    TNA blog theme from tna-base
 Template:       tna-base
 Version:        0.1
@@ -40,4 +40,175 @@ Text Domain:    tna-base
     clear: both;
     display: table;
     content: " ";
+}
+
+.tags {
+    margin: 20px;
+    border-bottom: 1px dotted #ccc;
+}
+
+.tags a {
+    text-decoration: none;
+    font-family: 'Bitter', sans-serif;
+    font-size: 1.3em;
+}
+
+.tags a:hover {
+    text-decoration: underline;
+}
+
+.single .blog article .entry-header {
+    padding: 0;
+    background: none;
+}
+
+.single .blog article .entry-header h2 {
+    background-color: transparent;
+    margin: 0;
+    padding: 20px;
+    display: block;
+    color: #000;
+}
+
+.single .blog article .entry-header:after {
+    content: '';
+    display: block;
+    height: 10px;
+    margin: 0;
+    background: none;
+}
+
+.single .blog article .entry-meta {
+    margin: 0 20px;
+    border-bottom: 1px dotted #ccc;
+}
+
+.blog-header h1 a {
+    color: #fff;
+}
+
+.blog-header article {
+    height: 200px;
+    background-position: center center;
+    background-size: cover;
+}
+
+.blog-header article .entry-header {
+    background: none;
+}
+
+.blog-header article .entry-content {
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: #000;
+    background: rgba(0,0,0,.66);
+    color: #ddd;
+    width: 100%;
+    padding: 20px;
+}
+
+.blog-header form {
+    color: #444;
+}
+
+.blog-header .search-wrapper {
+    position: relative;
+    display: block;
+}
+
+.blog-header .search-wrapper label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+.blog-header .search-wrapper input[type=submit] {
+    color: transparent;
+    position: absolute;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 0;
+    background-image: url(img/search-white.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.blog-header .search-wrapper input[type="text"] {
+    float: right;
+    margin-right: 40px;
+    width: 100%;
+    max-width: 320px;
+    height: 40px;
+    padding: 4px;
+    text-indent: 10px;
+    border-radius: 0;
+}
+
+.blog-header select {
+    float: left;
+    width: 45% !important;
+    margin-right: 2%;
+}
+
+.blog-header .follow-us a img {
+    margin: 0;
+    width: 40px;
+}
+
+.sidebar-widget {
+    margin-bottom: 1em;
+}
+
+.sidebar-content {
+    background-color: #fff;
+    padding: 20px 15px 0 20px;
+}
+
+ul.loop-results {
+    padding: 0;
+}
+
+ul.loop-results li {
+    list-style: none;
+    border-bottom: 1px dotted #ccc;
+}
+
+.page-numbers {
+    padding: 0 4px;
+}
+
+.feature-img-bg {
+    display: block;
+    background-color: #eee;
+    width: 100%;
+    height: 180px;
+    background-position: center center;
+    background-size: cover;
+}
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus {
+    background-color: #008484;
+    border-radius: 0;
+}
+.nav-pills>li.active>a:hover {
+    background: #FCE45C;
+    color: #000;
+}
+.nav>li>a:focus, .nav>li>a:hover {
+    text-decoration: none;
+    background-color: #eee;
+    border-radius: 0;
+}
+
+.no-js .tab-content>.tab-pane {
+    display: block;
+    margin-bottom: 1em;
 }
