@@ -69,7 +69,7 @@ $categories = get_categories(); ?>
 				<?php endwhile; ?>
 				<!-- end of the loop -->
 				<div class="col-md-12">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>category/<?php echo $cat->slug; ?>" class="button pull-right">View all posts in this category</a>
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>category/<?php echo $cat->slug; ?>" class="button pull-right">View all '<?php echo $cat->name; ?>' posts</a>
 				</div>
 			</div>
 			<?php wp_reset_postdata(); ?>
