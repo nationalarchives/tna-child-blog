@@ -31,7 +31,10 @@
 						<div class="col-md-6">
 							<form action="<?php bloginfo('url'); ?>" method="get" class="author-list">
 								<label class="sr-only" for="author">Select an author</label>
-								<?php wp_dropdown_users(array('name' => 'author','show_option_none' => 'Select an author...')); ?>
+								<select name="author" id="author" class="">
+									<option value="-1">Select an author...</option>
+									<?php get_blog_list_authors(); ?>
+								</select>
 								<noscript>
 									<input type="submit" name="submit" value="view" />
 								</noscript>
