@@ -24,7 +24,9 @@ function tna_child_styles()
 function tna_child_scripts()
 {
 	wp_register_script( 'bootstrap-js', 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js', array(), '3.3.2', true );
+	wp_register_script( 'blog-js', get_stylesheet_directory_uri() . '/js/tna-child-blog.js', array(), '0.1', true );
 	wp_enqueue_script( 'bootstrap-js' );
+	wp_enqueue_script( 'blog-js' );
 }
 
 function get_blog_image_caption( $caption, $url='' ) {
@@ -63,5 +65,30 @@ function blog_sidebar_widgets() {
 		'before_title' => '<div class="entry-header"><h2>',
 		'after_title' => '</h2></div><div class="entry-content clearfix">',
 	) );
+}
+
+function get_blog_authors() {
+	if ( function_exists( 'coauthors_posts_links' ) ) {
+		coauthors_posts_links();
+	} else {
+		the_author_posts_link();
+	}
+}
+
+function get_blog_list_authors() {
+
+	$args = array(
+		'has_published_posts' => true,
+		'orderby' => 'display_name',
+		'order'   => 'ASC'
+	);
+	$wp_user_query = new WP_User_Query( $args );
+	$authors = $wp_user_query->get_results();
+
+	foreach ( $authors as $author ) :
+
+		echo '<option value="' . esc_html( $author->ID ) . '">' . esc_html( $author->display_name ) . '</option>';
+
+	endforeach;
 }
 

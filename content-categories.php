@@ -56,7 +56,7 @@ $categories = get_categories(); ?>
 							<p>
 								<?php the_time( 'l j F Y ' ) ?>
 								<br>
-								<?php the_author_posts_link(); ?>
+								<?php get_blog_authors(); ?>
 								|
 								<?php comments_popup_link( 'Comment', '1 comment', '% comments' ); ?>
 							</p>
@@ -69,7 +69,7 @@ $categories = get_categories(); ?>
 				<?php endwhile; ?>
 				<!-- end of the loop -->
 				<div class="col-md-12">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>category/<?php echo $cat->slug; ?>" class="button pull-right">View all posts in this category</a>
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>category/<?php echo $cat->slug; ?>" class="button pull-right">View all '<?php echo $cat->name; ?>' posts</a>
 				</div>
 			</div>
 			<?php wp_reset_postdata(); ?>

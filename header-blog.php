@@ -29,14 +29,16 @@
 							</div>
 						</div>
 						<div class="col-md-6">
-							<!-- <form action="<?php bloginfo('url'); ?>" method="get">
-								<select name="archive-dropdown" onchange="document.location.href=this.options[this.selectedIndex].value;">
-									<option value=""><?php echo esc_attr( __( 'Select Month' ) ); ?></option>
-									<?php wp_get_archives( array( 'type' => 'monthly', 'format' => 'option', 'show_post_count' => 1 ) ); ?>
+							<form action="<?php bloginfo('url'); ?>" method="get" class="author-list">
+								<label class="sr-only" for="author">Select an author</label>
+								<select name="author" id="author" class="">
+									<option value="-1">Select an author...</option>
+									<?php get_blog_list_authors(); ?>
 								</select>
-								<?php wp_dropdown_users(array('name' => 'author','show_option_none' => 'Select author...')); ?>
-								<input class="sr-only" type="submit" name="submit" />
-							</form> -->
+								<noscript>
+									<input type="submit" name="submit" value="view" />
+								</noscript>
+							</form>
 						</div>
 						<div class="col-md-4">
 							<div class="search-wrapper">
