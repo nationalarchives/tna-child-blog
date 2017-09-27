@@ -42,7 +42,7 @@ $categories = get_categories(); ?>
 
 				<!-- the loop -->
 				<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-					<?php $image = get_feature_image_url( get_the_ID(), 'single-post-thumbnail', true ); ?>
+					<?php $image = get_feature_image_url( get_the_ID(), 'feature-box-thumb', true ); ?>
 					<div class="latest-post col-md-4">
 						<a href="<?php echo get_permalink(); ?>">
 							<div class="feature-img-bg" <?php echo $image; ?>></div>
