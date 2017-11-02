@@ -50,6 +50,10 @@ a.button:focus, input[type=submit]:focus {
     content: " ";
 }
 
+.tagcloud {
+    margin-bottom: 1em;
+}
+
 .tags {
     margin: 20px;
     border-bottom: 1px dotted #ccc;
@@ -207,9 +211,14 @@ ul.loop-results li {
     background: #FCE45C;
     color: #000;
 }
+.nav-pills>li>a {
+    border-radius: 0;
+    background: #eee;
+    margin-right: 0.3em;
+}
 .nav>li>a:focus, .nav>li>a:hover {
     text-decoration: none;
-    background-color: #eee;
+    background-color: #ddd;
     border-radius: 0;
 }
 

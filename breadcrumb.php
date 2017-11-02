@@ -24,9 +24,6 @@
 						} elseif ( is_category()  ) {
 							_e( 'Category: ', 'tna-base' );
 							single_cat_title();
-						} elseif ( is_archive()  ) {
-							_e( 'Posts from ', 'tna-base' );
-							single_month_title(' ');
 						} elseif ( is_tag()  ) {
 							_e( 'Tag: ', 'tna-base' );
 							single_tag_title();
@@ -34,8 +31,10 @@
 							$curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));
 							_e( 'Posts by ', 'tna-base' );
 							echo $curauth->display_name;
-						}
-						elseif ( is_home() ) {
+						} elseif ( is_archive()  ) {
+							_e( 'Posts from ', 'tna-base' );
+							single_month_title(' ');
+						} elseif ( is_home() ) {
 							_e( 'All posts', 'tna-base' );
 						} else {
 							the_title();
