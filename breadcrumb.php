@@ -9,7 +9,11 @@
 						</a>
 					</span>
 					<span class="sep">&gt;</span>
+					<?php if ( is_front_page() ) { ?>
+					<span>Blog</span>
+					<?php } else { ?>
 					<span><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Blog</a></span>
+					<?php } ?>
 					<?php if ( !is_front_page() ) { ?>
 					<span class="sep">&gt;</span>
 					<span class="current">
@@ -20,6 +24,9 @@
 						} elseif ( is_category()  ) {
 							_e( 'Category: ', 'tna-base' );
 							single_cat_title();
+						} elseif ( is_archive()  ) {
+							_e( 'Posts from ', 'tna-base' );
+							single_month_title(' ');
 						} elseif ( is_tag()  ) {
 							_e( 'Tag: ', 'tna-base' );
 							single_tag_title();
