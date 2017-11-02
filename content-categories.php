@@ -63,7 +63,7 @@ $categories = get_categories(); ?>
 						</div>
 						<p>
 							<?php echo trim( substr( get_the_excerpt(), 0, 160 ) ) . '...'; ?>
-							<a href="<?php the_permalink(); ?>">Read more</a>
+							<a href="<?php the_permalink(); ?>">read more</a>
 						</p>
 					</div>
 				<?php endwhile; ?>
