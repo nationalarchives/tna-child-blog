@@ -50,7 +50,7 @@ a.button:focus, input[type=submit]:focus {
     content: " ";
 }
 
-.tagcloud {
+.tagcloud, .widget_nktagcloud .sidebar-content {
     margin-bottom: 1em;
 }
 
