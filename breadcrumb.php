@@ -9,7 +9,11 @@
 						</a>
 					</span>
 					<span class="sep">&gt;</span>
+					<?php if ( is_front_page() ) { ?>
+					<span>Blog</span>
+					<?php } else { ?>
 					<span><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Blog</a></span>
+					<?php } ?>
 					<?php if ( !is_front_page() ) { ?>
 					<span class="sep">&gt;</span>
 					<span class="current">
@@ -27,8 +31,10 @@
 							$curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));
 							_e( 'Posts by ', 'tna-base' );
 							echo $curauth->display_name;
-						}
-						elseif ( is_home() ) {
+						} elseif ( is_archive()  ) {
+							_e( 'Posts from ', 'tna-base' );
+							single_month_title(' ');
+						} elseif ( is_home() ) {
 							_e( 'All posts', 'tna-base' );
 						} else {
 							the_title();

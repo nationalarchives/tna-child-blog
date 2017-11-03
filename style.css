@@ -50,6 +50,10 @@ a.button:focus, input[type=submit]:focus {
     content: " ";
 }
 
+.tagcloud, .widget_nktagcloud .sidebar-content {
+    margin-bottom: 1em;
+}
+
 .tags {
     margin: 20px;
     border-bottom: 1px dotted #ccc;
@@ -150,19 +154,17 @@ a.button:focus, input[type=submit]:focus {
 
 .blog-header .search-wrapper input[type="text"] {
     float: right;
-    margin-right: 40px;
+    padding: 4px 45px 4px 4px;
     width: 100%;
-    max-width: 320px;
+    max-width: 100%;
     height: 40px;
-    padding: 4px;
     text-indent: 10px;
     border-radius: 0;
 }
 
 .blog-header select {
-    float: left;
-    width: 45% !important;
-    margin-right: 2%;
+    width: 100%;
+    margin-bottom: 0.3em;
 }
 
 .blog-header .follow-us a img {
@@ -209,9 +211,14 @@ ul.loop-results li {
     background: #FCE45C;
     color: #000;
 }
+.nav-pills>li>a {
+    border-radius: 0;
+    background: #eee;
+    margin-right: 0.3em;
+}
 .nav>li>a:focus, .nav>li>a:hover {
     text-decoration: none;
-    background-color: #eee;
+    background-color: #ddd;
     border-radius: 0;
 }
 

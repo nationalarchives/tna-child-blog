@@ -63,13 +63,13 @@ $categories = get_categories(); ?>
 						</div>
 						<p>
 							<?php echo trim( substr( get_the_excerpt(), 0, 160 ) ) . '...'; ?>
-							<a href="<?php the_permalink(); ?>">Read more</a>
+							<a href="<?php the_permalink(); ?>">read more</a>
 						</p>
 					</div>
 				<?php endwhile; ?>
 				<!-- end of the loop -->
 				<div class="col-md-12">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>category/<?php echo $cat->slug; ?>" class="button pull-right">View all '<?php echo $cat->name; ?>' posts</a>
+					<a href="<?php echo esc_url( get_category_link( $cat->cat_ID ) ); ?>" class="button pull-right">View all '<?php echo $cat->name; ?>' posts</a>
 				</div>
 			</div>
 			<?php wp_reset_postdata(); ?>

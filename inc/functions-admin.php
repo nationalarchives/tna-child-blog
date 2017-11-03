@@ -13,6 +13,7 @@ function blog_admin_page_settings() {
 	register_setting( 'homepage-settings-group', 'blog_header_img' );
 	register_setting( 'homepage-settings-group', 'blog_img_caption' );
 	register_setting( 'homepage-settings-group', 'blog_img_url' );
+	register_setting( 'homepage-settings-group', 'blog_all_posts_url' );
 }
 
 function blog_admin_page() {
@@ -38,6 +39,14 @@ function blog_admin_page() {
 			<tr valign="top">
 				<th scope="row"><label for="blog_img_url">Library image URL</label></th>
 				<td><input type="text" name="blog_img_url" value="<?php echo esc_attr( get_option('blog_img_url') ); ?>" /></td>
+			</tr>
+		</table>
+		<?php submit_button(); ?>
+		<h2>All posts</h2>
+		<table class="form-table">
+			<tr valign="top">
+				<th scope="row"><label for="blog_all_posts_url">All posts URL</label></th>
+				<td><input type="text" name="blog_all_posts_url" value="<?php echo esc_attr( get_option('blog_all_posts_url') ); ?>" /></td>
 			</tr>
 		</table>
 		<?php submit_button(); ?>
