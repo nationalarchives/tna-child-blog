@@ -152,6 +152,10 @@ a.button:focus, input[type=submit]:focus {
     background-position: center;
 }
 
+.blog-header .search-wrapper input[type=submit]:focus {
+    color: transparent !important;
+}
+
 .blog-header .search-wrapper input[type="text"] {
     float: right;
     padding: 4px 45px 4px 4px;
