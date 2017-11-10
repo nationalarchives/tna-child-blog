@@ -13,3 +13,15 @@ a.button:focus, input[type=submit]:focus {
   background-color: #fff2ae;
   border-left: #FCE45C 4px solid;
 }
+
+.page-numbers {
+  padding: 0 4px;
+}
+
+ul.loop-results {
+  padding: 0;
+  li {
+    list-style: none;
+    border-bottom: 1px dotted #ccc;
+  }
+}

@@ -3,6 +3,11 @@
   cite {
     font-style: normal;
   }
+  .commentlist li div.comment-body .reply .comment-reply-link:focus {
+    color: #fff !important;
+    background-color: #111;
+    background-color: rgba(0,0,0,.75);
+  }
 }
 
 #respond {
