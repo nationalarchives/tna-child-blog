@@ -152,6 +152,10 @@ a.button:focus, input[type=submit]:focus {
     background-position: center;
 }
 
+.blog-header .search-wrapper input[type=submit]:focus {
+    color: transparent !important;
+}
+
 .blog-header .search-wrapper input[type="text"] {
     float: right;
     padding: 4px 45px 4px 4px;
@@ -194,6 +198,12 @@ ul.loop-results li {
     padding: 0 4px;
 }
 
+a.feature-img:focus {
+    display: block;
+    background-color: #fce45c;
+    outline: 3px solid #ebab00;
+}
+
 .feature-img-bg {
     display: block;
     background-color: #eee;
@@ -202,8 +212,12 @@ ul.loop-results li {
     background-position: center center;
     background-size: cover;
 }
-
-.nav-pills>li.active>a, .nav-pills>li.active>a:focus {
+.nav>li>a:focus, .nav>li>a:hover {
+    text-decoration: none;
+    background-color: #ddd;
+    border-radius: 0;
+}
+.nav-pills>li.active>a {
     background-color: #008484;
     border-radius: 0;
 }
@@ -211,16 +225,27 @@ ul.loop-results li {
     background: #FCE45C;
     color: #000;
 }
+.nav-pills>li.active>a:focus {
+    color: #fff !important;
+    background-color: #111;
+    background-color: rgba(0,0,0,.75);
+}
 .nav-pills>li>a {
     border-radius: 0;
     background: #eee;
     margin-right: 0.3em;
 }
-.nav>li>a:focus, .nav>li>a:hover {
-    text-decoration: none;
-    background-color: #ddd;
-    border-radius: 0;
+.nav-pills>li>a:focus {
+    color: #fff !important;
+    background-color: #111;
+    background-color: rgba(0,0,0,.75);
 }
+.commentlist li div.comment-body .reply .comment-reply-link:focus {
+    color: #fff !important;
+    background-color: #111;
+    background-color: rgba(0,0,0,.75);
+}
+
 
 .no-js .tab-content>.tab-pane {
     display: block;
