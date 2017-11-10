@@ -17,8 +17,10 @@ function tna_child_styles()
 	wp_register_style('tna-parent-styles', get_template_directory_uri() . '/css/base-sass.css.min', array(),
 		EDD_VERSION, 'all');
 	wp_register_style('tna-child-styles', get_stylesheet_directory_uri() . '/style.css', array(), '0.1', 'all');
+	wp_register_style('tna-child-sass', get_stylesheet_directory_uri() . '/css/blog-sass.css.min', array(), '0.1', 'all');
 	wp_enqueue_style('tna-parent-styles');
 	wp_enqueue_style('tna-child-styles');
+	wp_enqueue_style('tna-child-sass');
 }
 
 function tna_child_scripts()

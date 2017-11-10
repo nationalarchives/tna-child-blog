@@ -1,0 +1,19 @@
+#comments {
+  padding: 0 20px;
+  cite {
+    font-style: normal;
+  }
+}
+
+#respond {
+  padding: 2em 0;
+  input[type="submit"] {
+    float: right;
+    border-radius: 0;
+  }
+  .form-submit:after {
+    clear: both;
+    display: table;
+    content: " ";
+  }
+}
