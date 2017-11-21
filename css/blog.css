@@ -97,7 +97,7 @@ ul.loop-results {
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
     border: 0; }
-  .blog-header .search-wrapper input[type=submit] {
+  .blog-header .search-wrapper input[type="submit"] {
     color: transparent;
     position: absolute;
     right: 0;

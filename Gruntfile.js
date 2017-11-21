@@ -9,7 +9,7 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: {
-                    'css/blog-sass.css': 'css/sass/blog-sass.scss'
+                    'css/blog.css': 'css/sass/blog.scss'
                 }
             }
         },
@@ -19,7 +19,7 @@ module.exports = function (grunt) {
             },
             target: {
                 files: {
-                    'css/blog-sass.css.min': ['css/blog-sass.css']
+                    'css/blog.css.min': ['css/blog.css']
                 }
             }
         },
