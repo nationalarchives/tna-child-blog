@@ -1,0 +1,25 @@
+.tagcloud, .widget_nktagcloud .sidebar-content {
+  margin-bottom: 1em;
+}
+
+.tags {
+  margin: 20px;
+  border-bottom: 1px dotted #ccc;
+  a {
+    text-decoration: none;
+    font-family: 'Bitter', sans-serif;
+    font-size: 1.3em;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+.sidebar-widget {
+  margin-bottom: 1em;
+}
+
+.sidebar-content {
+  background-color: #fff;
+  padding: 20px 15px 0 20px;
+}

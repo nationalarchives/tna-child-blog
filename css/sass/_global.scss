@@ -1,0 +1,27 @@
+input[type=submit] {
+  border-radius: 0;
+}
+
+a.button:focus, input[type=submit]:focus {
+  color: #fff !important;
+}
+
+.emphasis-alert {
+  margin: 1em 0;
+  padding: 1.6em 1em;
+  font-size: 1em;
+  background-color: #fff2ae;
+  border-left: #FCE45C 4px solid;
+}
+
+.page-numbers {
+  padding: 0 4px;
+}
+
+ul.loop-results {
+  padding: 0;
+  li {
+    list-style: none;
+    border-bottom: 1px dotted #ccc;
+  }
+}
