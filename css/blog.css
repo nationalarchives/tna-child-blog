@@ -161,7 +161,8 @@ a.feature-img:focus {
   margin-bottom: 1em; }
 
 .tagcloud, .widget_nktagcloud .sidebar-content {
-  margin-bottom: 1em; }
+  margin-bottom: 1em;
+  padding-bottom: 20px; }
 
 .tags {
   margin: 20px;
