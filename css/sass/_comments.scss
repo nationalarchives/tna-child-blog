@@ -1,0 +1,24 @@
+#comments {
+  padding: 0 20px;
+  cite {
+    font-style: normal;
+  }
+  .commentlist li div.comment-body .reply .comment-reply-link:focus {
+    color: #fff !important;
+    background-color: #111;
+    background-color: rgba(0,0,0,.75);
+  }
+}
+
+#respond {
+  padding: 2em 0;
+  input[type="submit"] {
+    float: right;
+    border-radius: 0;
+  }
+  .form-submit:after {
+    clear: both;
+    display: table;
+    content: " ";
+  }
+}

@@ -1,0 +1,26 @@
+.single {
+  .blog article {
+    .entry-header {
+      padding: 0;
+      background: none;
+    }
+    .entry-header h2 {
+      background-color: transparent;
+      margin: 0;
+      padding: 20px;
+      display: block;
+      color: #000;
+    }
+    .entry-header:after {
+      content: '';
+      display: block;
+      height: 10px;
+      margin: 0;
+      background: none;
+    }
+    .entry-meta {
+      margin: 0 20px;
+      border-bottom: 1px dotted #ccc;
+    }
+  }
+}

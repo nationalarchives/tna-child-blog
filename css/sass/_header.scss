@@ -1,0 +1,68 @@
+.blog-header {
+  h1 a {
+    color: #fff;
+  }
+  form {
+    color: #444;
+  }
+  select {
+    width: 100%;
+    margin-bottom: 0.3em;
+  }
+  .follow-us a img {
+    margin: 0;
+    width: 40px;
+  }
+  article {
+    height: 200px;
+    background-position: center center;
+    background-size: cover;
+    .entry-header {
+      background: none;
+    }
+    .entry-content {
+      overflow: hidden;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background: #000;
+      background: rgba(0,0,0,.66);
+      color: #ddd;
+      width: 100%;
+      padding: 20px;
+    }
+  }
+  .search-wrapper {
+    position: relative;
+    display: block;
+    label {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      border: 0;
+    }
+    input[type="submit"] {
+      color: transparent;
+      position: absolute;
+      right: 0;
+      width: 40px;
+      height: 40px;
+      background-image: url(../img/search-white.png);
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    input[type="text"] {
+      float: right;
+      padding: 4px 45px 4px 4px;
+      width: 100%;
+      max-width: 100%;
+      height: 40px;
+      text-indent: 10px;
+      border-radius: 0;
+    }
+  }
+}
