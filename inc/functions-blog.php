@@ -87,8 +87,17 @@ function get_blog_list_authors() {
 
 	foreach ( $authors as $author ) :
 
-		echo '<option value="' . esc_html( $author->ID ) . '">' . esc_html( $author->display_name ) . '</option>';
+		if ( $author->ID !== 1 ) {
+
+			echo '<option value="' . esc_html( $author->ID ) . '">' . esc_html( $author->display_name ) . '</option>';
+		}
 
 	endforeach;
+}
+
+function exclude_widget_categories($args) {
+	$exclude = '1';
+	$args['exclude'] = $exclude;
+	return $args;
 }
 
