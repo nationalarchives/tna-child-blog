@@ -58,6 +58,8 @@ ul.loop-results {
 .single .blog article .entry-meta {
   margin: 0 20px;
   border-bottom: 1px dotted #ccc; }
+.single #blogsocial {
+  margin: 0 20px; }
 
 .blog-header h1 a {
   color: #fff; }
