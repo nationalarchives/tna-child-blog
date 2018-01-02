@@ -10,6 +10,7 @@ add_action( 'wp_enqueue_scripts', 'tna_child_styles' );
 add_action( 'wp_enqueue_scripts', 'tna_child_scripts' );
 add_action( 'admin_menu', 'tna_blog_menu' );
 add_action( 'widgets_init', 'blog_sidebar_widgets' );
+add_action( 'rss2_item', 'add_featured_image_to_rss' );
 
 add_filter( 'widget_categories_args', 'exclude_widget_categories' );
 

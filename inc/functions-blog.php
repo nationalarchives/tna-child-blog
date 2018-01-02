@@ -101,3 +101,15 @@ function exclude_widget_categories($args) {
 	return $args;
 }
 
+function add_featured_image_to_rss() {
+	if ( function_exists( 'has_post_thumbnail' ) and has_post_thumbnail() ) {
+		$featured_image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'post-thumbnail' );
+		$mime_type = get_post_mime_type(get_post_thumbnail_id());
+	} else {
+		$featured_image = false;
+	}
+	if ( ! empty( $featured_image ) ) {
+		$headers = get_headers($featured_image[0], 1);
+		echo "\t" . '<enclosure url="' . $featured_image[0] . '" length="' . $headers["Content-Length"] . '" type="' . $mime_type . '" />' . "\n";
+	}
+}
