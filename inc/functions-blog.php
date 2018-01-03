@@ -113,3 +113,26 @@ function add_featured_image_to_rss() {
 		echo "\t" . '<enclosure url="' . $featured_image[0] . '" length="' . $headers["Content-Length"] . '" type="' . $mime_type . '" />' . "\n";
 	}
 }
+
+function get_entry_meta( $cat=true ) {
+	if ($cat) { ?>
+	<p>
+		<?php the_time('l j F Y ') ?>
+		|
+		<?php get_blog_authors(); ?>
+		|
+		<?php if (get_the_category_list()) {
+			echo get_the_category_list( ', ' ).' |';
+		} ?>
+		<?php comments_popup_link( 'Comment', '1 comment', '% comments' ); ?>
+	</p>
+	<?php } else { ?>
+	<p>
+		<?php the_time('l j F Y ') ?>
+		<br>
+		<?php get_blog_authors(); ?>
+		|
+		<?php comments_popup_link( 'Comment', '1 comment', '% comments' ); ?>
+	</p>
+	<?php }
+}

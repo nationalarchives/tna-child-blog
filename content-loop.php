@@ -9,16 +9,7 @@
 					</a>
 				</h3>
 				<div class="entry-meta">
-					<p>
-						<?php the_time('l j F Y ') ?>
-						|
-						<?php get_blog_authors(); ?>
-						|
-						<?php if (get_the_category_list()) {
-							echo get_the_category_list( ', ' ).' |';
-						} ?>
-						<?php comments_popup_link( 'Comment', '1 comment', '% comments' ); ?>
-					</p>
+					<?php get_entry_meta() ?>
 				</div>
 				<p>
 					<?php echo trim(substr(get_the_excerpt(), 0,160)).'...'; ?>
