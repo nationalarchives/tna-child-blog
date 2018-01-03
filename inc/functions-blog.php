@@ -114,39 +114,53 @@ function add_featured_image_to_rss() {
 	}
 }
 
-function get_entry_meta( $cat=true ) {
-	if ($cat) { ?>
-	<p>
-		<?php the_time('l j F Y ') ?>
-		|
-		<?php get_blog_authors(); ?>
-		|
-		<?php if (get_the_category()) {
+function the_entry_meta( $args = '' ) {
+	$defaults = array(
+		'date'      => true,
+		'authors'   => true,
+		'cat'       => true,
+		'comments'  => true,
+		'home'      => false
+	);
+
+	$r = wp_parse_args( $args, $defaults );
+
+	if ($r['date']) {
+		the_time('l j F Y ');
+		if ($r['home']) {
+			echo '<br />';
+		} else {
+			echo ' | ';
+		}
+	}
+
+	if ($r['authors']) {
+		get_blog_authors();
+		echo ' | ';
+	}
+
+	if ($r['cat']) {
+		if (get_the_category()) {
 			$cat_list = array();
-			foreach ((get_the_category()) as $category) {
-				if ($category->cat_name != 'Uncategorized') {
-					$cat_list[$category->term_id] = $category->name;
+			foreach ( ( get_the_category() ) as $category ) {
+				if ( $category->cat_name != 'Uncategorized' ) {
+					$cat_list[ $category->term_id ] = $category->name;
 				}
 			}
-			$n = count($cat_list);
+			$n = count( $cat_list );
 			$i = 0;
-			foreach ($cat_list as $key => $value ) {
-				echo '<a href="' . get_category_link( $key ) . '" title="' . sprintf( __( "View all posts in %s" ), $value ) . '" ' . '>' . $value . '</a>';
-				if(++$i != $n) {
+			foreach ( $cat_list as $key => $value ) {
+				echo '<a href="' . get_category_link( $key ) . '" title="' . sprintf( __( "View all posts in %s" ),
+						$value ) . '" ' . '>' . $value . '</a>';
+				if ( ++ $i != $n ) {
 					echo ', ';
 				}
 			}
-			echo ' |';
-		} ?>
-		<?php comments_popup_link( 'Comment', '1 comment', '% comments' ); ?>
-	</p>
-	<?php } else { ?>
-	<p>
-		<?php the_time('l j F Y ') ?>
-		<br>
-		<?php get_blog_authors(); ?>
-		|
-		<?php comments_popup_link( 'Comment', '1 comment', '% comments' ); ?>
-	</p>
-	<?php }
+			echo ' | ';
+		}
+	}
+
+	if ($r['comments']) {
+		comments_popup_link( 'Comment', '1 comment', '% comments' );
+	}
 }

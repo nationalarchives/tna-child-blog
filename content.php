@@ -15,7 +15,9 @@
 			<h2><?php the_title(); ?></h2>
 		</div>
 		<div class="entry-meta">
-			<?php get_entry_meta() ?>
+			<p>
+				<?php the_entry_meta(); ?>
+			</p>
 		</div>
 		<div class="entry-content clearfix">
 			<?php the_content(); ?>

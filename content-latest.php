@@ -25,7 +25,12 @@ $the_query = new WP_Query( $args ); ?>
 					</a>
 				</h3>
 				<div class="entry-meta">
-					<?php get_entry_meta( false ) ?>
+					<p>
+						<?php the_entry_meta( array(
+							'cat'       => false,
+							'home'      => true
+						) ); ?>
+					</p>
 				</div>
 				<p>
 					<?php echo trim(substr(get_the_excerpt(), 0,160)).'...'; ?>

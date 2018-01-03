@@ -9,7 +9,9 @@
 					</a>
 				</h3>
 				<div class="entry-meta">
-					<?php get_entry_meta() ?>
+					<p>
+						<?php the_entry_meta(); ?>
+					</p>
 				</div>
 				<p>
 					<?php echo trim(substr(get_the_excerpt(), 0,160)).'...'; ?>
