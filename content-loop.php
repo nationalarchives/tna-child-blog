@@ -10,14 +10,7 @@
 				</h3>
 				<div class="entry-meta">
 					<p>
-						<?php the_time('l j F Y ') ?>
-						|
-						<?php get_blog_authors(); ?>
-						|
-						<?php if (get_the_category_list()) {
-							echo get_the_category_list( ', ' ).' |';
-						} ?>
-						<?php comments_popup_link( 'Comment', '1 comment', '% comments' ); ?>
+						<?php the_entry_meta(); ?>
 					</p>
 				</div>
 				<p>

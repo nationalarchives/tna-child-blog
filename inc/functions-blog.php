@@ -113,3 +113,56 @@ function add_featured_image_to_rss() {
 		echo "\t" . '<enclosure url="' . $featured_image[0] . '" length="' . $headers["Content-Length"] . '" type="' . $mime_type . '" />' . "\n";
 	}
 }
+
+function the_entry_meta( $args = '' ) {
+	$defaults = array(
+		'date'      => true,
+		'authors'   => true,
+		'cat'       => true,
+		'comments'  => true,
+		'home'      => false
+	);
+
+	$r = wp_parse_args( $args, $defaults );
+
+	if ($r['date']) {
+		the_time('l j F Y ');
+		if ($r['home']) {
+			echo '<br />';
+		} else {
+			echo ' | ';
+		}
+	}
+
+	if ($r['authors']) {
+		get_blog_authors();
+		echo ' | ';
+	}
+
+	if ($r['cat']) {
+		if (get_the_category()) {
+			$cat_list = array();
+			foreach ( ( get_the_category() ) as $category ) {
+				if ( $category->cat_name != 'Uncategorized' ) {
+					$cat_list[ $category->term_id ] = $category->name;
+				}
+			}
+			$n = count( $cat_list );
+			if ( $n != 0 ) {
+				$i = 0;
+				foreach ( $cat_list as $key => $value ) {
+					echo '<a href="' . get_category_link( $key ) . '" title="' . sprintf( __( "View all posts in %s" ),
+							$value ) . '" ' . '>' . $value . '</a>';
+					if ( ++ $i != $n ) {
+						echo ', ';
+					}
+				}
+				echo ' | ';
+			}
+		}
+	}
+
+	if ($r['comments']) {
+		comments_popup_link( 'Comment', '1 comment', '% comments' );
+	}
+}
