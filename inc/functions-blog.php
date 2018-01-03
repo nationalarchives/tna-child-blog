@@ -148,15 +148,17 @@ function the_entry_meta( $args = '' ) {
 				}
 			}
 			$n = count( $cat_list );
-			$i = 0;
-			foreach ( $cat_list as $key => $value ) {
-				echo '<a href="' . get_category_link( $key ) . '" title="' . sprintf( __( "View all posts in %s" ),
-						$value ) . '" ' . '>' . $value . '</a>';
-				if ( ++ $i != $n ) {
-					echo ', ';
+			if ( $n != 0 ) {
+				$i = 0;
+				foreach ( $cat_list as $key => $value ) {
+					echo '<a href="' . get_category_link( $key ) . '" title="' . sprintf( __( "View all posts in %s" ),
+							$value ) . '" ' . '>' . $value . '</a>';
+					if ( ++ $i != $n ) {
+						echo ', ';
+					}
 				}
+				echo ' | ';
 			}
-			echo ' | ';
 		}
 	}
 
