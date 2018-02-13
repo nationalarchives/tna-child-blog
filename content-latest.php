@@ -26,11 +26,10 @@ $the_query = new WP_Query( $args ); ?>
 				</h3>
 				<div class="entry-meta">
 					<p>
-						<?php the_time('l j F Y ') ?>
-						<br>
-						<?php get_blog_authors(); ?>
-						|
-						<?php comments_popup_link( 'Comment', '1 comment', '% comments' ); ?>
+						<?php the_entry_meta( array(
+							'cat'       => false,
+							'home'      => true
+						) ); ?>
 					</p>
 				</div>
 				<p>

@@ -87,8 +87,82 @@ function get_blog_list_authors() {
 
 	foreach ( $authors as $author ) :
 
-		echo '<option value="' . esc_html( $author->ID ) . '">' . esc_html( $author->display_name ) . '</option>';
+		if ( $author->ID !== 1 ) {
+
+			echo '<option value="' . esc_html( $author->ID ) . '">' . esc_html( $author->display_name ) . '</option>';
+		}
 
 	endforeach;
 }
 
+function exclude_widget_categories($args) {
+	$exclude = '1';
+	$args['exclude'] = $exclude;
+	return $args;
+}
+
+function add_featured_image_to_rss() {
+	if ( function_exists( 'has_post_thumbnail' ) and has_post_thumbnail() ) {
+		$featured_image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'post-thumbnail' );
+		$mime_type = get_post_mime_type(get_post_thumbnail_id());
+	} else {
+		$featured_image = false;
+	}
+	if ( ! empty( $featured_image ) ) {
+		$headers = get_headers($featured_image[0], 1);
+		echo "\t" . '<enclosure url="' . $featured_image[0] . '" length="' . $headers["Content-Length"] . '" type="' . $mime_type . '" />' . "\n";
+	}
+}
+
+function the_entry_meta( $args = '' ) {
+	$defaults = array(
+		'date'      => true,
+		'authors'   => true,
+		'cat'       => true,
+		'comments'  => true,
+		'home'      => false
+	);
+
+	$r = wp_parse_args( $args, $defaults );
+
+	if ($r['date']) {
+		the_time('l j F Y ');
+		if ($r['home']) {
+			echo '<br />';
+		} else {
+			echo ' | ';
+		}
+	}
+
+	if ($r['authors']) {
+		get_blog_authors();
+		echo ' | ';
+	}
+
+	if ($r['cat']) {
+		if (get_the_category()) {
+			$cat_list = array();
+			foreach ( ( get_the_category() ) as $category ) {
+				if ( $category->cat_name != 'Uncategorized' ) {
+					$cat_list[ $category->term_id ] = $category->name;
+				}
+			}
+			$n = count( $cat_list );
+			if ( $n != 0 ) {
+				$i = 0;
+				foreach ( $cat_list as $key => $value ) {
+					echo '<a href="' . get_category_link( $key ) . '" title="' . sprintf( __( "View all posts in %s" ),
+							$value ) . '" ' . '>' . $value . '</a>';
+					if ( ++ $i != $n ) {
+						echo ', ';
+					}
+				}
+				echo ' | ';
+			}
+		}
+	}
+
+	if ($r['comments']) {
+		comments_popup_link( 'Comment', '1 comment', '% comments' );
+	}
+}
