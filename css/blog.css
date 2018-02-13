@@ -21,6 +21,12 @@ ul.loop-results {
     list-style: none;
     border-bottom: 1px dotted #ccc; }
 
+.gallery .gallery-item img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto; }
+
 #comments {
   padding: 0 20px; }
   #comments cite {
