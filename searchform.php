@@ -1,4 +1,4 @@
-<?php if ( get_option('blog_header_type') == 'amp' ) {
+<?php if ( get_option('blog_type') == 'amp' ) {
     $placeholder = 'Search Archives Media Player';
 } else {
     $placeholder = 'Search our blog';
