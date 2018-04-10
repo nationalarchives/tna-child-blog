@@ -11,6 +11,7 @@
 <?php } else { ?>
 	<!-- singe.php -->
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+		<?php get_template_part( 'partials/video' ); ?>
 		<div class="entry-header">
 			<h2><?php the_title(); ?></h2>
 		</div>
@@ -19,7 +20,6 @@
 				<?php the_entry_meta(); ?>
 			</p>
 		</div>
-		<?php get_template_part( 'partials/video' ); ?>
 		<div class="entry-content clearfix">
 			<?php the_content(); ?>
 		</div>
