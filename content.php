@@ -19,6 +19,7 @@
 				<?php the_entry_meta(); ?>
 			</p>
 		</div>
+		<?php get_template_part( 'partials/video' ); ?>
 		<div class="entry-content clearfix">
 			<?php the_content(); ?>
 		</div>
