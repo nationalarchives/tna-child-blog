@@ -12,7 +12,11 @@
 					<div class="entry-header">
 						<h1>
 							<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-								Blog
+								<?php if ( get_option('blog_header_type') == 'amp' ) {
+									echo 'Archives Media Player';
+								} else {
+									echo 'Blog';
+								} ?>
 							</a>
 						</h1>
 					</div>
@@ -30,6 +34,9 @@
 						</div>
 						<div class="col-xs-12 col-sm-4 col-md-6">
 							<div class="row">
+								<?php if ( get_option('blog_header_type') == 'amp' ) { ?>
+
+								<?php } else { ?>
 								<form action="" method="get" class="month-list col-xs-6 col-sm-12 col-md-6">
 									<label class="sr-only" for="month">Select month</label>
 									<select name="month" id="month">
@@ -50,6 +57,7 @@
 										<input type="submit" name="submit" value="view" />
 									</noscript>
 								</form>
+								<?php } ?>
 							</div>
 						</div>
 						<div class="col-xs-12 col-sm-6 col-md-4">
