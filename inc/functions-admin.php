@@ -10,6 +10,7 @@ function tna_blog_menu() {
 }
 
 function blog_admin_page_settings() {
+	register_setting( 'homepage-settings-group', 'blog_header_type' );
 	register_setting( 'homepage-settings-group', 'blog_header_img' );
 	register_setting( 'homepage-settings-group', 'blog_img_caption' );
 	register_setting( 'homepage-settings-group', 'blog_img_url' );
@@ -28,6 +29,15 @@ function blog_admin_page() {
 		<?php do_settings_sections( 'homepage-settings-group' ); ?>
 		<h2>Blog header</h2>
 		<table class="form-table">
+			<tr valign="top">
+				<th scope="row"><label for="blog_header_type">Header type</label></th>
+				<td>
+					<select name="blog_header_type">
+						<option <?php if (get_option('blog_header_type') == 'blog') { echo ' selected="selected"'; }; ?> value="blog">Blog</option>
+						<option <?php if (get_option('blog_header_type') == 'amp') { echo ' selected="selected"'; }; ?> value="amp">Archives Media Player</option>
+					</select>
+				</td>
+			</tr>
 			<tr valign="top">
 				<th scope="row"><label for="blog_header_img">Header image</label></th>
 				<td><input type="text" name="blog_header_img" value="<?php echo esc_attr( get_option('blog_header_img') ); ?>" /></td>
