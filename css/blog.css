@@ -203,7 +203,7 @@ a.feature-img:focus {
     height: 100%; }
 .entry-video .video-toolbar {
   padding: 0.3em 0;
-  background-color: #405480;
+  background-color: #222;
   color: #fff;
   font-size: 0.9em; }
   .entry-video .video-toolbar a {
