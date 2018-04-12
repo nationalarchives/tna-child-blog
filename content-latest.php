@@ -14,10 +14,21 @@ $the_query = new WP_Query( $args ); ?>
 
 		<!-- the loop -->
 		<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-			<?php $image = get_feature_image_url( get_the_ID() , 'feature-box-thumb', true ); ?>
+			<?php
+			$image = get_feature_image_url( get_the_ID() , 'feature-box-thumb', true );
+			if (in_category('video')) {
+				$icon = '<div class="icon-circle icon-video"></div>';
+			} elseif (in_category('audio')) {
+				$icon = '<div class="icon-circle icon-audio"></div>';
+			} else {
+				$icon = '';
+			}
+			?>
 			<div class="col-md-4">
 				<a href="<?php echo get_permalink(); ?>" class="feature-img">
-					<div class="feature-img-bg" <?php echo $image; ?>></div>
+					<div class="feature-img-bg" <?php echo $image; ?>>
+						<?php echo $icon; ?>
+					</div>
 				</a>
 				<h3>
 					<a href="<?php echo get_permalink(); ?>">

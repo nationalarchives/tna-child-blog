@@ -129,12 +129,17 @@ a.feature-img:focus {
   outline: 3px solid #ebab00; }
 
 .feature-img-bg {
+  position: relative;
   display: block;
   background-color: #eee;
   width: 100%;
   height: 180px;
   background-position: center center;
   background-size: cover; }
+  .feature-img-bg .icon-circle {
+    position: absolute;
+    right: 5px;
+    top: 5px; }
 
 .nav > li > a:focus, .nav > li > a:hover {
   text-decoration: none;
@@ -212,3 +217,24 @@ a.feature-img:focus {
     margin-bottom: 0;
     margin-top: 2px;
     height: 20px; }
+
+.icon-circle {
+  display: inline-block;
+  background-color: #008484;
+  background-size: 68% 68%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  margin: 0 .2em .3em 0;
+  cursor: pointer;
+  transition: .4s ease-in-out;
+  -webkit-transition: .4s ease-in-out;
+  -moz-transition: .4s ease-in-out; }
+
+.icon-video {
+  background-image: url(../img/video.png); }
+
+.icon-audio {
+  background-image: url(../img/audio.png); }
