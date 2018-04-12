@@ -28,7 +28,7 @@ get_header(); ?>
 							<h2>Posts by category</h2>
 						</div>
 						<div class="entry-content clearfix">
-							<?php get_template_part('content', 'categories'); ?>
+							<?php get_template_part('content', 'amp-categories'); ?>
 						</div>
 					</article>
 				</div>
