@@ -44,7 +44,7 @@ $categories = get_categories(); ?>
 					<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 						<?php $image = get_feature_image_url( get_the_ID(), 'feature-box-thumb', true ); ?>
 						<div class="latest-post col-md-4">
-							<a href="<?php echo get_permalink(); ?>" class="feature-img">
+							<a href="<?php echo get_permalink(); ?>" class="feature-img" title="<?php the_title(); ?>">
 								<div class="feature-img-bg" <?php echo $image; ?>></div>
 							</a>
 							<h3>

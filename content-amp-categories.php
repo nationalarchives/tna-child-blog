@@ -60,7 +60,7 @@ $selected_categories = array(
 						}
 						?>
 						<div class="latest-post col-md-4">
-							<a href="<?php echo get_permalink(); ?>" class="feature-img">
+							<a href="<?php echo get_permalink(); ?>" class="feature-img" title="<?php the_title(); ?>">
 								<div class="feature-img-bg" <?php echo $image; ?>>
 									<?php echo $icon; ?>
 								</div>
@@ -94,7 +94,7 @@ $selected_categories = array(
 			<?php else : ?>
 				<div role="tabpanel" class="row tab-pane <?php echo $active; ?>" id="<?php echo $cat->slug; ?>">
 					<div class="col-md-12">
-						<p><?php esc_html_e( 'Sorry, no posts matched your criteria.' ); ?></p>
+						<p><?php esc_html_e( 'Sorry, no posts matched the category.' ); ?></p>
 					</div>
 				</div>
 			<?php endif;

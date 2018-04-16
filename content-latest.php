@@ -25,7 +25,7 @@ $the_query = new WP_Query( $args ); ?>
 			}
 			?>
 			<div class="col-md-4">
-				<a href="<?php echo get_permalink(); ?>" class="feature-img">
+				<a href="<?php echo get_permalink(); ?>" class="feature-img" title="<?php the_title(); ?>">
 					<div class="feature-img-bg" <?php echo $image; ?>>
 						<?php echo $icon; ?>
 					</div>
