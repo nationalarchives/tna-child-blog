@@ -141,6 +141,21 @@ a.feature-img:focus {
     right: 5px;
     top: 5px; }
 
+.feature-img-thumb {
+  position: relative;
+  display: block;
+  margin-top: 20px;
+  background-color: #eee;
+  width: 100%;
+  max-width: 150px;
+  height: 150px;
+  background-position: center center;
+  background-size: cover; }
+  .feature-img-thumb .icon-circle {
+    position: absolute;
+    right: 5px;
+    top: 5px; }
+
 .nav > li > a:focus, .nav > li > a:hover {
   text-decoration: none;
   background-color: #ddd;
@@ -232,6 +247,11 @@ a.feature-img:focus {
   transition: .4s ease-in-out;
   -webkit-transition: .4s ease-in-out;
   -moz-transition: .4s ease-in-out; }
+
+.icon-size-26 {
+  background-size: 78% 78%;
+  width: 26px;
+  height: 26px; }
 
 .icon-video {
   background-image: url(../img/video.png); }

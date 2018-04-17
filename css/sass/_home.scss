@@ -17,6 +17,22 @@ a.feature-img:focus {
     top: 5px;
   }
 }
+.feature-img-thumb {
+  position: relative;
+  display: block;
+  margin-top: 20px;
+  background-color: #eee;
+  width: 100%;
+  max-width: 150px;
+  height: 150px;
+  background-position: center center;
+  background-size: cover;
+  .icon-circle {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+  }
+}
 .nav>li>a:focus, .nav>li>a:hover {
   text-decoration: none;
   background-color: #ddd;
