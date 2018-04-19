@@ -1,3 +1,4 @@
+<?php if ( in_category('video') || in_category('audio') ) { ?>
 <div class="entry-video clearfix">
 	<div class="video-container">
 		<div id="player">
@@ -6,9 +7,9 @@
 		<script type='text/javascript'>
 			jwplayer('player').setup({
 				'flashplayer': '<?php echo get_stylesheet_directory_uri(); ?>/inc/player.swf',
-				'file': '<?php echo get_stylesheet_directory_uri().'/tests/test.mp4'; ?>',
+				'file': '<?php echo get_stylesheet_directory_uri().'/tests/test.mp3'; ?>',
 				'title': '<?php the_title(); ?>',
-				'image':  '<?php if (has_post_thumbnail( $post->ID ) ): ?><?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'main-image' ); ?><?php echo $image[0]; ?><?php endif; ?>',
+				'image':  '<?php global $post; echo get_feature_image_url( $post->ID, 'large' ); ?>',
 				'width': '500',
 				'height': '358'
 			});
@@ -25,3 +26,4 @@
 		</div>
 	</div>
 </div>
+<?php } ?>
