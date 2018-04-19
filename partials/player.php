@@ -26,7 +26,7 @@
 				if ( strpos($media[0], 'youtu') !== false ) { ?>
 					<a href="<?php echo media_file( $media ); ?>">Watch video on YouTube</a>
 				<?php } else { ?>
-					<a href="<?php echo relative_path( media_file( $media ) ); ?>" download>Download media file</a>
+					<a href="<?php echo relative_path( media_file( $media ) ); ?>" title="Please save the file by right clicking and selecting 'Save Target As' or 'Save Link As' as option." download>Download media file</a>
 				<?php } ?>
 			<?php } ?>
 		</div>

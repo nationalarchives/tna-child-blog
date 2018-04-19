@@ -236,6 +236,12 @@ a.feature-img:focus {
     margin-top: 2px;
     height: 20px; }
 
+.entry-media-slideshare .slides {
+  position: relative;
+  overflow: hidden; }
+  .entry-media-slideshare .slides iframe {
+    width: 100%; }
+
 .icon-circle {
   display: inline-block;
   background-color: #008484;
