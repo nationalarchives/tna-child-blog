@@ -1,6 +1,18 @@
 <div class="entry-video clearfix">
 	<div class="video-container">
-		<iframe width="560" height="315" src="https://www.youtube.com/embed/6cBLIGvd24w" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+		<div id="player">
+			<p>To view this media, you will require <a href="http://www.adobe.com/products/flashplayer/" class="external-link">Adobe Flash 9</a> or higher and must have <strong>Javascript enabled</strong>.</p>
+		</div>
+		<script type='text/javascript'>
+			jwplayer('player').setup({
+				'flashplayer': '<?php echo get_stylesheet_directory_uri(); ?>/inc/player.swf',
+				'file': '<?php echo get_stylesheet_directory_uri().'/tests/test.mp4'; ?>',
+				'title': '<?php the_title(); ?>',
+				'image':  '<?php if (has_post_thumbnail( $post->ID ) ): ?><?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'main-image' ); ?><?php echo $image[0]; ?><?php endif; ?>',
+				'width': '500',
+				'height': '358'
+			});
+		</script>
 	</div>
 	<div class="video-toolbar clearfix">
 		<div class="col-xs-6">
