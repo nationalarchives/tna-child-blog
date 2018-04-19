@@ -2,6 +2,7 @@
 
 require_once 'inc/functions-blog.php';
 require_once 'inc/functions-admin.php';
+require_once 'inc/functions-amp.php';
 
 
 add_action( 'wp_enqueue_scripts', 'dequeue_parent_style', 9999 );
