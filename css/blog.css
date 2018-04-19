@@ -215,7 +215,7 @@ a.feature-img:focus {
   padding-top: 30px;
   height: 0;
   overflow: hidden; }
-  .entry-video .video-container iframe, .entry-video .video-container .jwplayer {
+  .entry-video .video-container iframe, .entry-video .video-container #player {
     position: absolute;
     top: 0;
     left: 0;

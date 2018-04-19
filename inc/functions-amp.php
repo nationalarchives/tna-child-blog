@@ -16,3 +16,21 @@ function tna_amp_scripts() {
 	wp_enqueue_script( 'jwplayer-js' );
 	wp_enqueue_script( 'jwplayer-key-js' );
 }
+
+function media_duration( $values ) {
+
+	if ( $values ) {
+		return 'Duration '.$values[0];
+	} else {
+		return '';
+	}
+}
+
+function media_file( $values ) {
+
+	if ( $values ) {
+		return $values[0];
+	} else {
+		return '';
+	}
+}

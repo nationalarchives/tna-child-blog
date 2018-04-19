@@ -7,7 +7,7 @@
 		<script type='text/javascript'>
 			jwplayer('player').setup({
 				'flashplayer': '<?php echo get_stylesheet_directory_uri(); ?>/inc/player.swf',
-				'file': '<?php echo get_stylesheet_directory_uri().'/tests/test.mp3'; ?>',
+				'file': '<?php echo media_file( get_post_custom_values('audioFile') ); ?>',
 				'title': '<?php the_title(); ?>',
 				'image':  '<?php global $post; echo get_feature_image_url( $post->ID, 'large' ); ?>',
 				'width': '500',
@@ -17,12 +17,10 @@
 	</div>
 	<div class="video-toolbar clearfix">
 		<div class="col-xs-6">
-			<span class="addthis_toolbox addthis_default_style addthis_20x20_style">
-				<a class="addthis_button_facebook"></a><a class="addthis_button_twitter"></a><a class="addthis_button_compact"></a>
-			</span>
+			<?php echo media_duration( get_post_custom_values('duration') ); ?>
 		</div>
 		<div class="col-xs-6 text-right">
-			<a href="#">Download media file</a>
+			<a href="<?php echo media_file( get_post_custom_values('audioFile') ); ?>">Download media file</a>
 		</div>
 	</div>
 </div>

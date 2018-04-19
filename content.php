@@ -23,6 +23,7 @@
 		<div class="entry-content clearfix">
 			<?php the_content(); ?>
 		</div>
+		<?php get_template_part( 'partials/transcription' ); ?>
 		 <?php
 		$tags_list = get_the_tag_list( '', ', ' );
 		if ( $tags_list ) { ?>
