@@ -34,3 +34,7 @@ function media_file( $values ) {
 		return '';
 	}
 }
+
+function relative_path( $url ) {
+	return str_replace( site_url(), '', $url );
+}

@@ -1,4 +1,6 @@
-<?php if ( in_category('video') || in_category('audio') ) { ?>
+<?php if ( in_category('video') || in_category('audio') ) {
+	$media = get_post_custom_values('audioFile');
+	?>
 <div class="entry-video clearfix">
 	<div class="video-container">
 		<div id="player">
@@ -7,7 +9,7 @@
 		<script type='text/javascript'>
 			jwplayer('player').setup({
 				'flashplayer': '<?php echo get_stylesheet_directory_uri(); ?>/inc/player.swf',
-				'file': '<?php echo media_file( get_post_custom_values('audioFile') ); ?>',
+				'file': '<?php echo media_file( $media ); ?>',
 				'title': '<?php the_title(); ?>',
 				'image':  '<?php global $post; echo get_feature_image_url( $post->ID, 'large' ); ?>',
 				'width': '500',
@@ -20,7 +22,13 @@
 			<?php echo media_duration( get_post_custom_values('duration') ); ?>
 		</div>
 		<div class="col-xs-6 text-right">
-			<a href="<?php echo media_file( get_post_custom_values('audioFile') ); ?>">Download media file</a>
+			<?php if ( $media ) {
+				if ( strpos($media[0], 'youtu') !== false ) { ?>
+					<a href="<?php echo media_file( $media ); ?>">Watch video on YouTube</a>
+				<?php } else { ?>
+					<a href="<?php echo relative_path( media_file( $media ) ); ?>" download>Download media file</a>
+				<?php } ?>
+			<?php } ?>
 		</div>
 	</div>
 </div>
