@@ -1,6 +1,6 @@
 <?php if (function_exists('get_field')) { ?>
 	<?php if (get_field('gallery')) { ?>
-	<div id="slides" class="entry-content entry-media-gallery clearfix">
+	<div id="gallery" class="entry-content entry-media-gallery clearfix">
 		<h2>Document gallery</h2>
 		<ul class="images">
 			<?php while(the_repeater_field('gallery')): ?>
