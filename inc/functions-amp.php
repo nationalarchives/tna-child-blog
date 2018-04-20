@@ -19,7 +19,7 @@ function tna_amp_scripts() {
 
 function media_duration( $values ) {
 
-	if ( $values ) {
+	if ( $values[0] ) {
 		return 'Duration '.$values[0];
 	} else {
 		return '';
@@ -28,7 +28,7 @@ function media_duration( $values ) {
 
 function media_file( $values ) {
 
-	if ( $values ) {
+	if ( $values[0] ) {
 		return $values[0];
 	} else {
 		return '';
