@@ -27,6 +27,9 @@ ul.loop-results {
   max-width: 100%;
   height: auto; }
 
+.entry-meta span {
+  color: #bbb; }
+
 #comments {
   padding: 0 20px; }
   #comments cite {
@@ -240,6 +243,9 @@ a.feature-img:focus {
   overflow: hidden; }
   .entry-media-slideshare .slides iframe {
     width: 100%; }
+
+.media-credits span {
+  color: #bbb; }
 
 .icon-circle {
   display: inline-block;

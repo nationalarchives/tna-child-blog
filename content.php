@@ -17,6 +17,7 @@
 		</div>
 		<div class="entry-meta">
 			<p><?php the_entry_meta(); ?></p>
+			<?php get_template_part( 'partials/credits' ); ?>
 		</div>
 		<div class="entry-content clearfix">
 			<?php the_content(); ?>
