@@ -272,3 +272,10 @@ a.feature-img:focus {
 
 .icon-audio {
   background-image: url(../img/audio.png); }
+
+.content-type {
+  margin-top: 1em;
+  color: #444;
+  font-size: .9em;
+  border-left: #ebab01 4px solid;
+  padding: 0 0.5em; }

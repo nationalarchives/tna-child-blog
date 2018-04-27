@@ -30,6 +30,13 @@ $the_query = new WP_Query( $args ); ?>
 						<?php echo $icon; ?>
 					</div>
 				</a>
+				<?php
+				if (in_category('video')) {
+					echo '<div class="content-type">Video</div>';
+				} elseif (in_category('audio')) {
+					echo '<div class="content-type">Audio</div>';
+				}
+				?>
 				<h3>
 					<a href="<?php echo get_permalink(); ?>">
 						<?php the_title();  ?>
