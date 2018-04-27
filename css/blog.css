@@ -262,6 +262,14 @@ a.feature-img:focus {
   transition: .4s ease-in-out;
   -webkit-transition: .4s ease-in-out;
   -moz-transition: .4s ease-in-out; }
+.tna-amp .button-icon {
+  display: inline-block;
+  background-color: #008484;
+  background-size: 30px;
+  background-position: right 7px center;
+  background-repeat: no-repeat;
+  padding: 7px 42px 7px 16px;
+  cursor: pointer; }
 .tna-amp .icon-size-26 {
   background-size: 78% 78%;
   width: 26px;

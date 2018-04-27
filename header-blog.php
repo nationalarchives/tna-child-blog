@@ -12,7 +12,7 @@
 					<div class="entry-header">
 						<h1>
 							<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-								<?php if ( get_option('blog_type') == 'amp' ) {
+								<?php if ( AMP ) {
 									echo 'Archives Media Player';
 								} else {
 									echo 'Blog';
@@ -34,8 +34,16 @@
 						</div>
 						<div class="col-xs-12 col-sm-4 col-md-6">
 							<div class="row">
-								<?php if ( get_option('blog_type') == 'amp' ) { ?>
-
+								<?php if ( AMP ) {
+									$video_id = get_cat_ID( 'video' );
+									$audio_id = get_cat_ID( 'audio' );
+									?>
+									<a href="<?php echo esc_url( get_category_link( $video_id ) ); ?>" class="button button-icon icon-video">
+										Video
+									</a>
+									<a href="<?php echo esc_url( get_category_link( $audio_id ) ); ?>" class="button button-icon icon-audio">
+										Audio
+									</a>
 								<?php } else { ?>
 								<form action="" method="get" class="month-list col-xs-6 col-sm-12 col-md-6">
 									<label class="sr-only" for="month">Select month</label>
