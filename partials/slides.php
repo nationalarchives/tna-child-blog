@@ -1,4 +1,4 @@
-<?php if (function_exists('get_field')) { ?>
+<?php if ( AMP && function_exists('get_field') ) { ?>
 	<?php if (get_field('slideshare')) { ?>
 	<div id="slides" class="entry-content entry-media-slideshare clearfix">
 		<h2>Slides</h2>

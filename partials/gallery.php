@@ -1,4 +1,4 @@
-<?php if (function_exists('get_field')) { ?>
+<?php if ( AMP && function_exists('get_field') ) { ?>
 	<?php if (get_field('gallery')) { ?>
 	<div id="gallery" class="entry-content entry-media-gallery clearfix">
 		<h2>Document gallery</h2>

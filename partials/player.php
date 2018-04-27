@@ -1,4 +1,4 @@
-<?php if (function_exists('get_post_custom_values')) { ?>
+<?php if ( AMP && function_exists('get_post_custom_values') ) { ?>
 	<?php
 	if ( in_category('video') || in_category('audio') ) {
 	$media = get_post_custom_values('audioFile');

@@ -8,6 +8,7 @@ if ( get_option('blog_type') == 'amp' ) {
 
 if ( AMP ) {
 	add_action( 'wp_enqueue_scripts', 'tna_amp_scripts' );
+	add_filter( 'body_class','amp_body_classes' );
 }
 
 function tna_amp_scripts() {
@@ -37,4 +38,12 @@ function media_file( $values ) {
 
 function relative_path( $url ) {
 	return str_replace( site_url(), '', $url );
+}
+
+function amp_body_classes( $classes ) {
+
+	$classes[] = 'tna-amp';
+
+	return $classes;
+
 }

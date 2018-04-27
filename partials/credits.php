@@ -1,5 +1,5 @@
 <?php
-if (function_exists('get_post_custom_values')) {
+if ( AMP && function_exists('get_post_custom_values') ) {
 	$release  = get_post_custom_values( 'releaseDate' );
 	$producer = get_post_custom_values( 'producer' );
 	$source   = get_post_custom_values( 'source' );

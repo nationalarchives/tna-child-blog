@@ -16,9 +16,9 @@ $the_query = new WP_Query( $args ); ?>
 		<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 			<?php
 			$image = get_feature_image_url( get_the_ID() , 'feature-box-thumb', true );
-			if (in_category('video')) {
+			if ( AMP && in_category('video')) {
 				$icon = '<div class="icon-circle icon-video"></div>';
-			} elseif (in_category('audio')) {
+			} elseif ( AMP && in_category('audio')) {
 				$icon = '<div class="icon-circle icon-audio"></div>';
 			} else {
 				$icon = '';
@@ -31,9 +31,9 @@ $the_query = new WP_Query( $args ); ?>
 					</div>
 				</a>
 				<?php
-				if (in_category('video')) {
+				if ( AMP && in_category('video')) {
 					echo '<div class="content-type">Video</div>';
-				} elseif (in_category('audio')) {
+				} elseif ( AMP && in_category('audio')) {
 					echo '<div class="content-type">Audio</div>';
 				}
 				?>
