@@ -266,7 +266,7 @@ a.feature-img:focus {
   display: inline-block;
   background-color: #008484;
   background-size: 30px;
-  background-position: right 7px center;
+  background-position: right 5px center;
   background-repeat: no-repeat;
   padding: 7px 42px 7px 16px;
   cursor: pointer; }
@@ -278,6 +278,8 @@ a.feature-img:focus {
   background-image: url(../img/video.png); }
 .tna-amp .icon-audio {
   background-image: url(../img/audio.png); }
+.tna-amp .icon-rss {
+  background-image: url(../img/icon-rss.png); }
 .tna-amp .content-type {
   margin-top: 1em;
   color: #444;
