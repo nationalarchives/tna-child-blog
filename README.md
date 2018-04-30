@@ -1,6 +1,6 @@
 # tna-child-blog
 
-Child them for TNA's blog.
+Child theme for TNA's blog.
 
 ## Configuration
 
