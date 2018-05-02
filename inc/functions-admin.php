@@ -15,6 +15,14 @@ function blog_admin_page_settings() {
 	register_setting( 'homepage-settings-group', 'blog_img_caption' );
 	register_setting( 'homepage-settings-group', 'blog_img_url' );
 	register_setting( 'homepage-settings-group', 'blog_all_posts_url' );
+
+	for ( $i=1 ; $i<=4 ; $i++ ) {
+
+		register_setting( 'homepage-settings-group', 'series_title_'.$i );
+		register_setting( 'homepage-settings-group', 'series_url_'.$i );
+		register_setting( 'homepage-settings-group', 'series_image_'.$i );
+		register_setting( 'homepage-settings-group', 'series_text_'.$i );
+	}
 }
 
 function blog_admin_page() {
@@ -63,6 +71,29 @@ function blog_admin_page() {
 				<td><input type="text" name="blog_all_posts_url" value="<?php echo esc_attr( get_option('blog_all_posts_url') ); ?>" /></td>
 			</tr>
 		</table>
+		<?php submit_button(); ?>
+
+		<?php for ( $i=1 ; $i<=4 ; $i++ ) { ?>
+			<h2>Mini series <?php echo $i; ?> (AMP only)</h2>
+			<table class="form-table">
+				<tr valign="top">
+					<th scope="row"><label for="series_title_<?php echo $i; ?>">Title</label></th>
+					<td><input type="text" name="series_title_<?php echo $i; ?>" value="<?php echo esc_attr( get_option('series_title_'.$i) ); ?>" /></td>
+				</tr>
+				<tr valign="top">
+					<th scope="row"><label for="series_url_<?php echo $i; ?>">URL</label></th>
+					<td><input type="text" name="series_url_<?php echo $i; ?>" value="<?php echo get_option('series_url_'.$i); ?>" /></td>
+				</tr>
+				<tr valign="top">
+					<th scope="row"><label for="series_image_<?php echo $i; ?>">Image URL</label></th>
+					<td><input type="text" name="series_image_<?php echo $i; ?>" value="<?php echo get_option('series_image_'.$i); ?>" /></td>
+				</tr>
+				<tr valign="top">
+					<th scope="row"><label for="series_text_<?php echo $i; ?>">Description</label></th>
+					<td><textarea name="series_text_<?php echo $i; ?>"><?php echo esc_attr( get_option('series_text_'.$i) ); ?></textarea></td>
+				</tr>
+			</table>
+		<?php } ?>
 		<?php submit_button(); ?>
 	</form>
 	</div>
