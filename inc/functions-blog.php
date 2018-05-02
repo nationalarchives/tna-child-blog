@@ -166,3 +166,12 @@ function the_entry_meta( $args = '' ) {
 		comments_popup_link( 'Comment', '1 comment', '% comments' );
 	}
 }
+
+function check_https( $url ) {
+
+	if ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || $_SERVER['SERVER_PORT'] == 443) {
+
+		return str_replace( 'http', 'https', $url );
+	}
+	return $url;
+}
