@@ -16,7 +16,7 @@
 						}
 						?>
 						<a href="<?php echo get_permalink(); ?>" class="feature-img clearfix" title="<?php the_title(); ?>">
-							<div class="feature-img-thumb" <?php echo $image; ?>>
+							<div class="feature-img-thumb" <?php echo check_https( $image ); ?>>
 								<?php echo $icon; ?>
 							</div>
 						</a>

@@ -10,7 +10,7 @@ if ( AMP && in_category('video')) {
 ?>
 <div class="latest-post col-md-4">
 	<a href="<?php echo get_permalink(); ?>" class="feature-img" title="<?php the_title(); ?>">
-		<div class="feature-img-bg" <?php echo $image; ?>>
+		<div class="feature-img-bg" <?php echo check_https( $image ); ?>>
 			<?php echo $icon; ?>
 		</div>
 	</a>
