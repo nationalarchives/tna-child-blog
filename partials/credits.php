@@ -1,5 +1,5 @@
 <?php
-if ( AMP && function_exists('get_post_custom_values') ) {
+if ( get_option('blog_type') == 'amp' && function_exists('get_post_custom_values') ) {
 	$release  = get_post_custom_values( 'releaseDate' );
 	$producer = get_post_custom_values( 'producer' );
 	$source   = get_post_custom_values( 'source' );

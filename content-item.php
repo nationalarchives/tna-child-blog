@@ -1,8 +1,8 @@
 <?php
 $image = get_feature_image_url( get_the_ID(), 'feature-box-thumb', true );
-if ( AMP && in_category('video')) {
+if ( get_option('blog_type') == 'amp' && in_category('video')) {
 	$icon = '<div class="icon-circle icon-video"></div>';
-} elseif ( AMP && in_category('audio')) {
+} elseif ( get_option('blog_type') == 'amp' && in_category('audio')) {
 	$icon = '<div class="icon-circle icon-audio"></div>';
 } else {
 	$icon = '';
@@ -15,9 +15,9 @@ if ( AMP && in_category('video')) {
 		</div>
 	</a>
 	<?php
-	if ( AMP && in_category('video')) {
+	if ( get_option('blog_type') == 'amp' && in_category('video')) {
 		echo '<div class="content-type">Video</div>';
-	} elseif ( AMP && in_category('audio')) {
+	} elseif ( get_option('blog_type') == 'amp' && in_category('audio')) {
 		echo '<div class="content-type">Audio</div>';
 	}
 	?>

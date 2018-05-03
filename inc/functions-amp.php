@@ -1,12 +1,6 @@
 <?php
 
 if ( get_option('blog_type') == 'amp' ) {
-	define( 'AMP', true );
-} else {
-	define( 'AMP', false );
-}
-
-if ( AMP ) {
 	add_action( 'wp_enqueue_scripts', 'tna_amp_scripts' );
 	add_filter( 'body_class','amp_body_classes' );
 }
