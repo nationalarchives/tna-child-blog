@@ -15,9 +15,9 @@
 					</span>
 					<span class="sep">&gt;</span>
 					<?php if ( is_front_page() ) { ?>
-					<span><?php echo $type ?></span>
+					<span><?php echo $type; ?></span>
 					<?php } else { ?>
-					<span><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo $type ?></a></span>
+					<span><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo $type; ?></a></span>
 					<?php } ?>
 					<?php if ( !is_front_page() ) { ?>
 					<span class="sep">&gt;</span>
