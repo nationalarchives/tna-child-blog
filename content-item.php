@@ -1,9 +1,9 @@
 <?php
 $image = get_feature_image_url( get_the_ID(), 'feature-box-thumb', true );
 if ( in_category('video')) {
-	$icon = '<div class="icon-circle icon-video"></div>';
+	$icon = '<div class="icon-square icon-video"></div>';
 } elseif ( in_category('audio')) {
-	$icon = '<div class="icon-circle icon-audio"></div>';
+	$icon = '<div class="icon-square icon-audio"></div>';
 } else {
 	$icon = '';
 }

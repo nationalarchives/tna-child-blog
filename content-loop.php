@@ -8,9 +8,9 @@
 						<?php
 						$image = get_feature_image_url( get_the_ID(), 'thumbnail', true );
 						if (in_category('video')) {
-							$icon = '<div class="icon-circle icon-video icon-size-26"></div>';
+							$icon = '<div class="icon-square icon-video icon-size-26"></div>';
 						} elseif (in_category('audio')) {
-							$icon = '<div class="icon-circle icon-audio icon-size-26"></div>';
+							$icon = '<div class="icon-square icon-audio icon-size-26"></div>';
 						} else {
 							$icon = '';
 						}

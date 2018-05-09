@@ -16,6 +16,11 @@ a.feature-img:focus {
     right: 5px;
     top: 5px;
   }
+  .icon-square {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
 }
 .feature-img-thumb {
   position: relative;
@@ -30,6 +35,11 @@ a.feature-img:focus {
     position: absolute;
     right: 5px;
     top: 5px;
+  }
+  .icon-square {
+    position: absolute;
+    left: 0;
+    top: 0;
   }
 }
 .nav>li>a:focus, .nav>li>a:hover {
