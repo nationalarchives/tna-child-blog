@@ -14,7 +14,7 @@
 				?>
 				<div class="latest-post col-md-3">
 					<a href="<?php echo $url; ?>" class="feature-img" title="<?php echo $title; ?>">
-						<div class="feature-img-bg" style="background-image: url(<?php echo check_https( $image ); ?>);">
+						<div class="feature-img-bg" style="background-image: url(<?php echo $image; ?>);">
 						</div>
 					</a>
 					<h3>
