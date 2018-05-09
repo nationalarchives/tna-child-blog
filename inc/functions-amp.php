@@ -8,16 +8,13 @@ function is_amp() {
 	}
 }
 
-if ( is_amp() ) {
-	add_action( 'wp_enqueue_scripts', 'tna_amp_scripts' );
-	add_filter( 'body_class','amp_body_classes' );
-}
-
 function tna_amp_scripts() {
 	wp_register_script( 'jwplayer-js', get_stylesheet_directory_uri() . '/js/jwplayer.js', array(), '1.4.4', false );
 	wp_register_script( 'jwplayer-key-js', get_stylesheet_directory_uri() . '/js/jwplayer-key.js', array(), '1.4.4', false );
-	wp_enqueue_script( 'jwplayer-js' );
-	wp_enqueue_script( 'jwplayer-key-js' );
+	if ( is_amp() ) {
+		wp_enqueue_script( 'jwplayer-js' );
+		wp_enqueue_script( 'jwplayer-key-js' );
+	}
 }
 
 function media_duration( $values ) {
@@ -44,8 +41,8 @@ function relative_path( $url ) {
 
 function amp_body_classes( $classes ) {
 
-	$classes[] = 'tna-amp';
-
+	if ( is_amp() ) {
+		$classes[] = 'tna-amp';
+	}
 	return $classes;
-
 }
