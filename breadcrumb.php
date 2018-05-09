@@ -1,4 +1,4 @@
-<?php if ( get_option('blog_type') == 'amp' ) {
+<?php if ( is_amp() ) {
 	$type = 'Archives Media Player';
 } else {
 	$type = 'Blog';

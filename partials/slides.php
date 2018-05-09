@@ -1,4 +1,4 @@
-<?php if ( get_option('blog_type') == 'amp' && function_exists('get_field') ) { ?>
+<?php if ( is_amp() && function_exists('get_field') ) { ?>
 	<?php if (get_field('slideshare')) { ?>
 	<div id="slides" class="entry-content entry-media-slideshare clearfix">
 		<h2>Slides</h2>

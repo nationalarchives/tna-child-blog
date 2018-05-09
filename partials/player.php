@@ -1,4 +1,4 @@
-<?php if ( get_option('blog_type') == 'amp' && function_exists('get_post_custom_values') ) { ?>
+<?php if ( is_amp() && function_exists('get_post_custom_values') ) { ?>
 	<?php
 	if ( in_category('video') || in_category('audio') ) {
 	$media = get_post_custom_values('audioFile');
