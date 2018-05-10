@@ -100,6 +100,32 @@
   .icon-rss {
     background-image: url(../img/icon-rss.png);
   }
+  .feature-img-thumb {
+    .icon-circle {
+      position: absolute;
+      right: 5px;
+      top: 5px;
+    }
+    .icon-square {
+      margin: 0;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
+  }
+  .feature-img-bg {
+    .icon-circle {
+      position: absolute;
+      right: 5px;
+      top: 5px;
+    }
+    .icon-square {
+      margin: 0;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
+  }
   .content-type {
     margin-top: 1em;
     color: #444;
