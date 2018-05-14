@@ -35,7 +35,7 @@ function media_file( $values ) {
 	}
 }
 
-function relative_path( $url ) {
+function make_relative_path_from_url( $url ) {
 	return str_replace( site_url(), '', $url );
 }
 
