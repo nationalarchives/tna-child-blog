@@ -84,7 +84,8 @@ ul.loop-results {
 .blog-header article {
   height: 200px;
   background-position: center center;
-  background-size: cover; }
+  background-size: cover;
+  background-color: #fff; }
   .blog-header article .entry-header {
     background: none; }
   .blog-header article .entry-content {
