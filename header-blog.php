@@ -38,12 +38,14 @@
 									$video_id = get_cat_ID( 'video' );
 									$audio_id = get_cat_ID( 'audio' );
 									?>
-									<a href="<?php echo esc_url( get_category_link( $video_id ) ); ?>" class="button button-icon icon-video">
-										Video
-									</a>
-									<a href="<?php echo esc_url( get_category_link( $audio_id ) ); ?>" class="button button-icon icon-audio">
-										Audio
-									</a>
+									<div class="col-xs-6 col-sm-12 col-md-6">
+										<a href="<?php echo esc_url( get_category_link( $video_id ) ); ?>" class="button button-icon icon-video">
+											Video
+										</a>
+										<a href="<?php echo esc_url( get_category_link( $audio_id ) ); ?>" class="button button-icon icon-audio">
+											Audio
+										</a>
+									</div>
 								<?php } else { ?>
 								<form action="" method="get" class="month-list col-xs-6 col-sm-12 col-md-6">
 									<label class="sr-only" for="month">Select month</label>
@@ -55,6 +57,7 @@
 										<input type="submit" name="submit" value="view" />
 									</noscript>
 								</form>
+								<?php } ?>
 								<form action="<?php bloginfo('url'); ?>" method="get" class="author-list col-xs-6 col-sm-12 col-md-6">
 									<label class="sr-only" for="author">Select an author</label>
 									<select name="author" id="author">
@@ -65,7 +68,6 @@
 										<input type="submit" name="submit" value="view" />
 									</noscript>
 								</form>
-								<?php } ?>
 							</div>
 						</div>
 						<div class="col-xs-12 col-sm-6 col-md-4">
