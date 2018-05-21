@@ -29,7 +29,7 @@ function media_duration( $values ) {
 function media_file( $values ) {
 
 	if ( $values[0] ) {
-		return $values[0];
+		return https_this( $values[0] );
 	} else {
 		return '';
 	}
@@ -39,6 +39,13 @@ function make_relative_path_from_url( $url ) {
 	return str_replace( site_url(), '', $url );
 }
 
+function https_this( $url ) {
+	if ( is_ssl() ) {
+		return str_replace( 'http:', 'https:', $url );
+	}
+	return $url;
+}
+
 function amp_body_classes( $classes ) {
 
 	if ( is_amp() ) {
@@ -46,3 +53,5 @@ function amp_body_classes( $classes ) {
 	}
 	return $classes;
 }
+
+
