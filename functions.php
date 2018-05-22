@@ -15,7 +15,7 @@ add_action( 'rss2_item', 'add_featured_image_to_rss' );
 
 add_filter( 'widget_categories_args', 'exclude_widget_categories' );
 add_filter( 'body_class','amp_body_classes' );
-
+add_filter( 'the_content', 'blog_content_urls_relative' );
 
 // Change date format - WP dashboard -> Settings -> General -> Date Format -> Custom = 'D j M Y'
 
