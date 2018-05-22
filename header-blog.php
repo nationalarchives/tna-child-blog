@@ -8,7 +8,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12" role="banner">
-				<article class="banner feature-img feature-img-bg" style="background-image: url(<?php echo esc_attr( get_option('blog_header_img') ); ?>);">
+				<article class="banner feature-img feature-img-bg" style="background-image: url(<?php echo esc_attr( https_this( get_option('blog_header_img') ) ); ?>);">
 					<div class="entry-header">
 						<h1>
 							<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
@@ -28,7 +28,7 @@
 						<div class="hidden-xs col-sm-2 col-md-2">
 							<div class="follow-us">
 								<a href="http://www.nationalarchives.gov.uk/rss/" title="Follow us via RSS">
-									<img src="https://nationalarchives.gov.uk/wp-content/themes/tna-base/img/social/rss.png" alt="RSS logo"></a>
+									<img src="<?php echo get_template_directory_uri(); ?>/img/social/rss.png" alt="RSS logo"></a>
 								Subscribe
 							</div>
 						</div>
