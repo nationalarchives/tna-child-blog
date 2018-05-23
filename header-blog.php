@@ -8,11 +8,15 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12" role="banner">
-				<article class="banner feature-img feature-img-bg" style="background-image: url(<?php echo esc_attr( get_option('blog_header_img') ); ?>);">
+				<article class="banner feature-img feature-img-bg" style="background-image: url(<?php echo esc_attr( https_this( get_option('blog_header_img') ) ); ?>);">
 					<div class="entry-header">
 						<h1>
 							<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-								Blog
+								<?php if ( is_amp() ) {
+									echo 'Archives Media Player';
+								} else {
+									echo 'Blog';
+								} ?>
 							</a>
 						</h1>
 					</div>
@@ -24,12 +28,25 @@
 						<div class="hidden-xs col-sm-2 col-md-2">
 							<div class="follow-us">
 								<a href="http://www.nationalarchives.gov.uk/rss/" title="Follow us via RSS">
-									<img src="https://nationalarchives.gov.uk/wp-content/themes/tna-base/img/social/rss.png" alt="RSS logo"></a>
+									<img src="<?php echo get_template_directory_uri(); ?>/img/social/rss.png" alt="RSS logo"></a>
 								Subscribe
 							</div>
 						</div>
 						<div class="col-xs-12 col-sm-4 col-md-6">
 							<div class="row">
+								<?php if ( is_amp() ) {
+									$video_id = get_cat_ID( 'video' );
+									$audio_id = get_cat_ID( 'audio' );
+									?>
+									<div class="hidden-xs hidden-sm col-md-6">
+										<a href="<?php echo esc_url( get_category_link( $video_id ) ); ?>" class="button button-icon icon-video">
+											Video
+										</a>
+										<a href="<?php echo esc_url( get_category_link( $audio_id ) ); ?>" class="button button-icon icon-audio">
+											Audio
+										</a>
+									</div>
+								<?php } else { ?>
 								<form action="" method="get" class="month-list col-xs-6 col-sm-12 col-md-6">
 									<label class="sr-only" for="month">Select month</label>
 									<select name="month" id="month">
@@ -40,6 +57,7 @@
 										<input type="submit" name="submit" value="view" />
 									</noscript>
 								</form>
+								<?php } ?>
 								<form action="<?php bloginfo('url'); ?>" method="get" class="author-list col-xs-6 col-sm-12 col-md-6">
 									<label class="sr-only" for="author">Select an author</label>
 									<select name="author" id="author">

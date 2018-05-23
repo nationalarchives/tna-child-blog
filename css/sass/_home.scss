@@ -4,12 +4,23 @@ a.feature-img:focus {
   outline: 3px solid #ebab00;
 }
 .feature-img-bg {
+  position: relative;
   display: block;
   background-color: #eee;
   width: 100%;
   height: 180px;
   background-position: center center;
   background-size: cover;
+}
+.feature-img-thumb {
+  position: relative;
+  display: block;
+  margin-top: 20px;
+  background-color: #eee;
+  background-position: center center;
+  background-size: cover;
+  width: 100%;
+  height: 150px;
 }
 .nav>li>a:focus, .nav>li>a:hover {
   text-decoration: none;

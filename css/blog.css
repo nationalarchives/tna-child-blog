@@ -27,6 +27,9 @@ ul.loop-results {
   max-width: 100%;
   height: auto; }
 
+.entry-meta span {
+  color: #bbb; }
+
 #comments {
   padding: 0 20px; }
   #comments cite {
@@ -70,7 +73,8 @@ ul.loop-results {
 .blog-header h1 a {
   color: #fff; }
 .blog-header form {
-  color: #444; }
+  color: #444;
+  margin: 0; }
 .blog-header select {
   width: 100%;
   margin-bottom: 0.3em; }
@@ -80,7 +84,8 @@ ul.loop-results {
 .blog-header article {
   height: 200px;
   background-position: center center;
-  background-size: cover; }
+  background-size: cover;
+  background-color: #fff; }
   .blog-header article .entry-header {
     background: none; }
   .blog-header article .entry-content {
@@ -129,12 +134,23 @@ a.feature-img:focus {
   outline: 3px solid #ebab00; }
 
 .feature-img-bg {
+  position: relative;
   display: block;
   background-color: #eee;
   width: 100%;
   height: 180px;
   background-position: center center;
   background-size: cover; }
+
+.feature-img-thumb {
+  position: relative;
+  display: block;
+  margin-top: 20px;
+  background-color: #eee;
+  background-position: center center;
+  background-size: cover;
+  width: 100%;
+  height: 150px; }
 
 .nav > li > a:focus, .nav > li > a:hover {
   text-decoration: none;
@@ -188,3 +204,113 @@ a.feature-img:focus {
 .sidebar-content {
   background-color: #fff;
   padding: 20px 15px 0 20px; }
+
+.entry-video .video-container {
+  position: relative;
+  padding-bottom: 48.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden; }
+  .entry-video .video-container iframe, .entry-video .video-container #player {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important; }
+  .entry-video .video-container .jw-preview {
+    background-position: center center;
+    background-size: cover; }
+.entry-video .video-toolbar {
+  padding: 0.3em 0;
+  background-color: #222;
+  color: #fff;
+  font-size: 0.9em; }
+  .entry-video .video-toolbar a {
+    color: #fff; }
+  .entry-video .video-toolbar .addthis_toolbox a {
+    margin-bottom: 0;
+    margin-top: 2px;
+    height: 20px; }
+
+.tna-amp .banner .button {
+  margin-bottom: 5px; }
+.tna-amp .media-credits span {
+  color: #bbb; }
+.tna-amp .entry-media-slideshare .slides {
+  position: relative;
+  overflow: hidden; }
+  .tna-amp .entry-media-slideshare .slides iframe {
+    width: 100%; }
+.tna-amp .transcription-content {
+  border: 1px solid #ddd;
+  padding: 1em; }
+.tna-amp .icon-circle {
+  display: inline-block;
+  background-color: #008484;
+  background-size: 68% 68%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  margin: 0 .2em .3em 0;
+  cursor: pointer;
+  transition: .4s ease-in-out;
+  -webkit-transition: .4s ease-in-out;
+  -moz-transition: .4s ease-in-out; }
+.tna-amp .icon-square {
+  display: inline-block;
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.8);
+  background-size: 68% 68%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 42px;
+  height: 42px;
+  margin: 0 .2em .3em 0;
+  cursor: pointer;
+  transition: .4s ease-in-out;
+  -webkit-transition: .4s ease-in-out;
+  -moz-transition: .4s ease-in-out; }
+.tna-amp .button-icon {
+  display: inline-block;
+  background-color: #008484;
+  background-size: 30px;
+  background-position: right 5px center;
+  background-repeat: no-repeat;
+  padding: 7px 42px 7px 16px;
+  cursor: pointer; }
+.tna-amp .icon-size-26 {
+  background-size: 78% 78%;
+  width: 26px;
+  height: 26px; }
+.tna-amp .icon-video {
+  background-image: url(../img/video.png); }
+.tna-amp .icon-audio {
+  background-image: url(../img/audio.png); }
+.tna-amp .icon-rss {
+  background-image: url(../img/icon-rss.png); }
+.tna-amp .feature-img-thumb .icon-circle {
+  position: absolute;
+  right: 5px;
+  top: 5px; }
+.tna-amp .feature-img-thumb .icon-square {
+  margin: 0;
+  position: absolute;
+  left: 0;
+  bottom: 0; }
+.tna-amp .feature-img-bg .icon-circle {
+  position: absolute;
+  right: 5px;
+  top: 5px; }
+.tna-amp .feature-img-bg .icon-square {
+  margin: 0;
+  position: absolute;
+  left: 0;
+  bottom: 0; }
+.tna-amp .content-type {
+  margin-top: 1em;
+  color: #444;
+  font-size: .9em;
+  border-left: #ebab01 4px solid;
+  padding: 0 0.5em; }
