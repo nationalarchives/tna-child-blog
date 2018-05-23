@@ -232,6 +232,8 @@ a.feature-img:focus {
     margin-top: 2px;
     height: 20px; }
 
+.tna-amp .banner .button {
+  margin-bottom: 5px; }
 .tna-amp .media-credits span {
   color: #bbb; }
 .tna-amp .entry-media-slideshare .slides {

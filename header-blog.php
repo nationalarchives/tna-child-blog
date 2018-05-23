@@ -38,7 +38,7 @@
 									$video_id = get_cat_ID( 'video' );
 									$audio_id = get_cat_ID( 'audio' );
 									?>
-									<div class="col-xs-6 col-sm-12 col-md-6">
+									<div class="hidden-xs hidden-sm col-md-6">
 										<a href="<?php echo esc_url( get_category_link( $video_id ) ); ?>" class="button button-icon icon-video">
 											Video
 										</a>
