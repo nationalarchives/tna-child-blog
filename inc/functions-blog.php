@@ -169,7 +169,7 @@ function the_entry_meta( $args = '' ) {
 
 function blog_content_urls_relative( $content ) {
 	if ( is_ssl() ) {
-		$site_url = str_replace( 'http:', 'https:', site_url() );
+		$site_url = str_replace( 'https:', 'http:', site_url() );
 		return str_replace( $site_url, '', $content );
 	}
 	return $content;
