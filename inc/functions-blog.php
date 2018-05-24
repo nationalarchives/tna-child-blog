@@ -130,13 +130,13 @@ function the_entry_meta( $args = '' ) {
 		if ($r['home']) {
 			echo '<br />';
 		} else {
-			echo ' | ';
+			echo ' <span>|</span> ';
 		}
 	}
 
 	if ($r['authors']) {
 		get_blog_authors();
-		echo ' | ';
+		echo ' <span>|</span> ';
 	}
 
 	if ($r['cat']) {
@@ -157,7 +157,7 @@ function the_entry_meta( $args = '' ) {
 						echo ', ';
 					}
 				}
-				echo ' | ';
+				echo ' <span>|</span> ';
 			}
 		}
 	}
@@ -165,4 +165,12 @@ function the_entry_meta( $args = '' ) {
 	if ($r['comments']) {
 		comments_popup_link( 'Comment', '1 comment', '% comments' );
 	}
+}
+
+function blog_content_urls_relative( $content ) {
+	if ( is_ssl() ) {
+		$site_url = str_replace( 'https:', 'http:', site_url() );
+		return str_replace( $site_url, '', $content );
+	}
+	return $content;
 }

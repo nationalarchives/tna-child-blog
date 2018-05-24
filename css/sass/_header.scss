@@ -4,6 +4,7 @@
   }
   form {
     color: #444;
+    margin: 0;
   }
   select {
     width: 100%;
@@ -17,6 +18,7 @@
     height: 200px;
     background-position: center center;
     background-size: cover;
+    background-color: #fff;
     .entry-header {
       background: none;
     }
