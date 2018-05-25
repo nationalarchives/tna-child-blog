@@ -4,6 +4,11 @@
  *
  */
 
+function tna_wp_head() {
+	// override tna-base tna_wp_head
+	wp_head();
+}
+
 // Dequeue parent styles for re-enqueuing in the correct order
 function dequeue_parent_style()
 {
