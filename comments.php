@@ -79,7 +79,8 @@ if (post_password_required()) {
 
     <div class="disclaimer clearfix">
         <div class="emphasis-alert">
-            We will not be able to respond to personal family history research questions on this platform.<br> See our <a href="/moderation-policy">moderation policy</a> for more details.
+            We will not be able to respond to personal family history research questions on this platform.<br>
+            See our <a href="<?php if ( is_amp() ) { echo '/index.php'; } ?>/moderation-policy">moderation policy</a> for more details.
         </div>
     </div>
 
