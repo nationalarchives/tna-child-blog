@@ -186,4 +186,3 @@ function srcset_urls_relative($sources) {
 	}
 	return $sources;
 }
-
