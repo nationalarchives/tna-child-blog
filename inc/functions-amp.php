@@ -54,4 +54,9 @@ function amp_body_classes( $classes ) {
 	return $classes;
 }
 
+function change_yoast_amp_urls( $url ) {
 
+	if ( is_amp() ) {
+		return str_replace( 'blog.nationalarchives', 'media.nationalarchives', $url );
+	}
+}

@@ -4,6 +4,11 @@
  *
  */
 
+function tna_wp_head() {
+	// override tna-base tna_wp_head
+	wp_head();
+}
+
 // Dequeue parent styles for re-enqueuing in the correct order
 function dequeue_parent_style()
 {
@@ -173,4 +178,11 @@ function blog_content_urls_relative( $content ) {
 		return str_replace( $site_url, '', $content );
 	}
 	return $content;
+}
+
+function srcset_urls_relative($sources) {
+	foreach ($sources as $source => $src) {
+		$sources[$source]['url'] = make_relative_path_from_url($src['url']);
+	}
+	return $sources;
 }
