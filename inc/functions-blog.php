@@ -179,10 +179,3 @@ function blog_content_urls_relative( $content ) {
 	}
 	return $content;
 }
-
-function srcset_urls_relative($sources) {
-	foreach ($sources as $source => $src) {
-		$sources[$source]['url'] = make_relative_path_from_url($src['url']);
-	}
-	return $sources;
-}
