@@ -40,4 +40,10 @@
 		</div>
 		<?php comments_template(); ?>
 	</article>
+	<div class="recommended">
+		<?php
+		$content = get_the_content();
+		echo display_relative_content( $content );
+		?>
+	</div>
 <?php } ?>
