@@ -1,5 +1,59 @@
 <?php
 
+function blog_check_result( $result ) {
+	if ( is_wp_error( $result ) ) {
+		$result = false;
+	} elseif ( wp_remote_retrieve_response_code( $result ) == '404' ) {
+		$result = false;
+	} else {
+		$result = true;
+	}
+	return $result;
+}
+
+function blog_get_html_content( $url ) {
+	if ( ! class_exists( 'WP_Http' ) ) {
+		include_once( ABSPATH . WPINC . '/class-http.php' );
+	}
+	$request = new WP_Http;
+	$result  = $request->request( $url );
+	if ( blog_check_result( $result ) ) {
+		$content = $result['body'];
+	} else {
+		$content = null;
+	}
+	return $content;
+}
+
+function blog_get_meta_og_data( $url ) {
+	if ( $url ) {
+		$html_content = blog_get_html_content( $url );
+		if ( $html_content ) {
+			$data = array();
+			$html = new DOMDocument();
+			@$html->loadHTML( $html_content );
+			$data['title']          = '';
+			$data['description']    = '';
+			$data['img']            = '';
+			$i                      = 0;
+			foreach ( $html->getElementsByTagName( 'meta' ) as $meta ) {
+				if ( $meta->getAttribute( 'property' ) == 'og:title' ) {
+					$data['title'] = $meta->getAttribute( 'content' );
+				}
+				if ( $meta->getAttribute( 'property' ) == 'og:description' ) {
+					$data['description'] = $meta->getAttribute( 'content' );
+				}
+				if ( $meta->getAttribute( 'property' ) == 'og:image' ) {
+					$data['img'][ $i ] = $meta->getAttribute( 'content' );
+					$i ++;
+				}
+			}
+			return $data;
+		}
+	}
+	return false;
+}
+
 
 
 function display_relative_content( $content, $categories='', $tags='' ) {
@@ -39,7 +93,10 @@ function display_relative_content( $content, $categories='', $tags='' ) {
 			}
 		}
 	}
-	
-	var_dump( $content_links );
+
+	foreach ( $content_links as $url ) {
+		echo $url;
+		var_dump( blog_get_meta_og_data( $url ) );
+	}
 
 }
