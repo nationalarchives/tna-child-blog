@@ -34,7 +34,8 @@ function blog_get_meta_og_data( $url ) {
 			@$html->loadHTML( $html_content );
 			$data['title']          = '';
 			$data['description']    = '';
-			$data['img']            = '';
+			$data['img'][0]         = 'https://via.placeholder.com/480x200';
+			$data['url']            = $url;
 			$i                      = 0;
 			foreach ( $html->getElementsByTagName( 'meta' ) as $meta ) {
 				if ( $meta->getAttribute( 'property' ) == 'og:title' ) {
@@ -94,9 +95,24 @@ function display_relative_content( $content, $categories='', $tags='' ) {
 		}
 	}
 
-	foreach ( $content_links as $url ) {
-		echo $url;
-		var_dump( blog_get_meta_og_data( $url ) );
+	$recommended = '';
+	global $post;
+	$transient_recommended = get_transient( 'recommended-'.$post->ID );
+
+	if ( !$transient_recommended ) {
+		foreach ( $content_links as $url ) {
+
+			$data = blog_get_meta_og_data( $url );
+
+			$html = '<div class="col-md-4 recommended-'.$post->ID.'"><a href="%s"><img src="%s" class="img-responsive"><h4>%s</h4><p>%s</p></a></div>';
+
+			$recommended .= sprintf($html, $data['url'], $data['img'][0], $data['title'], $data['description'] );
+		}
+
+		set_transient( 'recommended-'.$post->ID, $recommended, DAY_IN_SECONDS );
+
+		return $recommended;
 	}
 
+	return $transient_recommended . '<!-- transient_recommended -->' ;
 }
