@@ -69,7 +69,7 @@ function blog_get_meta_og_data( $url ) {
 
 
 
-function display_relative_content( $content, $categories='', $tags='' ) {
+function display_recommended_content( $content, $terms='' ) {
 
 	$content_links = array();
 	$dom = new domDocument;

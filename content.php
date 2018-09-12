@@ -42,8 +42,10 @@
 	</article>
 	<div class="recommended">
 		<?php
+		global $post;
 		$content = get_the_content();
-		echo display_relative_content( $content );
+		$terms = wp_get_post_terms( $post->ID, array('post_tag', 'category') );
+		echo display_recommended_content( $content, $terms );
 		?>
 	</div>
 <?php } ?>
