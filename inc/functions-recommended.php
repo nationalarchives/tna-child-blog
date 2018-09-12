@@ -34,12 +34,15 @@ function blog_get_meta_og_data( $url ) {
 			@$html->loadHTML( $html_content );
 			$data['title']          = '';
 			$data['description']    = '';
-			$data['img'][0]         = 'https://via.placeholder.com/480x200';
+			$data['img'][0]         = get_stylesheet_directory_uri().'/img/card-thumb.jpg';
 			$data['url']            = $url;
 			$i                      = 0;
 			foreach ( $html->getElementsByTagName( 'meta' ) as $meta ) {
 				if ( $meta->getAttribute( 'property' ) == 'og:title' ) {
-					$data['title'] = $meta->getAttribute( 'content' );
+					$title = $meta->getAttribute( 'content' );
+					$title = str_replace('| The National Archives blog', '', $title);
+					$title = str_replace('| The National Archives', '', $title);
+					$data['title'] = $title;
 				}
 				if ( $meta->getAttribute( 'property' ) == 'og:description' ) {
 					$data['description'] = $meta->getAttribute( 'content' );
@@ -48,6 +51,15 @@ function blog_get_meta_og_data( $url ) {
 					$data['img'][ $i ] = $meta->getAttribute( 'content' );
 					$i ++;
 				}
+			}
+			if ( strpos( $url, 'research-guides' ) !== false ) {
+				$data['type'] = 'Research guide';
+			}
+			if ( strpos( $url, 'media.nationalarchives' ) !== false ) {
+				$data['type'] = 'Archives Media Player';
+			}
+			if ( strpos( $url, 'blog.nationalarchives' ) !== false ) {
+				$data['type'] = 'National Archives Blog';
 			}
 			return $data;
 		}
@@ -86,6 +98,7 @@ function display_relative_content( $content, $categories='', $tags='' ) {
 
 	global $post;
 	$recommended = '';
+	delete_transient( 'recommended-'.$post->ID );
 	$transient_recommended = get_transient( 'recommended-'.$post->ID );
 
 	if ( !$transient_recommended ) {
@@ -93,9 +106,9 @@ function display_relative_content( $content, $categories='', $tags='' ) {
 
 			$data = blog_get_meta_og_data( $url );
 
-			$html = '<div class="col-md-4 recommended-'.$post->ID.'"><a href="%s"><img src="%s" class="img-responsive"><h4>%s</h4><p>%s</p></a></div>';
+			$html = '<div class="col-md-4 recommended-'.$post->ID.'"><a href="%s"><img src="%s" class="img-responsive"><h4>%s</h4></a><p><small>%s</small></p></div>';
 
-			$recommended .= sprintf($html, $data['url'], $data['img'][0], $data['title'], $data['description'] );
+			$recommended .= sprintf($html, $data['url'], $data['img'][0], $data['title'], $data['type'] );
 		}
 
 		set_transient( 'recommended-'.$post->ID, $recommended, DAY_IN_SECONDS );
