@@ -67,7 +67,11 @@ function blog_get_meta_og_data( $url ) {
 
 
 
-function display_recommended_content( $content, $terms='' ) {
+function display_recommended_content( $content ) {
+
+	$related = get_related_posts( 3 );
+
+	var_dump($related);
 
 	$content_links = array();
 	$dom = new domDocument;
@@ -96,7 +100,7 @@ function display_recommended_content( $content, $terms='' ) {
 
 	global $post;
 	$recommended = '';
-	// delete_transient( 'recommended-'.$post->ID );
+	delete_transient( 'recommended-'.$post->ID );
 	$transient_recommended = get_transient( 'recommended-'.$post->ID );
 
 	if ( !$transient_recommended ) {
@@ -104,9 +108,9 @@ function display_recommended_content( $content, $terms='' ) {
 
 			$data = blog_get_meta_og_data( $url );
 
-			$html = '<div class="col-md-4 recommended-'.$post->ID.'"><a href="%s"><img src="%s" class="img-responsive"><h4>%s</h4></a><p><small>%s</small></p></div>';
+			$html = '<div class="col-md-4 recommended-'.$post->ID.' post-%s"><a href="%s"><img src="%s" class="img-responsive"><h4>%s</h4></a><p><small>%s</small></p></div>';
 
-			$recommended .= sprintf($html, $data['url'], $data['img'][0], $data['title'], $data['type'] );
+			$recommended .= sprintf($html, $data['id'], $data['url'], $data['img'][0], $data['title'], $data['type'] );
 		}
 
 		set_transient( 'recommended-'.$post->ID, $recommended, DAY_IN_SECONDS );
@@ -166,4 +170,25 @@ function cache_data() {
 	}
 
 	return $transient_cache;
+}
+
+function get_related_posts( $i = 1 ) {
+	global $post;
+
+	$tag_ids = array();
+	$tags = wp_get_post_tags($post->ID);
+	if ($tags) {
+		foreach ( $tags as $individual_tag ) {
+			$tag_ids[] = $individual_tag->term_id;
+		}
+	}
+
+	$related = get_posts(
+		array(
+			'tag__in' => $tag_ids,
+			'numberposts'  => $i,
+			'post__not_in' => array( $post->ID )
+		)
+	);
+	return $related;
 }

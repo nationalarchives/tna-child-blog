@@ -44,8 +44,8 @@
 		<?php
 		global $post;
 		$content = get_the_content();
-		$terms = wp_get_post_terms( $post->ID, array('post_tag', 'category') );
-		echo display_recommended_content( $content, $terms );
+		// $terms = wp_get_post_terms( $post->ID, array('post_tag', 'category') );
+		echo display_recommended_content( $content );
 		?>
 	</div>
 <?php } ?>
