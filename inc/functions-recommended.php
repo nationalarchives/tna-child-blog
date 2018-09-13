@@ -100,7 +100,7 @@ function display_recommended_content( $content ) {
 
 	global $post;
 	$recommended = '';
-	delete_transient( 'recommended-'.$post->ID );
+	// delete_transient( 'recommended-'.$post->ID );
 	$transient_recommended = get_transient( 'recommended-'.$post->ID );
 
 	if ( !$transient_recommended ) {
