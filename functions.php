@@ -28,3 +28,5 @@ function disable_comment_url($fields) {
 	return $fields;
 }
 add_filter('comment_form_default_fields','disable_comment_url');
+
+
