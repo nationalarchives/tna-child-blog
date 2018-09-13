@@ -36,6 +36,7 @@ function blog_get_meta_og_data( $url ) {
 			$data['description']    = '';
 			$data['img'][0]         = get_stylesheet_directory_uri().'/img/card-thumb.jpg';
 			$data['url']            = $url;
+			$data['type']           = 'National Archives Blog';
 			$i                      = 0;
 			foreach ( $html->getElementsByTagName( 'meta' ) as $meta ) {
 				if ( $meta->getAttribute( 'property' ) == 'og:title' ) {
@@ -57,9 +58,6 @@ function blog_get_meta_og_data( $url ) {
 			}
 			if ( strpos( $url, 'media.nationalarchives' ) !== false ) {
 				$data['type'] = 'Archives Media Player';
-			}
-			if ( strpos( $url, 'blog.nationalarchives' ) !== false ) {
-				$data['type'] = 'National Archives Blog';
 			}
 			return $data;
 		}
@@ -98,7 +96,7 @@ function display_recommended_content( $content, $terms='' ) {
 
 	global $post;
 	$recommended = '';
-	delete_transient( 'recommended-'.$post->ID );
+	// delete_transient( 'recommended-'.$post->ID );
 	$transient_recommended = get_transient( 'recommended-'.$post->ID );
 
 	if ( !$transient_recommended ) {
@@ -116,5 +114,56 @@ function display_recommended_content( $content, $terms='' ) {
 		return $recommended;
 	}
 
-	return $transient_recommended . '<!-- transient_recommended -->' ;
+	return '<!-- transient_recommended -->' . $transient_recommended . '<!-- transient_recommended -->' ;
+}
+
+function cache_data() {
+
+	$transient_cache = get_transient( 'cache-recommended' );
+
+	if ( !$transient_cache ) {
+		$args = array(
+			'posts_per_page' => -1,
+			'post_type' => 'post'
+		);
+
+		$xml = '<?xml version="1.0" encoding="UTF-8" ?><rss version="2.0"><channel>';
+		$post_query = new WP_Query($args);
+
+		if ( $post_query->have_posts() ) {
+			while($post_query->have_posts() ) {
+				$post_query->the_post();
+
+				$xml .= '<item>';
+
+				$xml .= '<id>' . get_the_ID() . '</id>';
+				$xml .= '<title>' . get_the_title() . '</title>';
+				$xml .= '<link>' . get_permalink() . '</link>';
+				$terms = '';
+				$tags = get_the_tags();
+				if ( $tags ) {
+					foreach($tags as $tag) {
+						$terms .=  '<term>' . $tag->name . '</term>';
+					}
+				}
+				$cats = get_the_category();
+				if ( $cats ) {
+					foreach($cats as $cat) {
+						$terms .=  '<term>' . $cat->name . '</term>';
+					}
+				}
+
+				$xml .= '<terms>' . $terms . '</terms>';
+
+				$xml .= '</item>';
+			}
+		}
+
+		$xml .= '</channel></rss>';
+
+		set_transient( 'cache-recommended', $xml, DAY_IN_SECONDS );
+
+	}
+
+	return $transient_cache;
 }
