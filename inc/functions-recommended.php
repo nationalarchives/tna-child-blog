@@ -204,6 +204,21 @@ function blog_get_related_posts( $i = 1 ) {
 	return $related;
 }
 
+// [related-posts]
+function related_posts() {
+
+	global $post;
+
+	$html = '<div class="recommended clearfix">';
+	$html .= '<div class="col-md-12"><h4>Recommended for you <small>beta</small></h4></div>';
+	$html .= display_recommended_content( $post->post_content );
+	$html .= '</div>';
+
+	return $html;
+}
+
+add_shortcode( 'related-posts', 'related_posts' );
+
 function cache_data() {
 
 	$transient_cache = get_transient( 'cache-recommended' );
