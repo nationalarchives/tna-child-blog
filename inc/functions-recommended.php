@@ -114,18 +114,30 @@ function display_recommended_content( $content ) {
 
 		if ( $count < 3 ) {
 			$n = 3 - $count;
-			// var_dump( get_related_posts( $n ) );
-			$related = get_related_posts( $n );
+			$related = blog_get_related_posts( $n );
 			$relative = array();
 
 			if ( $related ) {
-				foreach( $related as $item ) {
-					$relative['title']          = $item->post_title;
-					$relative['img'][0]         = get_stylesheet_directory_uri().'/img/card-thumb.jpg';
-					$relative['url']            = $item->guid;
-					$relative['type']           = 'National Archives Blog';
+				foreach ( $related as $key => $blog ) {
+					foreach ( $blog as $item ) {
 
-					$recommended .= sprintf($html, $relative['url'], $relative['img'][0], $relative['title'], $relative['type'] );
+						$blog_id = $key;
+						switch_to_blog( $blog_id );
+						$image = '';
+						if ( has_post_thumbnail( $item->ID ) ) {
+							$thumb_id = get_post_thumbnail_id($item->ID);
+							$thumb_url_array = wp_get_attachment_image_src($thumb_id, 'medium', true);
+							$image = $thumb_url_array[0];
+						}
+						restore_current_blog();
+
+						$relative['title']          = $item->post_title;
+						$relative['img'][0]         = ( $image ) ? $image : get_stylesheet_directory_uri().'/img/card-thumb.jpg';
+						$relative['url']            = $item->guid;
+						$relative['type']           = ( strpos( $relative['url'], 'blog.national' ) !== false ) ? 'National Archives Blog' : 'Archives Media Player' ;
+
+						$recommended .= sprintf($html, $relative['url'], $relative['img'][0], $relative['title'], $relative['type'] );
+					}
 				}
 			}
 		}
@@ -138,7 +150,7 @@ function display_recommended_content( $content ) {
 	return '<!-- transient_recommended -->' . $transient_recommended . '<!-- transient_recommended -->' ;
 }
 
-function get_related_posts( $i = 1 ) {
+function blog_get_related_posts( $i = 1 ) {
 	global $post;
 	$id = $post->ID;
 
@@ -152,11 +164,14 @@ function get_related_posts( $i = 1 ) {
 
 	if ( is_multisite() ) {
 		$blog_list = get_sites();
-		$related_cats = array();
-		$related_tags = array();
+		$related = array();
 
 		foreach ($blog_list as $blog) {
-			switch_to_blog(get_object_vars($blog)['blog_id']);
+
+			$blog_id = get_object_vars($blog)['blog_id'];
+
+			switch_to_blog( $blog_id );
+
 			/*$related_cats = get_posts(
 				array(
 					'category__in' => wp_get_post_categories($id),
@@ -164,7 +179,8 @@ function get_related_posts( $i = 1 ) {
 					'post__not_in' => array( $id )
 				)
 			);*/
-			$related_tags = get_posts(
+
+			$related[$blog_id] = get_posts(
 				array(
 					'tag__in' => $tag_ids,
 					'numberposts'  => $i,
@@ -173,8 +189,6 @@ function get_related_posts( $i = 1 ) {
 			);
 			restore_current_blog();
 		}
-
-		$related = array_merge( $related_tags, $related_cats );
 
 
 	} else {
