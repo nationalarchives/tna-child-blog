@@ -1,6 +1,7 @@
 <?php
 /*
- * Contextual linking prototype: Related posts (Blog, AMP and Research Guides)
+ * Contextual linking prototype: Related posts
+ * (Blog, AMP and Research Guides)
  * by Chris Bishop
  *
  */
@@ -79,7 +80,7 @@ function display_recommended_content( $content ) {
 
 	global $post;
 	$recommended = '';
-	delete_transient( 'recommended-'.$post->ID );
+	// delete_transient( 'recommended-'.$post->ID );
 	$transient_recommended = get_transient( 'recommended-'.$post->ID );
 
 	if ( !$transient_recommended ) {
