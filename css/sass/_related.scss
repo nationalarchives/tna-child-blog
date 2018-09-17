@@ -11,6 +11,8 @@
   }
   .related-post-thumb {
     height: 125px;
-    overflow: hidden;
+    width: 100%;
+    background: #ddd center center;
+    background-size: cover;
   }
 }

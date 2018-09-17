@@ -326,4 +326,6 @@ a.feature-img:focus {
     margin-bottom: 0; }
   .related-post-thumbs .related-post-thumb {
     height: 125px;
-    overflow: hidden; }
+    width: 100%;
+    background: #ddd center center;
+    background-size: cover; }
