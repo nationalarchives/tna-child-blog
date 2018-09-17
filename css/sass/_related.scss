@@ -1,0 +1,16 @@
+.related-post-thumbs {
+  background: #eee;
+  margin-bottom: 1.5em;
+  h4 small {
+    padding: 0.3em 0.6em;
+    background: #fff;
+    margin-left: 0.3em;
+  }
+  .related-post h4 {
+    margin-bottom: 0;
+  }
+  .related-post-thumb {
+    height: 125px;
+    overflow: hidden;
+  }
+}

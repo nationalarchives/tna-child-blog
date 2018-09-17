@@ -314,3 +314,16 @@ a.feature-img:focus {
   font-size: .9em;
   border-left: #ebab01 4px solid;
   padding: 0 0.5em; }
+
+.related-post-thumbs {
+  background: #eee;
+  margin-bottom: 1.5em; }
+  .related-post-thumbs h4 small {
+    padding: 0.3em 0.6em;
+    background: #fff;
+    margin-left: 0.3em; }
+  .related-post-thumbs .related-post h4 {
+    margin-bottom: 0; }
+  .related-post-thumbs .related-post-thumb {
+    height: 125px;
+    overflow: hidden; }

@@ -1,4 +1,9 @@
 <?php
+/*
+ * Contextual linking prototype: Related posts
+ * by Chris Bishop
+ *
+ */
 
 function blog_check_result( $result ) {
 	if ( is_wp_error( $result ) ) {
@@ -71,7 +76,7 @@ function display_recommended_content( $content ) {
 
 	global $post;
 	$recommended = '';
-	// delete_transient( 'recommended-'.$post->ID );
+	delete_transient( 'recommended-'.$post->ID );
 	$transient_recommended = get_transient( 'recommended-'.$post->ID );
 
 	if ( !$transient_recommended ) {
@@ -101,7 +106,7 @@ function display_recommended_content( $content ) {
 			}
 		}
 
-		$html = '<div class="col-md-4 recommended-'.$post->ID.'"><a href="%s"><img src="%s" class="img-responsive"><h4>%s</h4></a><p><small>%s</small></p></div>';
+		$html = '<div class="col-md-4 related-post parent-post-'.$post->ID.'"><a href="%s"><div class="related-post-thumb"><img src="%s" class="img-responsive"></div><h4>%s</h4></a><p><small>%s</small></p></div>';
 
 		foreach ( $content_links as $url ) {
 
@@ -128,12 +133,12 @@ function display_recommended_content( $content ) {
 							$thumb_id = get_post_thumbnail_id($item->ID);
 							$thumb_url_array = wp_get_attachment_image_src($thumb_id, 'medium', true);
 							$image = $thumb_url_array[0];
+							$relative['url'] = get_permalink($item->ID);
 						}
 						restore_current_blog();
 
 						$relative['title']          = $item->post_title;
 						$relative['img'][0]         = ( $image ) ? $image : get_stylesheet_directory_uri().'/img/card-thumb.jpg';
-						$relative['url']            = $item->guid;
 						$relative['type']           = ( strpos( $relative['url'], 'blog.national' ) !== false ) ? 'National Archives Blog' : 'Archives Media Player' ;
 
 						$recommended .= sprintf($html, $relative['url'], $relative['img'][0], $relative['title'], $relative['type'] );
@@ -209,7 +214,7 @@ function related_posts() {
 
 	global $post;
 
-	$html = '<div class="recommended clearfix">';
+	$html = '<div class="related-posts related-post-thumbs clearfix">';
 	$html .= '<div class="col-md-12"><h4>Recommended for you <small>beta</small></h4></div>';
 	$html .= display_recommended_content( $post->post_content );
 	$html .= '</div>';
