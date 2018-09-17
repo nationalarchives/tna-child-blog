@@ -3,7 +3,7 @@
 require_once 'inc/functions-amp.php';
 require_once 'inc/functions-blog.php';
 require_once 'inc/functions-admin.php';
-require_once 'inc/functions-recommended.php';
+require_once 'inc/functions-related.php';
 
 add_action( 'wp_enqueue_scripts', 'dequeue_parent_style', 9999 );
 add_action( 'wp_head', 'dequeue_parent_style', 9999 );

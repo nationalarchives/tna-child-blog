@@ -1,6 +1,6 @@
 <?php
 /*
- * Contextual linking prototype: Related posts
+ * Contextual linking prototype: Related posts (Blog, AMP and Research Guides)
  * by Chris Bishop
  *
  */
@@ -174,30 +174,39 @@ function blog_get_related_posts( $i = 1 ) {
 		$blog_list = get_sites();
 		$related = array();
 
-		foreach ($blog_list as $blog) {
+		if ($tag_ids) {
+			foreach ($blog_list as $blog) {
 
-			$blog_id = get_object_vars($blog)['blog_id'];
+				$blog_id = get_object_vars($blog)['blog_id'];
 
-			switch_to_blog( $blog_id );
+				switch_to_blog( $blog_id );
 
-			/*$related_cats = get_posts(
-				array(
-					'category__in' => wp_get_post_categories($id),
-					'numberposts'  => $i,
-					'post__not_in' => array( $id )
-				)
-			);*/
+				$related[$blog_id] = get_posts(
+					array(
+						'tag__in' => $tag_ids,
+						'numberposts'  => $i,
+						'post__not_in' => array( $id )
+					)
+				);
+				restore_current_blog();
+			}
+		} else {
+			foreach ($blog_list as $blog) {
 
-			$related[$blog_id] = get_posts(
-				array(
-					'tag__in' => $tag_ids,
-					'numberposts'  => $i,
-					'post__not_in' => array( $id )
-				)
-			);
-			restore_current_blog();
+				$blog_id = get_object_vars($blog)['blog_id'];
+
+				switch_to_blog( $blog_id );
+
+				$related[$blog_id] = get_posts(
+					array(
+						'category__in' => wp_get_post_categories($id),
+						'numberposts'  => $i,
+						'post__not_in' => array( $id )
+					)
+				);
+				restore_current_blog();
+			}
 		}
-
 
 	} else {
 		$related = get_posts(
