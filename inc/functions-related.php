@@ -74,6 +74,19 @@ function blog_get_meta_og_data( $url ) {
 	return false;
 }
 
+function r_html( $id, $url, $img, $title, $type ) {
+
+	$html = '
+<div class="col-md-4 related-post parent-post-%s">
+	<a href="%s">
+	<div class="related-post-thumb" style="background-image: url(%s)"></div>
+	<p><small>%s</small></p>
+	<h4>%s</h4>
+	</a>
+</div>';
+
+	return sprintf( $html, $id, $url, $img, $type, $title );
+}
 
 
 function display_recommended_content( $content ) {
@@ -110,13 +123,11 @@ function display_recommended_content( $content ) {
 			}
 		}
 
-		$html = '<div class="col-md-4 related-post parent-post-'.$post->ID.'"><a href="%s"><div class="related-post-thumb" style="background-image: url(%s)"></div><h4>%s</h4></a><p><small>%s</small></p></div>';
-
 		foreach ( $content_links as $url ) {
 
 			$data = blog_get_meta_og_data( $url );
 
-			$recommended .= sprintf($html, $data['url'], $data['img'][0], $data['title'], $data['type'] );
+			$recommended .= r_html( $post->ID, $data['url'], $data['img'][0], $data['title'], $data['type'] );
 		}
 
 		$count = count($content_links);
@@ -145,7 +156,7 @@ function display_recommended_content( $content ) {
 						$relative['img'][0]         = ( $image ) ? $image : get_stylesheet_directory_uri().'/img/card-thumb.jpg';
 						$relative['type']           = ( strpos( $relative['url'], 'media.national' ) !== false ) ? 'Archives Media Player' : 'National Archives Blog' ;
 
-						$recommended .= sprintf($html, $relative['url'], $relative['img'][0], $relative['title'], $relative['type'] );
+						$recommended .= r_html( $post->ID, $data['url'], $data['img'][0], $data['title'], $data['type'] );
 					}
 				}
 			}
