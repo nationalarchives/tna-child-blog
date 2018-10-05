@@ -322,8 +322,18 @@ a.feature-img:focus {
     padding: 0.3em 0.6em;
     background: #fff;
     margin-left: 0.3em; }
+  .related-post-thumbs .related-posts-head p {
+    margin: 10px 0; }
+  .related-post-thumbs .related-post small {
+    color: #222; }
+  .related-post-thumbs .related-post small:hover {
+    text-decoration: none; }
+  .related-post-thumbs .related-post p {
+    margin: 0.2em 0; }
+  .related-post-thumbs li.related-post h4 {
+    margin: 0; }
   .related-post-thumbs .related-post h4 {
-    margin-bottom: 0; }
+    margin-bottom: 1em; }
   .related-post-thumbs .related-post-thumb {
     height: 125px;
     width: 100%;
