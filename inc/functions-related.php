@@ -93,7 +93,7 @@ function display_recommended_content( $content ) {
 
 	global $post;
 	$recommended = '';
-	// delete_transient( 'recommended-'.$post->ID );
+	delete_transient( 'recommended-'.$post->ID );
 	$transient_recommended = get_transient( 'recommended-'.$post->ID );
 
 	if ( !$transient_recommended ) {
@@ -156,7 +156,7 @@ function display_recommended_content( $content ) {
 						$relative['img'][0]         = ( $image ) ? $image : get_stylesheet_directory_uri().'/img/card-thumb.jpg';
 						$relative['type']           = ( strpos( $relative['url'], 'media.national' ) !== false ) ? 'Archives Media Player' : 'National Archives Blog' ;
 
-						$recommended .= r_html( $post->ID, $data['url'], $data['img'][0], $data['title'], $data['type'] );
+						$recommended .= r_html( $post->ID, $relative['url'], $relative['img'][0], $relative['title'], $relative['type'] );
 					}
 				}
 			}

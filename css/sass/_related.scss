@@ -6,8 +6,17 @@
     background: #fff;
     margin-left: 0.3em;
   }
+  .related-post small {
+    color: #222;
+  }
+  .related-post small:hover {
+    text-decoration: none;
+  }
+  .related-post p {
+    margin: 0.2em 0;
+  }
   .related-post h4 {
-    margin-bottom: 0;
+    margin-bottom: 1em;
   }
   .related-post-thumb {
     height: 125px;
