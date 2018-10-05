@@ -74,25 +74,43 @@ function blog_get_meta_og_data( $url ) {
 	return false;
 }
 
-function r_html( $id, $url, $img, $title, $type ) {
+function r_html( $id, $url, $img, $title, $type, $format='cards' ) {
 
-	$html = '
+	if ( $format == 'cards' ) {
+
+		$html = '
 <div class="col-md-4 related-post parent-post-%s">
-	<a href="%s">
-	<div class="related-post-thumb" style="background-image: url(%s)"></div>
+	<a href="%s"><div class="related-post-thumb" style="background-image: url(%s)"></div></a>
 	<p><small>%s</small></p>
-	<h4>%s</h4>
-	</a>
+	<a href="%s"><h4>%s</h4></a>
 </div>';
 
-	return sprintf( $html, $id, $url, $img, $type, $title );
+		return sprintf( $html, $id, $url, $img, $type, $url, $title );
+
+	} else {
+
+		$html = '
+<li class="related-post parent-post-%s">
+	<a href="%s"><h4>%s</h4></a>
+	<p><small>%s</small></p>
+</li>';
+
+		return sprintf( $html, $id, $url, $title, $type );
+
+	}
 }
 
 
-function display_recommended_content( $content ) {
+function display_related_content( $content, $format='cards' ) {
 
 	global $post;
-	$recommended = '';
+	if ( $format == 'cards' ) {
+		$recommended = '';
+		$recommended_end = '';
+	} else {
+		$recommended = '<ul class="documents">';
+		$recommended_end = '</ul>';
+	}
 	delete_transient( 'recommended-'.$post->ID );
 	$transient_recommended = get_transient( 'recommended-'.$post->ID );
 
@@ -127,7 +145,7 @@ function display_recommended_content( $content ) {
 
 			$data = blog_get_meta_og_data( $url );
 
-			$recommended .= r_html( $post->ID, $data['url'], $data['img'][0], $data['title'], $data['type'] );
+			$recommended .= r_html( $post->ID, $data['url'], $data['img'][0], $data['title'], $data['type'], $format );
 		}
 
 		$count = count($content_links);
@@ -156,7 +174,7 @@ function display_recommended_content( $content ) {
 						$relative['img'][0]         = ( $image ) ? $image : get_stylesheet_directory_uri().'/img/card-thumb.jpg';
 						$relative['type']           = ( strpos( $relative['url'], 'media.national' ) !== false ) ? 'Archives Media Player' : 'National Archives Blog' ;
 
-						$recommended .= r_html( $post->ID, $relative['url'], $relative['img'][0], $relative['title'], $relative['type'] );
+						$recommended .= r_html( $post->ID, $relative['url'], $relative['img'][0], $relative['title'], $relative['type'], $format );
 					}
 				}
 			}
@@ -164,7 +182,7 @@ function display_recommended_content( $content ) {
 
 		set_transient( 'recommended-'.$post->ID, $recommended, DAY_IN_SECONDS );
 
-		return $recommended;
+		return $recommended.$recommended_end;
 	}
 
 	return '<!-- transient_recommended -->' . $transient_recommended . '<!-- transient_recommended -->' ;
@@ -238,9 +256,15 @@ function related_posts() {
 
 	global $post;
 
-	$html = '<div class="related-posts related-post-thumbs clearfix">';
-	$html .= '<div class="col-md-12"><h4>Recommended for you <small>beta</small></h4></div>';
-	$html .= display_recommended_content( $post->post_content );
+	// Display posts as 'cards' or 'list'
+	$format = 'cards';
+
+	$html  = '<div class="related-posts related-post-thumbs clearfix">';
+	$html .= '<div class="related-posts-head clearfix">';
+	$html .= '<div class="col-md-6"><h4>Recommended for you <small>beta</small></h4></div>';
+	$html .= '<div class="col-md-6 text-right"><p><small>This is a new feature. <a>Let us know what you think</a>.</small></p></div>';
+	$html .= '</div>';
+	$html .= display_related_content( $post->post_content, $format );
 	$html .= '</div>';
 
 	return $html;
