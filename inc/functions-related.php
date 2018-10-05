@@ -141,19 +141,21 @@ function display_related_content( $content, $format='cards' ) {
 			}
 		}
 
+		$n = 0;
+		$data = array();
+
 		foreach ( $content_links as $url ) {
 
-			$data = blog_get_meta_og_data( $url );
+			$data[$n] = blog_get_meta_og_data( $url );
 
-			$recommended .= r_html( $post->ID, $data['url'], $data['img'][0], $data['title'], $data['type'], $format );
+			$n++;
 		}
 
 		$count = count($content_links);
 
 		if ( $count < 3 ) {
-			$n = 3 - $count;
-			$related = blog_get_related_posts( $n );
-			$relative = array();
+			$i = 3 - $count;
+			$related = blog_get_related_posts( $i );
 
 			if ( $related ) {
 				foreach ( $related as $key => $blog ) {
@@ -166,18 +168,22 @@ function display_related_content( $content, $format='cards' ) {
 							$thumb_id = get_post_thumbnail_id($item->ID);
 							$thumb_url_array = wp_get_attachment_image_src($thumb_id, 'medium', true);
 							$image = $thumb_url_array[0];
-							$relative['url'] = get_permalink($item->ID);
+							$data[$n]['url'] = get_permalink($item->ID);
 						}
 						restore_current_blog();
 
-						$relative['title']          = $item->post_title;
-						$relative['img'][0]         = ( $image ) ? $image : get_stylesheet_directory_uri().'/img/card-thumb.jpg';
-						$relative['type']           = ( strpos( $relative['url'], 'media.national' ) !== false ) ? 'Archives Media Player' : 'National Archives Blog' ;
+						$data[$n]['title']          = $item->post_title;
+						$data[$n]['img'][0]         = ( $image ) ? $image : get_stylesheet_directory_uri().'/img/card-thumb.jpg';
+						$data[$n]['type']           = ( strpos( $data[$n]['url'], 'media.national' ) !== false ) ? 'Archives Media Player' : 'National Archives Blog' ;
 
-						$recommended .= r_html( $post->ID, $relative['url'], $relative['img'][0], $relative['title'], $relative['type'], $format );
+						$n++;
 					}
 				}
 			}
+		}
+
+		for ($i = 0; $i < 3; $i++) {
+			$recommended .= r_html( $post->ID, $data[$i]['url'], $data[$i]['img'][0], $data[$i]['title'], $data[$i]['type'], $format );
 		}
 
 		set_transient( 'recommended-'.$post->ID, $recommended, DAY_IN_SECONDS );
