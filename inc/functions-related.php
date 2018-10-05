@@ -91,7 +91,7 @@ function r_html( $id, $url, $img, $title, $type, $format='cards' ) {
 
 		$html = '
 <li class="related-post parent-post-%s">
-	<a href="%s"><h4>%s</h4></a>
+	<a href="%s"><h5>%s</h5></a>
 	<p><small>%s</small></p>
 </li>';
 
@@ -257,7 +257,7 @@ function related_posts() {
 	global $post;
 
 	// Display posts as 'cards' or 'list'
-	$format = 'cards';
+	$format = 'list';
 
 	$html  = '<div class="related-posts related-post-thumbs clearfix">';
 	$html .= '<div class="related-posts-head clearfix">';

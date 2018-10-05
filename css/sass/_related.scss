@@ -1,4 +1,4 @@
-.related-post-thumbs {
+.related-posts {
   background: #eee;
   margin-bottom: 1.5em;
   h4 small {
@@ -12,14 +12,12 @@
   .related-post small {
     color: #222;
   }
-  .related-post small:hover {
-    text-decoration: none;
-  }
   .related-post p {
     margin: 0.2em 0;
   }
-  li.related-post h4 {
+  li.related-post h5 {
     margin: 0;
+    font-size: 1.02em;
   }
   .related-post h4 {
     margin-bottom: 1em;

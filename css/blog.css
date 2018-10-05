@@ -315,26 +315,25 @@ a.feature-img:focus {
   border-left: #ebab01 4px solid;
   padding: 0 0.5em; }
 
-.related-post-thumbs {
+.related-posts {
   background: #eee;
   margin-bottom: 1.5em; }
-  .related-post-thumbs h4 small {
+  .related-posts h4 small {
     padding: 0.3em 0.6em;
     background: #fff;
     margin-left: 0.3em; }
-  .related-post-thumbs .related-posts-head p {
+  .related-posts .related-posts-head p {
     margin: 10px 0; }
-  .related-post-thumbs .related-post small {
+  .related-posts .related-post small {
     color: #222; }
-  .related-post-thumbs .related-post small:hover {
-    text-decoration: none; }
-  .related-post-thumbs .related-post p {
+  .related-posts .related-post p {
     margin: 0.2em 0; }
-  .related-post-thumbs li.related-post h4 {
-    margin: 0; }
-  .related-post-thumbs .related-post h4 {
+  .related-posts li.related-post h5 {
+    margin: 0;
+    font-size: 1.02em; }
+  .related-posts .related-post h4 {
     margin-bottom: 1em; }
-  .related-post-thumbs .related-post-thumb {
+  .related-posts .related-post-thumb {
     height: 125px;
     width: 100%;
     background: #ddd center center;
