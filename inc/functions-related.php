@@ -276,7 +276,7 @@ function related_posts() {
 	$html  = '<div class="related-posts related-post-thumbs clearfix">';
 	$html .= '<div class="related-posts-head clearfix">';
 	$html .= '<div class="col-md-6"><h4>Recommended for you <small>beta</small></h4></div>';
-	$html .= '<div class="col-md-6 text-right"><p><small>This is a new feature. <a>Let us know what you think</a>.</small></p></div>';
+	$html .= '<div class="col-md-6 text-right"><p><small>This is a new feature. <a href="https://www.smartsurvey.co.uk/s/ET25U/" target="_blank">Let us know what you think</a>.</small></p></div>';
 	$html .= '</div>';
 	$html .= display_related_content( $post->post_content, $format );
 	$html .= '</div>';
