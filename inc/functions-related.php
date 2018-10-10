@@ -74,28 +74,36 @@ function blog_get_meta_og_data( $url ) {
 	return false;
 }
 
-function r_html( $id, $url, $img, $title, $type, $format='cards' ) {
+function r_gtm( $title, $id, $format, $i ) {
+	$html = 'data-gtm-name="%s" data-gtm-id="%s" data-gtm-position="%s" data-gtm-creative="%s"';
+
+	return sprintf( $html, $title, $id.'-'.$i, 'body-content-'.$i, 'blog-'.$format );
+}
+
+function r_html( $id, $url, $img, $title, $type, $format='cards', $i ) {
+
+	$gtm = r_gtm( $title, $id, $format, $i );
 
 	if ( $format == 'cards' ) {
 
 		$html = '
 <div class="col-md-4 related-post parent-post-%s">
-	<a href="%s"><div class="related-post-thumb" style="background-image: url(%s)"></div></a>
+	<a href="%s" %s><div class="related-post-thumb" style="background-image: url(%s)"></div></a>
 	<p><small>%s</small></p>
-	<a href="%s"><h4>%s</h4></a>
+	<a href="%s" %s><h4>%s</h4></a>
 </div>';
 
-		return sprintf( $html, $id, $url, $img, $type, $url, $title );
+		return sprintf( $html, $id, $url, $gtm, $img, $type, $url, $gtm, $title );
 
 	} else {
 
 		$html = '
 <li class="related-post parent-post-%s">
-	<a href="%s"><h5>%s</h5></a>
+	<a href="%s" %s><h5>%s</h5></a>
 	<p><small>%s</small></p>
 </li>';
 
-		return sprintf( $html, $id, $url, $title, $type );
+		return sprintf( $html, $id, $url, $gtm, $title, $type );
 
 	}
 }
@@ -111,7 +119,7 @@ function display_related_content( $content, $format='cards' ) {
 		$recommended = '<ul class="documents">';
 		$recommended_end = '</ul>';
 	}
-	// delete_transient( 'recommended-'.$post->ID );
+	delete_transient( 'recommended-'.$post->ID );
 	$transient_recommended = get_transient( 'recommended-'.$post->ID );
 
 	if ( !$transient_recommended ) {
@@ -183,7 +191,7 @@ function display_related_content( $content, $format='cards' ) {
 		}
 
 		for ($i = 0; $i < 3; $i++) {
-			$recommended .= r_html( $post->ID, $data[$i]['url'], $data[$i]['img'][0], $data[$i]['title'], $data[$i]['type'], $format );
+			$recommended .= r_html( $post->ID, $data[$i]['url'], $data[$i]['img'][0], $data[$i]['title'], $data[$i]['type'], $format, $i );
 		}
 
 		set_transient( 'recommended-'.$post->ID, $recommended, DAY_IN_SECONDS );
@@ -263,7 +271,7 @@ function related_posts() {
 	global $post;
 
 	// Display posts as 'cards' or 'list'
-	$format = 'cards';
+	$format = 'list';
 
 	$html  = '<div class="related-posts related-post-thumbs clearfix">';
 	$html .= '<div class="related-posts-head clearfix">';
