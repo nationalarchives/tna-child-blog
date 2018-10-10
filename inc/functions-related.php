@@ -119,7 +119,7 @@ function display_related_content( $content, $format='cards' ) {
 		$recommended = '<ul class="documents">';
 		$recommended_end = '</ul>';
 	}
-	delete_transient( 'recommended-'.$post->ID );
+	// delete_transient( 'recommended-'.$post->ID );
 	$transient_recommended = get_transient( 'recommended-'.$post->ID );
 
 	if ( !$transient_recommended ) {
