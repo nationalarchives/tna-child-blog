@@ -271,7 +271,7 @@ function related_posts() {
 	global $post;
 
 	// Display posts as 'cards' or 'list'
-	$format = 'list';
+	$format = 'cards';
 
 	$html  = '<div class="related-posts related-post-thumbs clearfix">';
 	$html .= '<div class="related-posts-head clearfix">';
