@@ -187,6 +187,10 @@ function display_related_content( $content, $format='cards' ) {
 						}
 						restore_current_blog();
 
+						if ( strpos( $image, 'default.png' ) !== false ) {
+							$image = get_stylesheet_directory_uri().'/img/card-thumb.jpg';
+						}
+
 						$data[$n]['title']          = $item->post_title;
 						$data[$n]['img']            = ( $image ) ? $image : get_stylesheet_directory_uri().'/img/card-thumb.jpg';
 						$data[$n]['type']           = ( strpos( $data[$n]['url'], 'media.national' ) !== false ) ? 'Archives Media Player' : 'National Archives Blog' ;
