@@ -126,7 +126,7 @@ function display_related_content( $content, $format='cards' ) {
 		$recommended = '<ul class="documents">';
 		$recommended_end = '</ul>';
 	}
-	delete_transient( 'recommended-'.$post->ID );
+	// delete_transient( 'recommended-'.$post->ID );
 	$transient_recommended = get_transient( 'recommended-'.$post->ID );
 
 	if ( !$transient_recommended ) {
@@ -200,8 +200,6 @@ function display_related_content( $content, $format='cards' ) {
 				}
 			}
 		}
-
-		var_dump($data);
 
 		for ($i = 0; $i < 3; $i++) {
 			$recommended .= r_html( $post->ID, $data[$i]['url'], $data[$i]['img'], $data[$i]['title'], $data[$i]['type'], $format, $i );
