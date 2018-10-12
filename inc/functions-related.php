@@ -40,7 +40,9 @@ function blog_get_meta_og_data( $url ) {
 			@$html->loadHTML( $html_content );
 			$data['title']          = '';
 			$data['description']    = '';
-			$data['img'][0]         = get_stylesheet_directory_uri().'/img/card-thumb.jpg';
+			$data['img']            = get_stylesheet_directory_uri().'/img/card-thumb.jpg';
+			$data['og-img'][0]      = '';
+			$data['twitter-img']    = '';
 			$data['url']            = $url;
 			$data['type']           = 'National Archives Blog';
 			$i                      = 0;
@@ -54,11 +56,11 @@ function blog_get_meta_og_data( $url ) {
 				if ( $meta->getAttribute( 'property' ) == 'og:description' ) {
 					$data['description'] = $meta->getAttribute( 'content' );
 				}
-				if ( $meta->getAttribute( 'property' ) == 'twitter:image' ) {
-					$data['img'][0] = $meta->getAttribute( 'content' );
+				if ( $meta->getAttribute( 'name' ) == 'twitter:image' ) {
+					$data['twitter-img'] = $meta->getAttribute( 'content' );
 				}
 				if ( $meta->getAttribute( 'property' ) == 'og:image' ) {
-					$data['img'][ $i ] = $meta->getAttribute( 'content' );
+					$data['og-img'][ $i ] = $meta->getAttribute( 'content' );
 					$i ++;
 				}
 			}
@@ -67,6 +69,11 @@ function blog_get_meta_og_data( $url ) {
 			}
 			if ( strpos( $url, 'media.nationalarchives' ) !== false ) {
 				$data['type'] = 'Archives Media Player';
+			}
+			if ( $data['og-img'][0] ) {
+				$data['img'] = $data['og-img'][0];
+			} elseif ( $data['twitter-img'] ) {
+				$data['img'] = $data['twitter-img'];
 			}
 			return $data;
 		}
@@ -119,7 +126,7 @@ function display_related_content( $content, $format='cards' ) {
 		$recommended = '<ul class="documents">';
 		$recommended_end = '</ul>';
 	}
-	// delete_transient( 'recommended-'.$post->ID );
+	delete_transient( 'recommended-'.$post->ID );
 	$transient_recommended = get_transient( 'recommended-'.$post->ID );
 
 	if ( !$transient_recommended ) {
@@ -181,7 +188,7 @@ function display_related_content( $content, $format='cards' ) {
 						restore_current_blog();
 
 						$data[$n]['title']          = $item->post_title;
-						$data[$n]['img'][0]         = ( $image ) ? $image : get_stylesheet_directory_uri().'/img/card-thumb.jpg';
+						$data[$n]['img']            = ( $image ) ? $image : get_stylesheet_directory_uri().'/img/card-thumb.jpg';
 						$data[$n]['type']           = ( strpos( $data[$n]['url'], 'media.national' ) !== false ) ? 'Archives Media Player' : 'National Archives Blog' ;
 
 						$n++;
@@ -190,8 +197,10 @@ function display_related_content( $content, $format='cards' ) {
 			}
 		}
 
+		var_dump($data);
+
 		for ($i = 0; $i < 3; $i++) {
-			$recommended .= r_html( $post->ID, $data[$i]['url'], $data[$i]['img'][0], $data[$i]['title'], $data[$i]['type'], $format, $i );
+			$recommended .= r_html( $post->ID, $data[$i]['url'], $data[$i]['img'], $data[$i]['title'], $data[$i]['type'], $format, $i );
 		}
 
 		set_transient( 'recommended-'.$post->ID, $recommended, DAY_IN_SECONDS );
