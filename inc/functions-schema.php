@@ -30,7 +30,7 @@ function blog_schema_json( $title, $image, $keywords, $words, $url, $date, $date
 	"dateModified": "%s",
 	"mainEntityOfPage": {
          "@type": "WebPage",
-         "@id": "http://www.nationalarchives.gov.uk/"
+         "@id": "http://www.nationalarchives.gov.uk"
       },
 	"description": "%s",
 	"publisher": {
