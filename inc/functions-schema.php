@@ -38,7 +38,7 @@ function blog_schema_json( $title, $image, $keywords, $words, $url, $date, $date
 	     "name": "The National Archives",
 	     "logo": {
             "@type": "ImageObject",
-            "url": "http://www.nationalarchives.gov.uk/wp-content/uploads/2015/06/logo-a-tna-600x315.jpg"
+            "url": "https://cdn.nationalarchives.gov.uk/logos/tna-logo-col-330x50.png"
         }
 	},
 	"author": {
