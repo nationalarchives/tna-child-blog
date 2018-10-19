@@ -115,30 +115,17 @@ function r_html( $id, $url, $img, $title, $type, $format='cards', $i ) {
 	}
 }
 
+function get_links_from_content( $content ) {
 
-function display_related_content( $content, $format='cards' ) {
+	$content_links = array();
+	$dom           = new domDocument;
+	@$dom->loadHTML( $content );
+	$dom->preserveWhiteSpace = false;
+	$links                   = $dom->getElementsByTagName( 'a' );
 
-	global $post;
-	if ( $format == 'cards' ) {
-		$recommended = '';
-		$recommended_end = '';
-	} else {
-		$recommended = '<ul class="documents">';
-		$recommended_end = '</ul>';
-	}
-	// delete_transient( 'recommended-'.$post->ID );
-	$transient_recommended = get_transient( 'recommended-'.$post->ID );
-
-	if ( !$transient_recommended ) {
-
-		$content_links = array();
-		$dom = new domDocument;
-		@$dom->loadHTML($content);
-		$dom->preserveWhiteSpace = false;
-		$links = $dom->getElementsByTagName('a');
-		foreach ($links as $link_obj)
-		{
-			$link = $link_obj->getAttribute('href');
+	if ( $links ) {
+		foreach ( $links as $link_obj ) {
+			$link = $link_obj->getAttribute( 'href' );
 			if ( strpos( $link, '.jpg' ) == false ) {
 				if (
 					strpos( $link, 'research-guides' ) !== false ||
@@ -146,71 +133,105 @@ function display_related_content( $content, $format='cards' ) {
 					strpos( $link, 'blog.nationalarchives' ) !== false
 				) {
 					if (
-						(strpos( $link, 'research-guides' ) !== false && !preg_grep( '/research-guides/', $content_links)) ||
-						(strpos( $link, 'media.nationalarchives' ) !== false && !preg_grep( '/media.nationalarchives/', $content_links)) ||
-						(strpos( $link, 'blog.nationalarchives' ) !== false && !preg_grep( '/blog.nationalarchives/', $content_links))
+						( strpos( $link, 'research-guides' ) !== false && ! preg_grep( '/research-guides/',
+								$content_links ) ) ||
+						( strpos( $link,
+								'media.nationalarchives' ) !== false && ! preg_grep( '/media.nationalarchives/',
+								$content_links ) ) ||
+						( strpos( $link,
+								'blog.nationalarchives' ) !== false && ! preg_grep( '/blog.nationalarchives/',
+								$content_links ) )
 					) {
 						array_push( $content_links, $link );
 					}
 				}
 			}
 		}
+		return $content_links;
+	} else {
+		return false;
+	}
+}
 
-		$n = 0;
-		$data = array();
 
-		foreach ( $content_links as $url ) {
+function display_related_content( $content, $format='cards' ) {
 
-			$data[$n] = blog_get_meta_og_data( $url );
+	if ( ! is_admin() ) {
 
-			$n++;
-		}
+		global $post;
 
-		$count = count($content_links);
+		delete_transient( 'recommended-'.$post->ID );
+		$transient_recommended = get_transient( 'recommended-' . $post->ID );
 
-		if ( $count < 3 ) {
-			$i = 3 - $count;
-			$related = blog_get_related_posts( $i );
+		if ( ! $transient_recommended ) {
 
-			if ( $related ) {
-				foreach ( $related as $key => $blog ) {
-					foreach ( $blog as $item ) {
+			$content_links = get_links_from_content( $content );
+			$n    = 0;
+			$data = array();
+			$count = count( $content_links );
+			$recommended     = '';
 
-						$blog_id = $key;
-						switch_to_blog( $blog_id );
-						$image = '';
-						if ( has_post_thumbnail( $item->ID ) ) {
-							$thumb_id = get_post_thumbnail_id($item->ID);
-							$thumb_url_array = wp_get_attachment_image_src($thumb_id, 'medium', true);
-							$image = $thumb_url_array[0];
-							$data[$n]['url'] = get_permalink($item->ID);
-						}
-						restore_current_blog();
+			if ( $count > 0 ) {
+				foreach ( $content_links as $url ) {
 
-						if ( strpos( $image, 'default.png' ) !== false ) {
-							$image = get_stylesheet_directory_uri().'/img/card-thumb.jpg';
-						}
+					$data[ $n ] = blog_get_meta_og_data( $url );
 
-						$data[$n]['title']          = $item->post_title;
-						$data[$n]['img']            = ( $image ) ? $image : get_stylesheet_directory_uri().'/img/card-thumb.jpg';
-						$data[$n]['type']           = ( strpos( $data[$n]['url'], 'media.national' ) !== false ) ? 'Archives Media Player' : 'National Archives Blog' ;
-
-						$n++;
-					}
+					$n ++;
 				}
 			}
+
+			if ( $count < 3 ) {
+				$i       = 3 - $count;
+				$related = blog_get_related_posts( $i );
+
+				if ( $related ) {
+					foreach ( $related as $key => $blog ) {
+						foreach ( $blog as $item ) {
+
+							$blog_id = $key;
+							switch_to_blog( $blog_id );
+							$image = '';
+							if ( has_post_thumbnail( $item->ID ) ) {
+								$thumb_id          = get_post_thumbnail_id( $item->ID );
+								$thumb_url_array   = wp_get_attachment_image_src( $thumb_id, 'medium', true );
+								$image             = $thumb_url_array[0];
+								$data[ $n ]['url'] = get_permalink( $item->ID );
+							}
+							restore_current_blog();
+
+							if ( strpos( $image, 'default.png' ) !== false ) {
+								$image = get_stylesheet_directory_uri() . '/img/card-thumb.jpg';
+							}
+
+							$data[ $n ]['title'] = $item->post_title;
+							$data[ $n ]['img']   = ( $image ) ? $image : get_stylesheet_directory_uri() . '/img/card-thumb.jpg';
+							$data[ $n ]['type']  = ( strpos( $data[ $n ]['url'],
+									'media.national' ) !== false ) ? 'Archives Media Player' : 'National Archives Blog';
+
+							$n ++;
+						}
+					}
+				} else {
+					$data = false;
+				}
+			}
+
+			if ( $data ) {
+				for ( $i = 0; $i < 3; $i ++ ) {
+					$recommended .= r_html( $post->ID, $data[ $i ]['url'], $data[ $i ]['img'], $data[ $i ]['title'],
+						$data[ $i ]['type'], $format, $i );
+				}
+			} else {
+				$recommended = false;
+			}
+
+			set_transient( 'recommended-' . $post->ID, $recommended, DAY_IN_SECONDS );
+
+			return $recommended;
 		}
 
-		for ($i = 0; $i < 3; $i++) {
-			$recommended .= r_html( $post->ID, $data[$i]['url'], $data[$i]['img'], $data[$i]['title'], $data[$i]['type'], $format, $i );
-		}
-
-		set_transient( 'recommended-'.$post->ID, $recommended, DAY_IN_SECONDS );
-
-		return $recommended.$recommended_end;
+		return '<!-- transient_recommended -->' . $transient_recommended . '<!-- transient_recommended -->';
 	}
-
-	return '<!-- transient_recommended -->' . $transient_recommended . '<!-- transient_recommended -->' ;
 }
 
 function blog_get_related_posts( $i = 1 ) {
@@ -284,15 +305,30 @@ function related_posts() {
 	// Display posts as 'cards' or 'list'
 	$format = 'cards';
 
-	$html  = '<div class="related-posts related-post-thumbs clearfix">';
-	$html .= '<div class="related-posts-head clearfix">';
-	$html .= '<div class="col-md-6"><h4>Recommended for you <small>beta</small></h4></div>';
-	$html .= '<div class="col-md-6 text-right"><p><small>This is a new feature. <a href="https://www.smartsurvey.co.uk/s/ET25U/" target="_blank">Let us know what you think</a>.</small></p></div>';
-	$html .= '</div>';
-	$html .= display_related_content( $post->post_content, $format );
-	$html .= '</div>';
+	$content = display_related_content( $post->post_content, $format );
 
-	return $html;
+	if ( $content ) {
+		if ( $format == 'cards' ) {
+			$start  = '';
+			$end    = '';
+		} else {
+			$start   = '<ul class="documents">';
+			$end     = '</ul>';
+		}
+
+		$html  = '<div class="related-posts related-post-thumbs clearfix">';
+		$html .= '<div class="related-posts-head clearfix">';
+		$html .= '<div class="col-md-6"><h4>Recommended for you <small>beta</small></h4></div>';
+		$html .= '<div class="col-md-6 text-right"><p><small>This is a new feature. <a href="https://www.smartsurvey.co.uk/s/ET25U/" target="_blank">Let us know what you think</a>.</small></p></div>';
+		$html .= '</div>';
+		$html .= $start;
+		$html .= $content;
+		$html .= $end;
+		$html .= '</div>';
+
+		return $html;
+	}
+	return '<!-- no related posts to be displayed -->';
 }
 
 add_shortcode( 'related-posts', 'related_posts' );
