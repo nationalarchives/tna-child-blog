@@ -95,9 +95,9 @@ function r_html( $id, $url, $img, $title, $type, $format='cards', $i ) {
 
 		$html = '
 <div class="col-md-4 related-post parent-post-%s">
-	<a href="%s" %s><div class="related-post-thumb" style="background-image: url(%s)"></div></a>
+	<a href="%s" %s class="homepage-card"><div class="related-post-thumb" style="background-image: url(%s)"></div></a>
 	<p><small>%s</small></p>
-	<a href="%s" %s><h4>%s</h4></a>
+	<a href="%s" %s class="homepage-card"><h4>%s</h4></a>
 </div>';
 
 		return sprintf( $html, $id, $url, $gtm, $img, $type, $url, $gtm, $title );
@@ -106,7 +106,7 @@ function r_html( $id, $url, $img, $title, $type, $format='cards', $i ) {
 
 		$html = '
 <li class="related-post parent-post-%s">
-	<a href="%s" %s><h5>%s</h5></a>
+	<a href="%s" %s class="homepage-card"><h5>%s</h5></a>
 	<p><small>%s</small></p>
 </li>';
 
@@ -154,16 +154,16 @@ function get_links_from_content( $content ) {
 }
 
 
-function display_related_content( $content, $format='cards' ) {
+function display_related_content( $content, $format ) {
 
 	if ( ! is_admin() ) {
 
 		global $post;
 
-		delete_transient( 'recommended-'.$post->ID );
-		$transient_recommended = get_transient( 'recommended-' . $post->ID );
+		// delete_transient( 'related-'.$format.'-'.$post->ID );
+		$transient_related = get_transient( 'related-'.$format.'-'.$post->ID );
 
-		if ( ! $transient_recommended ) {
+		if ( ! $transient_related ) {
 
 			$content_links = get_links_from_content( $content );
 			$n    = 0;
@@ -225,12 +225,12 @@ function display_related_content( $content, $format='cards' ) {
 				$recommended = false;
 			}
 
-			set_transient( 'recommended-' . $post->ID, $recommended, DAY_IN_SECONDS );
+			set_transient( 'related-'.$format.'-'.$post->ID, $recommended, DAY_IN_SECONDS );
 
 			return $recommended;
 		}
 
-		return '<!-- transient_recommended -->' . $transient_recommended . '<!-- transient_recommended -->';
+		return '<!-- transient_related -->' . $transient_related . '<!-- transient_related -->';
 	}
 }
 
@@ -304,6 +304,11 @@ function related_posts() {
 
 	// Display posts as 'cards' or 'list'
 	$format = 'cards';
+	if (isset($_GET['ab'])) {
+		if ( ($_GET['ab']) == 'list' ) {
+			$format = 'list';
+		}
+	}
 
 	$content = display_related_content( $post->post_content, $format );
 
