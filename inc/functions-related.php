@@ -153,6 +153,59 @@ function get_links_from_content( $content ) {
 	}
 }
 
+function get_related_data( $content ) {
+	$content_links = get_links_from_content( $content );
+	$n    = 0;
+	$data = array();
+	$count = count( $content_links );
+
+	if ( $count > 0 ) {
+		foreach ( $content_links as $url ) {
+
+			$data[ $n ] = blog_get_meta_og_data( $url );
+
+			$n ++;
+		}
+	}
+
+	if ( $count < 3 ) {
+		$i       = 3 - $count;
+		$related = blog_get_related_posts( $i );
+
+		if ( $related ) {
+			foreach ( $related as $key => $blog ) {
+				foreach ( $blog as $item ) {
+
+					$blog_id = $key;
+					switch_to_blog( $blog_id );
+					$image = '';
+					if ( has_post_thumbnail( $item->ID ) ) {
+						$thumb_id          = get_post_thumbnail_id( $item->ID );
+						$thumb_url_array   = wp_get_attachment_image_src( $thumb_id, 'medium', true );
+						$image             = $thumb_url_array[0];
+						$data[ $n ]['url'] = get_permalink( $item->ID );
+					}
+					restore_current_blog();
+
+					if ( strpos( $image, 'default.png' ) !== false ) {
+						$image = get_stylesheet_directory_uri() . '/img/card-thumb.jpg';
+					}
+
+					$data[ $n ]['title'] = $item->post_title;
+					$data[ $n ]['img']   = ( $image ) ? $image : get_stylesheet_directory_uri() . '/img/card-thumb.jpg';
+					$data[ $n ]['type']  = ( strpos( $data[ $n ]['url'],
+							'media.national' ) !== false ) ? 'Archives Media Player' : 'National Archives Blog';
+
+					$n ++;
+				}
+			}
+			return $data;
+		} else {
+			return false;
+		}
+	}
+}
+
 
 function display_related_content( $content, $format ) {
 
@@ -165,69 +218,21 @@ function display_related_content( $content, $format ) {
 
 		if ( ! $transient_related ) {
 
-			$content_links = get_links_from_content( $content );
-			$n    = 0;
-			$data = array();
-			$count = count( $content_links );
-			$recommended     = '';
-
-			if ( $count > 0 ) {
-				foreach ( $content_links as $url ) {
-
-					$data[ $n ] = blog_get_meta_og_data( $url );
-
-					$n ++;
-				}
-			}
-
-			if ( $count < 3 ) {
-				$i       = 3 - $count;
-				$related = blog_get_related_posts( $i );
-
-				if ( $related ) {
-					foreach ( $related as $key => $blog ) {
-						foreach ( $blog as $item ) {
-
-							$blog_id = $key;
-							switch_to_blog( $blog_id );
-							$image = '';
-							if ( has_post_thumbnail( $item->ID ) ) {
-								$thumb_id          = get_post_thumbnail_id( $item->ID );
-								$thumb_url_array   = wp_get_attachment_image_src( $thumb_id, 'medium', true );
-								$image             = $thumb_url_array[0];
-								$data[ $n ]['url'] = get_permalink( $item->ID );
-							}
-							restore_current_blog();
-
-							if ( strpos( $image, 'default.png' ) !== false ) {
-								$image = get_stylesheet_directory_uri() . '/img/card-thumb.jpg';
-							}
-
-							$data[ $n ]['title'] = $item->post_title;
-							$data[ $n ]['img']   = ( $image ) ? $image : get_stylesheet_directory_uri() . '/img/card-thumb.jpg';
-							$data[ $n ]['type']  = ( strpos( $data[ $n ]['url'],
-									'media.national' ) !== false ) ? 'Archives Media Player' : 'National Archives Blog';
-
-							$n ++;
-						}
-					}
-				} else {
-					$data = false;
-				}
-			}
+			$data = get_related_data( $content );
 
 			if ( $data ) {
+				$related_html     = '';
 				for ( $i = 0; $i < 3; $i ++ ) {
-					$recommended .= r_html( $post->ID, $data[ $i ]['url'], $data[ $i ]['img'], $data[ $i ]['title'],
+					$related_html .= r_html( $post->ID, $data[ $i ]['url'], $data[ $i ]['img'], $data[ $i ]['title'],
 						$data[ $i ]['type'], $format, $i );
 				}
 			} else {
-				$recommended = false;
+				$related_html = false;
 			}
 
-			set_transient( 'related-'.$format.'-'.$post->ID, $recommended, DAY_IN_SECONDS );
+			set_transient( 'related-'.$format.'-'.$post->ID, $related_html, DAY_IN_SECONDS );
 
-			return $recommended;
+			return $related_html;
 		}
 
 		return '<!-- transient_related -->' . $transient_related . '<!-- transient_related -->';
