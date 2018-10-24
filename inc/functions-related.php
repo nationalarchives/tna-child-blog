@@ -235,7 +235,7 @@ function display_related_content( $content, $format ) {
 			return $related_html;
 		}
 
-		return '<!-- transient_related -->' . $transient_related . '<!-- transient_related -->';
+		return '<!-- transient related-'.$format.'-'.$post->ID.'-->' . $transient_related . '<!-- /transient -->';
 	}
 }
 
