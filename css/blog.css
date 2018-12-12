@@ -328,11 +328,11 @@ a.feature-img:focus {
     color: #222; }
   .related-posts .related-post p {
     margin: 0.2em 0; }
+  .related-posts .related-post h4 {
+    margin-bottom: 1em; }
   .related-posts li.related-post h5 {
     margin: 0;
     font-size: 1.02em; }
-  .related-posts .related-post h4 {
-    margin-bottom: 1em; }
   .related-posts .related-post-thumb {
     height: 125px;
     width: 100%;

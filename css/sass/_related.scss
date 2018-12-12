@@ -6,21 +6,27 @@
     background: #fff;
     margin-left: 0.3em;
   }
-  .related-posts-head p {
-    margin: 10px 0;
+  .related-posts-head {
+    p {
+      margin: 10px 0;
+    }
   }
-  .related-post small {
-    color: #222;
+  .related-post {
+    small {
+      color: #222;
+    }
+    p {
+      margin: 0.2em 0;
+    }
+    h4 {
+      margin-bottom: 1em;
+    }
   }
-  .related-post p {
-    margin: 0.2em 0;
-  }
-  li.related-post h5 {
-    margin: 0;
-    font-size: 1.02em;
-  }
-  .related-post h4 {
-    margin-bottom: 1em;
+  li.related-post {
+    h5 {
+      margin: 0;
+      font-size: 1.02em;
+    }
   }
   .related-post-thumb {
     height: 125px;
