@@ -3,6 +3,8 @@
 require_once 'inc/functions-amp.php';
 require_once 'inc/functions-blog.php';
 require_once 'inc/functions-admin.php';
+require_once 'inc/functions-related.php';
+require_once 'inc/functions-schema.php';
 
 add_action( 'wp_enqueue_scripts', 'dequeue_parent_style', 9999 );
 add_action( 'wp_head', 'dequeue_parent_style', 9999 );
@@ -12,6 +14,7 @@ add_action( 'wp_enqueue_scripts', 'tna_amp_scripts' );
 add_action( 'admin_menu', 'tna_blog_menu' );
 add_action( 'widgets_init', 'blog_sidebar_widgets' );
 add_action( 'rss2_item', 'add_featured_image_to_rss' );
+add_action( 'wp_head', 'tna_blog_schema' );
 
 add_filter( 'widget_categories_args', 'exclude_widget_categories' );
 add_filter( 'body_class','amp_body_classes' );
@@ -27,3 +30,5 @@ function disable_comment_url($fields) {
 	return $fields;
 }
 add_filter('comment_form_default_fields','disable_comment_url');
+
+
