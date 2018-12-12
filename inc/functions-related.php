@@ -117,7 +117,7 @@ function r_html( $id, $url, $img, $title, $type, $format='cards', $i ) {
 function get_links_from_content( $content ) {
 
 	$content_links = array();
-	$dom           = new domDocument;
+	$dom           = new DOMDocument;
 	@$dom->loadHTML( $content );
 	$dom->preserveWhiteSpace = false;
 	$links                   = $dom->getElementsByTagName( 'a' );
