@@ -82,9 +82,9 @@ function blog_get_meta_og_data( $url ) {
 }
 
 function r_gtm( $title, $id, $format, $i ) {
-	$html = 'data-gtm-name="%s" data-gtm-id="%s" data-gtm-position="%s" data-gtm-creative="%s"';
+	$gtm_atts = 'data-gtm-name="%s" data-gtm-id="%s" data-gtm-position="%s" data-gtm-creative="%s"';
 
-	return sprintf( $html, $title, $id.'-'.$i, 'body-content-'.$i, 'blog-'.$format );
+	return sprintf( $gtm_atts, $title, $id.'-'.$i, 'body-content-'.$i, 'blog-'.$format );
 }
 
 function r_html( $id, $url, $img, $title, $type, $format='cards', $i ) {
