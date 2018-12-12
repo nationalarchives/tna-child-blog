@@ -34,10 +34,9 @@ function blog_get_html_content( $url ) {
 function blog_get_meta_og_data( $url ) {
 	if ( $url ) {
 		$html_content = blog_get_html_content( $url );
-		if ( $html_content ) {
-			$data = array();
-			$html = new DOMDocument();
-			@$html->loadHTML( $html_content );
+		$data = array();
+		$html = new DOMDocument();
+		if ( @$html->loadHTML( $html_content ) ) {
 			$data['title']          = '';
 			$data['description']    = '';
 			$data['img']            = get_stylesheet_directory_uri().'/img/card-thumb.jpg';
