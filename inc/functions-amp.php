@@ -58,5 +58,7 @@ function change_yoast_amp_urls( $url ) {
 
 	if ( is_amp() ) {
 		return str_replace( 'blog.nationalarchives', 'media.nationalarchives', $url );
+	} else {
+		return $url;
 	}
 }
