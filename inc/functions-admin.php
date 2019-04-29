@@ -65,7 +65,7 @@ function blog_admin_page() {
                 </tr>
                 <tr valign="top">
                     <th scope="row"><label for="blog_comments_message">Comments message (when disabled)</label></th>
-                    <td><input type="text" name="blog_comments_message" value="<?php echo esc_attr( get_option('blog_comments_message') ); ?>" /></td>
+                    <td><textarea name="blog_comments_message"><?php echo esc_attr( get_option('blog_comments_message') ); ?></textarea></td>
                 </tr>
             </table>
             <?php submit_button(); ?>
