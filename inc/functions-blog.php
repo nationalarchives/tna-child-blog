@@ -186,3 +186,10 @@ function srcset_urls_relative($sources) {
 	}
 	return $sources;
 }
+
+function blog_comments_status( $open, $post_id ) {
+    if ( get_option('blog_comments') == 'disabled' ) {
+        $open = false;
+    }
+    return $open;
+}
