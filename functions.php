@@ -22,6 +22,7 @@ add_filter( 'the_content', 'blog_content_urls_relative' );
 add_filter( 'wp_calculate_image_srcset', 'srcset_urls_relative' );
 add_filter( 'wpseo_opengraph_image', 'change_yoast_amp_urls' );
 add_filter( 'wpseo_canonical', 'change_yoast_amp_urls' );
+add_filter( 'comments_open', 'blog_comments_status', 10, 2 );
 
 // Change date format - WP dashboard -> Settings -> General -> Date Format -> Custom = 'D j M Y'
 
