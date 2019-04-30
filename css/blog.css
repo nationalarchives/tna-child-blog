@@ -314,3 +314,27 @@ a.feature-img:focus {
   font-size: .9em;
   border-left: #ebab01 4px solid;
   padding: 0 0.5em; }
+
+.related-posts {
+  background: #eee;
+  margin-bottom: 1.5em; }
+  .related-posts h4 small {
+    padding: 0.3em 0.6em;
+    background: #fff;
+    margin-left: 0.3em; }
+  .related-posts .related-posts-head p {
+    margin: 10px 0; }
+  .related-posts .related-post small {
+    color: #222; }
+  .related-posts .related-post p {
+    margin: 0.2em 0; }
+  .related-posts .related-post h4 {
+    margin-bottom: 1em; }
+  .related-posts li.related-post h5 {
+    margin: 0;
+    font-size: 1.02em; }
+  .related-posts .related-post-thumb {
+    height: 125px;
+    width: 100%;
+    background: #ddd center center;
+    background-size: cover; }

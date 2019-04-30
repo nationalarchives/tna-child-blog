@@ -65,7 +65,12 @@ if (post_password_required()) {
     // If comments are closed and there are comments, let's leave a little note, shall we?
     if (!comments_open() && get_comments_number() && post_type_supports(get_post_type(), 'comments')) :
         ?>
-        <p class="no-comments"><?php _e('Comments are closed.'); ?></p>
+        <div class="comments-closed clearfix">
+            <div class="emphasis-alert">
+                <h2 class="no-comments"><?php _e('Comments are temporarily closed'); ?></h2>
+                <p><?php echo get_option('blog_comments_message'); ?></p>
+            </div>
+        </div>
     <?php endif; ?>
 
     <?php
