@@ -73,34 +73,20 @@ ul.loop-results {
 .single #blogsocial {
   margin: 0 20px; }
 
-.blog-header h1 a {
-  color: #fff; }
 .blog-header form {
   color: #444;
   margin: 0; }
 .blog-header select {
-  width: 100%;
-  margin-bottom: 0.3em; }
+  width: 100%; }
 .blog-header .follow-us a img {
   margin: 0;
   width: 40px; }
-.blog-header article {
-  height: 200px;
-  background-position: center center;
-  background-size: cover;
-  background-color: #fff; }
-  .blog-header article .entry-header {
-    background: none; }
-  .blog-header article .entry-content {
-    overflow: hidden;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    background: #000;
-    background: rgba(0, 0, 0, 0.66);
-    color: #ddd;
-    width: 100%;
-    padding: 20px; }
+.blog-header .entry-header {
+  background: none; }
+.blog-header .entry-content {
+  background: #dde5d5;
+  width: 100%;
+  padding: 1em; }
 .blog-header .search-wrapper {
   position: relative;
   display: block; }

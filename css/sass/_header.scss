@@ -1,38 +1,22 @@
 .blog-header {
-  h1 a {
-    color: #fff;
-  }
   form {
     color: #444;
     margin: 0;
   }
   select {
     width: 100%;
-    margin-bottom: 0.3em;
   }
   .follow-us a img {
     margin: 0;
     width: 40px;
   }
-  article {
-    height: 200px;
-    background-position: center center;
-    background-size: cover;
-    background-color: #fff;
-    .entry-header {
-      background: none;
-    }
-    .entry-content {
-      overflow: hidden;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      background: #000;
-      background: rgba(0,0,0,.66);
-      color: #ddd;
-      width: 100%;
-      padding: 20px;
-    }
+  .entry-header {
+    background: none;
+  }
+  .entry-content {
+    background: #dde5d5;
+    width: 100%;
+    padding: 1em;
   }
   .search-wrapper {
     position: relative;
