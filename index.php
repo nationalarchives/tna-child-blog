@@ -5,10 +5,10 @@
 	<div id="primary" class="content-area index-page">
 		<div class="container">
 			<div class="row">
-				<main id="main" class="col-xs-12 col-sm-8 col-md-8" role="main">
+				<main id="main" class="col-md-12" role="main">
 					<article>
 						<div class="entry-header">
-							<h2>
+							<h2 class="separator-heading">
 								<?php _e( 'All posts', 'tna-base' ); ?>
 							</h2>
 						</div>
@@ -17,7 +17,6 @@
 						</div>
 					</article>
 				</main>
-				<?php get_sidebar() ?>
 			</div>
 		</div>
 	</div>

@@ -1,46 +1,23 @@
 <?php if ( have_posts() ) { ?>
 
-	<ul class="loop-results">
-		<?php while ( have_posts() ) { the_post(); ?>
-			<li id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-				<div class="row">
-					<div class="col-xs-3">
-						<?php
-						$image = get_feature_image_url( get_the_ID(), 'thumbnail', true );
-						if (in_category('video')) {
-							$icon = '<div class="icon-square icon-video icon-size-26"></div>';
-						} elseif (in_category('audio')) {
-							$icon = '<div class="icon-square icon-audio icon-size-26"></div>';
-						} else {
-							$icon = '';
-						}
-						?>
-						<a href="<?php echo get_permalink(); ?>" class="feature-img clearfix" title="<?php the_title(); ?>">
-							<div class="feature-img-thumb" <?php echo $image; ?>>
-								<?php echo $icon; ?>
-							</div>
-						</a>
-					</div>
-					<div class="col-xs-9">
-						<h3>
-							<a href="<?php echo get_permalink(); ?>">
-								<?php the_title();  ?>
-							</a>
-						</h3>
-						<div class="entry-meta">
-							<p>
-								<?php the_entry_meta(); ?>
-							</p>
-						</div>
-						<p>
-							<?php echo trim(substr(get_the_excerpt(), 0,160)).'...'; ?>
-							<a href="<?php the_permalink(); ?>">read&nbsp;more</a>
-						</p>
-					</div>
-				</div>
-			</li>
-		<?php } ?>
-	</ul>
+	<div class="loop-results">
+        <div class="cards">
+            <div class="row">
+            <?php while ( have_posts() ) {
+                the_post();
+                $image = get_feature_image_url( get_the_ID(), 'medium', true );
+                $title   = get_the_title();
+                $url     = get_permalink();
+                $excerpt = trim(substr(get_the_excerpt(), 0,160)).'...';
+                $label   = 'Blog';
+                $date    = '';
+                $id      = get_the_ID();
+
+                echo display_card( $id, $url, $title, $excerpt, $image, $date, $label );
+            } ?>
+            </div>
+        </div>
+	</div>
 
 	<?php
 	global $wp_query;
@@ -49,7 +26,10 @@
 		'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
 		'format' => '?paged=%#%',
 		'current' => max( 1, get_query_var('paged') ),
-		'total' => $wp_query->max_num_pages
+		'total' => $wp_query->max_num_pages,
+        'type' => 'list',
+        'prev_text' => __('«'),
+        'next_text' => __('»')
 	) );
 
 } else {

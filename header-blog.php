@@ -8,7 +8,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12" role="banner">
-				<article class="banner feature-img feature-img-bg" style="background-image: url(<?php echo esc_attr( https_this( get_option('blog_header_img') ) ); ?>);">
+				<article class="banner>
 					<div class="entry-header">
 						<h1>
 							<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
@@ -20,10 +20,6 @@
 							</a>
 						</h1>
 					</div>
-					<?php get_blog_image_caption(
-						esc_attr( get_option('blog_img_caption') ),
-						esc_url( get_option('blog_img_url') )
-					); ?>
 					<div class="entry-content">
 						<div class="hidden-xs col-sm-2 col-md-2">
 							<div class="follow-us">

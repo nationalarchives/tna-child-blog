@@ -30,6 +30,9 @@ ul.loop-results {
 .entry-meta span {
   color: #bbb; }
 
+.separator-heading {
+  margin-bottom: 24px; }
+
 #comments {
   padding: 0 20px; }
   #comments cite {
