@@ -1,5 +1,5 @@
-#comments {
-  padding: 0 20px;
+.comments-area {
+  margin-bottom: 24px;
   cite {
     font-style: normal;
   }
@@ -11,7 +11,6 @@
 }
 
 #respond {
-  padding: 2em 0;
   input[type="submit"] {
     float: right;
     border-radius: 0;

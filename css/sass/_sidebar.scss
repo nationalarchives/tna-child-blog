@@ -17,10 +17,15 @@
 }
 
 .sidebar-widget {
-  margin-bottom: 1em;
-}
+  margin-bottom: 1.6em;
 
-.sidebar-content {
-  background-color: #fff;
-  padding: 20px 15px 0 20px;
+  h2 {
+    border-top: 2px solid #26262a;
+    padding-top: 10px;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
 }

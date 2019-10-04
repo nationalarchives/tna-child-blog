@@ -48,24 +48,22 @@ ul.page-numbers li span {
 .separator-heading {
   margin-bottom: 24px; }
 
-#comments {
-  padding: 0 20px; }
-  #comments cite {
+.comments-area {
+  margin-bottom: 24px; }
+  .comments-area cite {
     font-style: normal; }
-  #comments .commentlist li div.comment-body .reply .comment-reply-link:focus {
+  .comments-area .commentlist li div.comment-body .reply .comment-reply-link:focus {
     color: #fff !important;
     background-color: #111;
     background-color: rgba(0, 0, 0, 0.75); }
 
-#respond {
-  padding: 2em 0; }
-  #respond input[type="submit"] {
-    float: right;
-    border-radius: 0; }
-  #respond .form-submit:after {
-    clear: both;
-    display: table;
-    content: " "; }
+#respond input[type="submit"] {
+  float: right;
+  border-radius: 0; }
+#respond .form-submit:after {
+  clear: both;
+  display: table;
+  content: " "; }
 
 .single .blog article .entry-header {
   padding: 0;
@@ -82,11 +80,6 @@ ul.page-numbers li span {
   height: 10px;
   margin: 0;
   background: none; }
-.single .blog article .entry-meta {
-  margin: 0 20px;
-  border-bottom: 1px dotted #ccc; }
-.single #blogsocial {
-  margin: 0 20px; }
 
 .blog-header {
   background: #dde5d5; }
@@ -203,11 +196,14 @@ a.feature-img:focus {
     text-decoration: underline; }
 
 .sidebar-widget {
-  margin-bottom: 1em; }
-
-.sidebar-content {
-  background-color: #fff;
-  padding: 20px 15px 0 20px; }
+  margin-bottom: 1.6em; }
+  .sidebar-widget h2 {
+    border-top: 2px solid #26262a;
+    padding-top: 10px; }
+  .sidebar-widget ul {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
 
 .entry-video .video-container {
   position: relative;
