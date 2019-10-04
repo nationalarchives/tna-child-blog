@@ -6,6 +6,10 @@ a.button:focus, input[type=submit]:focus {
   color: #fff !important;
 }
 
+.entry-header h1 {
+  margin-bottom: 24px;
+}
+
 .emphasis-alert {
   margin: 1em 0;
   padding: 1.6em 1em;
@@ -24,6 +28,19 @@ ul.loop-results {
     list-style: none;
     border-bottom: 1px dotted #ccc;
   }
+}
+
+ul.page-numbers li span {
+  display: block;
+  color: #26262a;
+  background-color: #fff;
+  text-align: center;
+  border: 2px solid #26262a;
+  font-size: 1.25em;
+  line-height: 44px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
 }
 
 .gallery {

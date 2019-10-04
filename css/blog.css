@@ -5,6 +5,9 @@ input[type=submit] {
 a.button:focus, input[type=submit]:focus {
   color: #fff !important; }
 
+.entry-header h1 {
+  margin-bottom: 24px; }
+
 .emphasis-alert {
   margin: 1em 0;
   padding: 1.6em 1em;
@@ -20,6 +23,18 @@ ul.loop-results {
   ul.loop-results li {
     list-style: none;
     border-bottom: 1px dotted #ccc; }
+
+ul.page-numbers li span {
+  display: block;
+  color: #26262a;
+  background-color: #fff;
+  text-align: center;
+  border: 2px solid #26262a;
+  font-size: 1.25em;
+  line-height: 44px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%; }
 
 .gallery .gallery-item img {
   display: block;
@@ -73,24 +88,24 @@ ul.loop-results {
 .single #blogsocial {
   margin: 0 20px; }
 
-.blog-header form {
+.blog-header {
+  background: #dde5d5; }
+  .blog-header .entry-header {
+    background: none; }
+
+.blog-toolbar form {
   color: #444;
   margin: 0; }
-.blog-header select {
+.blog-toolbar select {
   width: 100%; }
-.blog-header .follow-us a img {
-  margin: 0;
-  width: 40px; }
-.blog-header .entry-header {
-  background: none; }
-.blog-header .entry-content {
+.blog-toolbar .entry-content {
   background: #dde5d5;
   width: 100%;
-  padding: 1em; }
-.blog-header .search-wrapper {
+  padding: 1em 0; }
+.blog-toolbar .search-wrapper {
   position: relative;
   display: block; }
-  .blog-header .search-wrapper label {
+  .blog-toolbar .search-wrapper label {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -99,7 +114,7 @@ ul.loop-results {
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
     border: 0; }
-  .blog-header .search-wrapper input[type="submit"] {
+  .blog-toolbar .search-wrapper input[type="submit"] {
     color: transparent;
     position: absolute;
     right: 0;
@@ -108,7 +123,7 @@ ul.loop-results {
     background-image: url(../img/search-white.png);
     background-repeat: no-repeat;
     background-position: center; }
-  .blog-header .search-wrapper input[type="text"] {
+  .blog-toolbar .search-wrapper input[type="text"] {
     float: right;
     padding: 4px 45px 4px 4px;
     width: 100%;

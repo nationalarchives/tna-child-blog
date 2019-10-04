@@ -1,4 +1,10 @@
 .blog-header {
+  background: #dde5d5;
+  .entry-header {
+    background: none;
+  }
+}
+.blog-toolbar {
   form {
     color: #444;
     margin: 0;
@@ -6,17 +12,10 @@
   select {
     width: 100%;
   }
-  .follow-us a img {
-    margin: 0;
-    width: 40px;
-  }
-  .entry-header {
-    background: none;
-  }
   .entry-content {
     background: #dde5d5;
     width: 100%;
-    padding: 1em;
+    padding: 1em 0;
   }
   .search-wrapper {
     position: relative;
