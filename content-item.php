@@ -10,7 +10,7 @@ if (in_array('Audio', $cat_list)) {
 } elseif (is_amp()) {
     $label   = $cat_list[0];
 } else {
-    $label   = 'Blog';
+    $label   = $cat_list[0];
 }
 
 $image = get_feature_image_url( get_the_ID(), 'medium' );
