@@ -296,6 +296,11 @@ a.feature-img:focus {
   background-repeat: no-repeat;
   padding: 7px 42px 7px 16px;
   cursor: pointer; }
+.tna-amp .button-icon:hover {
+  background-color: #fff;
+  color: #26262a; }
+.tna-amp .button-icon:focus {
+  color: #fff; }
 .tna-amp .icon-size-26 {
   background-size: 78% 78%;
   width: 26px;

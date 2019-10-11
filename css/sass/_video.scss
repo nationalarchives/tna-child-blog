@@ -78,6 +78,13 @@
     padding: 7px 42px 7px 16px;
     cursor: pointer;
   }
+  .button-icon:hover {
+    background-color: #fff;
+    color: #26262a;
+  }
+  .button-icon:focus {
+    color: #fff;
+  }
   .icon-size-26 {
     background-size: 78% 78%;
     width: 26px;
