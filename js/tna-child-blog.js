@@ -2,6 +2,10 @@
  * Blog
  */
 
+$('.category-list').on('change', function () {
+    $(this).submit();
+})
+
 $('.author-list').on('change', function () {
     $(this).submit();
 })

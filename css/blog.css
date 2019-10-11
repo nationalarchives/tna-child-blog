@@ -91,6 +91,8 @@ ul.page-numbers li span {
   margin: 0; }
 .blog-toolbar select {
   width: 100%; }
+.blog-toolbar .button {
+  padding: 4.5px .9em; }
 .blog-toolbar .entry-content {
   background: #dde5d5;
   width: 100%;
@@ -308,12 +310,6 @@ a.feature-img:focus {
   position: absolute;
   left: 0;
   bottom: 0; }
-.tna-amp .content-type {
-  margin-top: 1em;
-  color: #444;
-  font-size: .9em;
-  border-left: #ebab01 4px solid;
-  padding: 0 0.5em; }
 
 .related-posts {
   background: #eee;

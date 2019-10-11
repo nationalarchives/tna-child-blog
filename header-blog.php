@@ -30,18 +30,21 @@
                     <div class="entry-content">
                         <div class="row">
                             <div class="col-xs-12 col-sm-6 col-md-3">
-                                <form action="" method="get">
-                                    <label class="sr-only" for="category">Select a category</label>
-                                    <select name="category" id="category">
-                                        <option value="">Select a category</option>
-                                    </select>
-                                    <noscript>
-                                        <input type="submit" name="submit" value="view" />
-                                    </noscript>
-                                </form>
+                                <?php if ( is_amp() ) {
+                                $video_id = get_cat_ID( 'video' );
+                                $audio_id = get_cat_ID( 'audio' );
+                                ?>
+                                <div class="media-buttons">
+                                    <a href="<?php echo get_category_link( $video_id ) ; ?>" class="button">
+                                        Video
+                                    </a> <a href="<?php echo get_category_link( $audio_id ) ; ?>" class="button">
+                                        Audio
+                                    </a>
+                                </div>
+                                <?php } ?>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-3">
-                                <form action="" method="get">
+                                <form action="" method="get" class="month-list">
                                     <label class="sr-only" for="month">Select month</label>
                                     <select name="month" id="month">
                                         <option value="">Select month</option>
@@ -53,7 +56,7 @@
                                 </form>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-3">
-                                <form action="<?php bloginfo('url'); ?>" method="get">
+                                <form action="<?php bloginfo('url'); ?>" method="get" class="author-list">
                                     <label class="sr-only" for="author">Select an author</label>
                                     <select name="author" id="author">
                                         <option value="-1">Select an author</option>
