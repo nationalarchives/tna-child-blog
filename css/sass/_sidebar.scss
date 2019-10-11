@@ -4,12 +4,16 @@
 }
 
 .tags {
-  margin: 20px;
-  border-bottom: 1px dotted #ccc;
+  margin: 1em 0;
+  h3 {
+    border-top: 2px solid #26262a;
+    padding-top: 10px;
+    margin-top: 0;
+  }
   a {
     text-decoration: none;
-    font-family: 'Bitter', sans-serif;
-    font-size: 1.3em;
+    font-family: 'Roboto Mono', sans-serif;
+    font-size: 1em;
   }
   a:hover {
     text-decoration: underline;
@@ -22,6 +26,7 @@
   h2 {
     border-top: 2px solid #26262a;
     padding-top: 10px;
+    margin-top: 0;
   }
   ul {
     margin: 0;

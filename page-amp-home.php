@@ -32,9 +32,6 @@ get_header(); ?>
 					</article>
 				</div>
 				<?php get_template_part('content', 'series'); ?>
-				<?php if ( is_active_sidebar( 'blog-homepage' ) ) : ?>
-						<?php dynamic_sidebar( 'blog-homepage' ); ?>
-				<?php endif; ?>
 			</main>
 		</div>
 	</div>

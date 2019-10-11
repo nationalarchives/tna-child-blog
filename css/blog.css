@@ -68,6 +68,8 @@ ul.page-numbers li span {
   display: table;
   content: " "; }
 
+.single .blog-toolbar {
+  margin-bottom: 1.6em; }
 .single .blog article .entry-header {
   padding: 0;
   background: none; }
@@ -83,11 +85,8 @@ ul.page-numbers li span {
   height: 10px;
   margin: 0;
   background: none; }
-
-.blog-header {
-  background: #dde5d5; }
-  .blog-header .entry-header {
-    background: none; }
+.single .blog article .entry-meta {
+  font-family: 'Roboto Mono', sans-serif; }
 
 .blog-toolbar form {
   color: #444;
@@ -99,7 +98,7 @@ ul.page-numbers li span {
 .blog-toolbar .entry-content {
   background: #dde5d5;
   width: 100%;
-  padding: 1em 0; }
+  padding: 1em; }
 .blog-toolbar .search-wrapper {
   position: relative;
   display: block; }
@@ -129,6 +128,13 @@ ul.page-numbers li span {
     height: 40px;
     text-indent: 10px;
     border-radius: 0; }
+
+.blog-header {
+  background: #dde5d5; }
+  .blog-header .entry-header {
+    background: none; }
+  .blog-header .blog-toolbar .entry-content {
+    padding: 1em 0; }
 
 a.feature-img:focus {
   display: block;
@@ -191,12 +197,15 @@ a.feature-img:focus {
   padding-bottom: 20px; }
 
 .tags {
-  margin: 20px;
-  border-bottom: 1px dotted #ccc; }
+  margin: 1em 0; }
+  .tags h3 {
+    border-top: 2px solid #26262a;
+    padding-top: 10px;
+    margin-top: 0; }
   .tags a {
     text-decoration: none;
-    font-family: 'Bitter', sans-serif;
-    font-size: 1.3em; }
+    font-family: 'Roboto Mono', sans-serif;
+    font-size: 1em; }
   .tags a:hover {
     text-decoration: underline; }
 
@@ -204,7 +213,8 @@ a.feature-img:focus {
   margin-bottom: 1.6em; }
   .sidebar-widget h2 {
     border-top: 2px solid #26262a;
-    padding-top: 10px; }
+    padding-top: 10px;
+    margin-top: 0; }
   .sidebar-widget ul {
     margin: 0;
     padding: 0;

@@ -1,9 +1,3 @@
-.blog-header {
-  background: #dde5d5;
-  .entry-header {
-    background: none;
-  }
-}
 .blog-toolbar {
   form {
     color: #444;
@@ -18,7 +12,7 @@
   .entry-content {
     background: #dde5d5;
     width: 100%;
-    padding: 1em 0;
+    padding: 1em;
   }
   .search-wrapper {
     position: relative;
@@ -52,5 +46,14 @@
       text-indent: 10px;
       border-radius: 0;
     }
+  }
+}
+.blog-header {
+  background: #dde5d5;
+  .entry-header {
+    background: none;
+  }
+  .blog-toolbar .entry-content {
+    padding: 1em 0;
   }
 }
