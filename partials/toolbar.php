@@ -13,6 +13,14 @@
                             Audio
                         </a>
                     </div>
+                <?php } else {?>
+                    <form action="" method="get" id="category-list">
+                        <label class="sr-only" for="month">Select a category</label>
+                        <?php wp_dropdown_categories( array('show_option_none' => __( 'Select a category' ),'orderby' => 'name','exclude' => '1')); ?>
+                        <noscript>
+                            <input type="submit" name="submit" value="view" />
+                        </noscript>
+                    </form>
                 <?php } ?>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-3">
