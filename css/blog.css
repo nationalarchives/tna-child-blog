@@ -143,12 +143,14 @@ ul.page-numbers li span {
     padding: 1em 0; }
   .blog-header .h1 {
     display: inline-block;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(38, 38, 42, 0.6);
     border: 2px solid #26262a;
     padding: 5px 22px;
     margin: 16px; }
     .blog-header .h1 a {
       color: #fff; }
+      .blog-header .h1 a:focus {
+        color: #26262a; }
 
 a.feature-img:focus {
   display: block;
