@@ -9,7 +9,7 @@
                 <article>
                     <div class="entry-header">
                         <h1>
-                            Posts from <?php single_month_title(' '); ?>
+                            <span>Posts from </span><?php single_month_title(' '); ?>
                         </h1>
                     </div>
                     <div class="entry-content clearfix">

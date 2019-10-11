@@ -9,7 +9,7 @@
                 <article>
                     <div class="entry-header">
                         <h1>
-                            <?php _e( 'Category', 'tna-base' ); ?>: <?php single_cat_title(); ?>
+                            <?php _e( '<span>Category: </span>', 'tna-base' ); ?><?php single_cat_title(); ?>
                         </h1>
                     </div>
                     <div class="entry-content clearfix">

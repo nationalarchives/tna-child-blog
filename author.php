@@ -10,7 +10,7 @@
                         <h1>
                             <?php
                             $curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));
-                            _e( 'Posts by', 'tna-base' ); ?> <?php echo $curauth->display_name;
+                            _e( '<span>Posts by </span>', 'tna-base' ); ?><?php echo $curauth->display_name;
                             ?>
                         </h1>
                     </div>
