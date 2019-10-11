@@ -2,9 +2,9 @@
 <div class="col-md-12">
 	<article>
 		<div class="entry-header">
-			<h2>Mini series</h2>
+			<h2 class="separator-heading">Mini series</h2>
 		</div>
-		<div class="entry-content clearfix">
+		<div class="entry-content clearfix row">
 			<?php
 			for ( $i=1 ; $i<=4 ; $i++ ) {
 				$title =  esc_attr( get_option('series_title_'.$i) );
@@ -17,7 +17,7 @@
 						<div class="feature-img-bg" style="background-image: url(<?php echo $image; ?>);">
 						</div>
 					</a>
-					<h3>
+					<h3 class="separator-heading">
 						<a href="<?php echo $url ; ?>">
 							<?php echo $title; ?>
 						</a>

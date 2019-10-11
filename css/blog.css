@@ -12,8 +12,8 @@ a.button:focus, input[type=submit]:focus {
   margin: 1em 0;
   padding: 1.6em 1em;
   font-size: 1em;
-  background-color: #fff2ae;
-  border-left: #FCE45C 4px solid; }
+  background-color: #dde5d5 !important;
+  border-left: #26262a 2px solid; }
 
 .page-numbers {
   padding: 0 4px; }
@@ -141,10 +141,12 @@ ul.page-numbers li span {
     padding: 1em 0; }
   .blog-header .h1 {
     display: inline-block;
-    background: #fff;
-    border: 2px solid;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 2px solid #26262a;
     padding: 5px 22px;
     margin: 16px; }
+    .blog-header .h1 a {
+      color: #fff; }
 
 a.feature-img:focus {
   display: block;
@@ -201,6 +203,9 @@ a.feature-img:focus {
 .no-js .tab-content > .tab-pane {
   display: block;
   margin-bottom: 1em; }
+
+.latest-posts a.button {
+  margin-bottom: 1.6em; }
 
 .tagcloud, .widget_nktagcloud .sidebar-content {
   margin-bottom: 1em;

@@ -16,7 +16,7 @@ get_header(); ?>
 						<div class="entry-header">
 							<h1>Latest posts</h1>
 						</div>
-						<div class="entry-content clearfix cards">
+						<div class="entry-content clearfix">
 							<?php get_template_part('content', 'latest'); ?>
 						</div>
 					</article>

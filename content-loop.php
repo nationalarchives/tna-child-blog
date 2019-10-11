@@ -48,9 +48,9 @@
 } else {
 
 	if (is_search()) {
-		_e( 'Sorry, but nothing matched your search terms. Please try again with different keywords.', 'tna-base' );
+		_e( '<p>Sorry, but nothing matched your search terms. Please try again with different keywords.</p>', 'tna-base' );
 		get_search_form();
 	} else {
-		_e( 'Sorry, it appears we don\'t have any published posts.', 'tna-base' );
+		_e( '<p>Sorry, it appears we don\'t have any published posts.</p>', 'tna-base' );
 	}
 }
