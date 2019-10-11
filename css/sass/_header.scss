@@ -51,9 +51,20 @@
 .blog-header {
   background: #dde5d5;
   .entry-header {
-    background: none;
+    height: 130px;
+    background-color: #ddd;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
   }
   .blog-toolbar .entry-content {
     padding: 1em 0;
+  }
+  .h1 {
+    display: inline-block;
+    background: #fff;
+    border: 2px solid;
+    padding: 5px 22px;
+    margin: 16px;
   }
 }

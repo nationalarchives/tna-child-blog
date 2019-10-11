@@ -132,9 +132,19 @@ ul.page-numbers li span {
 .blog-header {
   background: #dde5d5; }
   .blog-header .entry-header {
-    background: none; }
+    height: 130px;
+    background-color: #ddd;
+    background-position: center center;
+    background-size: cover;
+    position: relative; }
   .blog-header .blog-toolbar .entry-content {
     padding: 1em 0; }
+  .blog-header .h1 {
+    display: inline-block;
+    background: #fff;
+    border: 2px solid;
+    padding: 5px 22px;
+    margin: 16px; }
 
 a.feature-img:focus {
   display: block;
@@ -166,11 +176,11 @@ a.feature-img:focus {
   border-radius: 0; }
 
 .nav-pills > li.active > a {
-  background-color: #008484;
+  background-color: #26262a;
   border-radius: 0; }
 
 .nav-pills > li.active > a:hover {
-  background: #FCE45C;
+  background: #dde5d5;
   color: #000; }
 
 .nav-pills > li.active > a:focus {
