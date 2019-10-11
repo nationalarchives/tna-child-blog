@@ -8,7 +8,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-                <?php get_template_part('breadcrumb'); ?>
+                <?php get_template_part('blog-breadcrumb'); ?>
                 <div class="entry-header" style="background-image: url(<?php echo esc_attr( https_this( get_option('blog_header_img') ) ); ?>);">
                     <div class="h1">
                         <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
