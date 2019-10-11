@@ -10,15 +10,14 @@ $args = array(
 $the_query = new WP_Query( $args ); ?>
 
 <?php if ( $the_query->have_posts() ) : ?>
+<div class="cards">
 	<div id="latest-posts" class="latest-posts row">
 
-        <div class="cards">
 		<!-- the loop -->
 		<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 			<?php get_template_part( 'content-item' ); ?>
 		<?php endwhile; ?>
 		<!-- end of the loop -->
-        </div>
 
 		<?php wp_reset_postdata(); ?>
 
@@ -28,6 +27,7 @@ $the_query = new WP_Query( $args ); ?>
             </div>
         <?php } ?>
 	</div>
+</div>
 
 
 <?php else : ?>
