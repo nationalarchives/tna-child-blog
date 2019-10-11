@@ -13,7 +13,7 @@ if (in_array('Audio', $cat_list)) {
     $label   = 'Blog';
 }
 
-$image = get_feature_image_url( get_the_ID(), 'medium', true );
+$image = get_feature_image_url( get_the_ID(), 'medium' );
 $title   = get_the_title();
 $url     = get_permalink();
 $excerpt = trim(substr(get_the_excerpt(), 0,160)).'...';
