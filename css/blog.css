@@ -2,9 +2,6 @@
 input[type=submit] {
   border-radius: 0; }
 
-a.button:focus, input[type=submit]:focus {
-  color: #fff !important; }
-
 .entry-header h1 {
   margin-bottom: 24px; }
 
