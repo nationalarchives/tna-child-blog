@@ -4,7 +4,7 @@ $args = array(
 	'post_status' => 'publish',
 	'orderby' => 'date',
 	'order'   => 'DESC',
-	'posts_per_page' => 3
+	'posts_per_page' => 6
 );
 // the query
 $the_query = new WP_Query( $args ); ?>

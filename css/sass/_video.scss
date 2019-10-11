@@ -39,6 +39,10 @@
   .media-credits span {
     color: #bbb;
   }
+  .tab-content {
+    margin-top: 1em;
+    margin-bottom: 1.6em;
+  }
   .entry-media-slideshare .slides {
     position: relative;
     overflow: hidden;
@@ -49,21 +53,6 @@
   .transcription-content {
     border: 1px solid #ddd;
     padding: 1em;
-  }
-  .icon-circle {
-    display: inline-block;
-    background-color: #008484;
-    background-size: 68% 68%;
-    background-position: center center;
-    background-repeat: no-repeat;
-    border-radius: 50%;
-    width: 42px;
-    height: 42px;
-    margin: 0 .2em .3em 0;
-    cursor: pointer;
-    transition: .4s ease-in-out;
-    -webkit-transition: .4s ease-in-out;
-    -moz-transition: .4s ease-in-out;
   }
   .icon-square {
     display: inline-block;
