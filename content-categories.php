@@ -39,16 +39,16 @@ $categories = get_categories(); ?>
 
 			<?php if ( $the_query->have_posts() ) : ?>
 				<div role="tabpanel" class="row tab-pane <?php echo $active; ?>" id="<?php echo $cat->slug; ?>">
-
-					<!-- the loop -->
-					<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-						<?php get_template_part( 'content-item' ); ?>
-					<?php endwhile; ?>
-					<!-- end of the loop -->
-
-					<div class="col-md-12">
-						<a href="<?php echo esc_url( get_category_link( $cat->cat_ID ) ); ?>" class="button pull-right">View all '<?php echo $cat->name; ?>' posts</a>
-					</div>
+                    <div class="cards">
+                            <!-- the loop -->
+                            <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+                                <?php get_template_part( 'content-item' ); ?>
+                            <?php endwhile; ?>
+                            <!-- end of the loop -->
+                    </div>
+                    <div class="col-md-12">
+                        <a href="<?php echo esc_url( get_category_link( $cat->cat_ID ) ); ?>" class="button pull-right">View all '<?php echo $cat->name; ?>' posts</a>
+                    </div>
 				</div>
 				<?php wp_reset_postdata(); ?>
 

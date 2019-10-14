@@ -37,17 +37,17 @@ function tna_child_scripts()
 function get_blog_image_caption( $caption, $url='' ) {
 
 	if (!empty($caption)) { ?>
-		<div class="feature-img-caption img-caption-top">
-			<button class="eye_caption">&nbsp;</button>
-			<div class="image_caption_back">
-				<span class="clearfix"><?php echo $caption; ?></span>
-				<?php if ($url) { ?>
-				<a href="<?php echo $url ?>" target="_blank">
-						View in the image library
-				</a>
-				<?php } ?>
-			</div>
-		</div>
+        <div class="feature-img-caption img-caption-top">
+            <button class="eye_caption"><span class="sr-only">Feature image caption</span><span class="icon-circle icon-info icon-size-32"></span></button>
+            <div class="image_caption_back">
+                <span class="clearfix"><?php echo $caption; ?></span>
+        <?php if ($url) { ?>
+                <a href="<?php echo $url ?>" target="_blank">
+                        View in the image library
+                </a>
+        <?php } ?>
+            </div>
+        </div>
 	<?php }
 }
 

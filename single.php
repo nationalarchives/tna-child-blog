@@ -1,7 +1,13 @@
 <?php get_header(); ?>
-<?php get_template_part( 'breadcrumb' ); ?>
-<?php get_template_part( 'header-blog' ); ?>
 
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <?php get_template_part( 'blog-breadcrumb' ); ?>
+                <?php get_template_part( 'partials/toolbar' ); ?>
+            </div>
+        </div>
+    </div>
 	<div id="primary" class="blog content-area">
 		<div class="container">
 			<div class="row">

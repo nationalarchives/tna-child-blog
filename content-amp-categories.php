@@ -14,7 +14,11 @@ $selected_categories = array(
 <ul class="nav nav-pills" role="tablist">
 	<?php foreach ( $selected_categories as $cat_name ) {
 		$cat_object = get_term_by( 'name', $cat_name, 'category');
-		$slug = $cat_object->slug;
+		if (isset($cat_object->slug)) {
+            $slug = $cat_object->slug;
+        } else {
+            $slug = '';
+        }
 		$active = ($slug == 'family-history') ? ' class="active"' : '';
 		?>
 		<li<?php echo $active ?>>
@@ -45,11 +49,13 @@ $selected_categories = array(
 			$the_query = new WP_Query( $args ); ?>
 
 			<?php if ( $the_query->have_posts() ) : ?>
-				<div role="tabpanel" class="row tab-pane <?php echo $active; ?>" id="<?php echo $cat->slug; ?>">
+				<div role="tabpanel" class="row tab-pane cards <?php echo $active; ?>" id="<?php echo $cat->slug; ?>">
 
 					<!-- the loop -->
 					<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+
 						<?php get_template_part( 'content-item' ); ?>
+
 					<?php endwhile; ?>
 					<!-- end of the loop -->
 

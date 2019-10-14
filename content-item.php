@@ -1,43 +1,24 @@
 <?php
-$image = get_feature_image_url( get_the_ID(), 'feature-box-thumb', true );
-if ( in_category('video')) {
-	$icon = '<div class="icon-square icon-video"></div>';
-} elseif ( in_category('audio')) {
-	$icon = '<div class="icon-square icon-audio"></div>';
+
+$cats = get_the_category();
+$cat_list = wp_list_pluck( $cats, 'name' );
+
+if (in_array('Audio', $cat_list)) {
+    $label   = 'Audio';
+} elseif (in_array('Video', $cat_list)) {
+    $label   = 'Video';
+} elseif (is_amp()) {
+    $label   = $cat_list[0];
 } else {
-	$icon = '';
+    $label   = $cat_list[0];
 }
-?>
-<div class="latest-post col-md-4">
-	<a href="<?php echo get_permalink(); ?>" class="feature-img" title="<?php the_title(); ?>">
-		<div class="feature-img-bg" <?php echo $image; ?>>
-			<?php echo $icon; ?>
-		</div>
-	</a>
-	<?php
-	if ( is_amp() ) {
-		if ( in_category('video')) {
-			echo '<div class="content-type">Video</div>';
-		} elseif ( in_category('audio')) {
-			echo '<div class="content-type">Audio</div>';
-		}
-	}
-	?>
-	<h3>
-		<a href="<?php echo get_permalink(); ?>">
-			<?php the_title(); ?>
-		</a>
-	</h3>
-	<div class="entry-meta">
-		<p>
-			<?php the_entry_meta( array(
-				'cat'       => false,
-				'home'      => true
-			) ); ?>
-		</p>
-	</div>
-	<p>
-		<?php echo trim( substr( get_the_excerpt(), 0, 160 ) ) . '...'; ?>
-		<a href="<?php the_permalink(); ?>">read more</a>
-	</p>
-</div>
+
+$image = get_feature_image_url( get_the_ID(), 'medium' );
+$title   = get_the_title();
+$url     = get_permalink();
+$excerpt = trim(substr(get_the_excerpt(), 0,160)).'...';
+$date    = '';
+$id      = get_the_ID();
+
+echo display_card( $id, $url, $title, $excerpt, $image, $date, $label );
+
