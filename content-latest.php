@@ -4,7 +4,7 @@ $args = array(
 	'post_status' => 'publish',
 	'orderby' => 'date',
 	'order'   => 'DESC',
-	'posts_per_page' => 9
+	'posts_per_page' => 6
 );
 // the query
 $the_query = new WP_Query( $args ); ?>
@@ -31,5 +31,7 @@ $the_query = new WP_Query( $args ); ?>
 
 
 <?php else : ?>
-	<p><?php esc_html_e( 'Sorry, no posts matched your criteria.' ); ?></p>
+    <div class="col-md-12">
+	    <p><?php esc_html_e( 'Sorry, no posts matched your criteria.' ); ?></p>
+    </div>
 <?php endif; ?>

@@ -21,6 +21,16 @@ get_header(); ?>
 						</div>
 					</article>
 				</div>
+                <div class="col-md-12">
+                    <article>
+                        <div class="entry-header">
+                            <h2 class="separator-heading">Posts by category</h2>
+                        </div>
+                        <div class="entry-content clearfix">
+                            <?php get_template_part('content', 'categories'); ?>
+                        </div>
+                    </article>
+                </div>
 			</main>
 		</div>
 	</div>
