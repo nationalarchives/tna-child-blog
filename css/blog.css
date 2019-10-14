@@ -10,6 +10,9 @@ h1 span {
   display: block;
   font-size: 16px; }
 
+.content-area main a {
+  text-decoration: underline; }
+
 .emphasis-alert {
   margin: 1em 0;
   padding: 1.6em 1em;
