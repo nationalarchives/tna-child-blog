@@ -10,7 +10,7 @@ h1 span {
   display: block;
   font-size: 16px; }
 
-.content-area main a {
+.single .entry-content a, .single .entry-meta a {
   text-decoration: underline; }
 
 .emphasis-alert {

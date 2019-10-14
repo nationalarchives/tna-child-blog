@@ -9,7 +9,7 @@
                 <article>
                     <div class="entry-header">
                         <h1>
-                            <?php _e( '<span>Tag: </span>', 'tna-base' ); ?><?php single_tag_title(); ?>
+                            <?php _e( '<span>Tag: </span>', 'tna-base' ); ?><?php echo ucfirst(single_tag_title( '', false )); ?>
                         </h1>
                     </div>
                     <div class="entry-content clearfix">

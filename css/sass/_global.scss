@@ -10,9 +10,11 @@ h1 span {
   display: block;
   font-size: 16px;
 }
-.content-area main {
-  a {
-    text-decoration: underline;
+.single {
+  .entry-content, .entry-meta {
+    a {
+      text-decoration: underline;
+    }
   }
 }
 
