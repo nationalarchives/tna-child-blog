@@ -2,7 +2,7 @@
 	<!-- page.php -->
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<div class="entry-header">
-			<h2><?php the_title(); ?></h2>
+			<h1><?php the_title(); ?></h1>
 		</div>
 		<div class="entry-content clearfix">
 			<?php the_content(); ?>
@@ -13,7 +13,7 @@
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<?php get_template_part( 'partials/player' ); ?>
 		<div class="entry-header">
-			<h2><?php the_title(); ?></h2>
+			<h1><?php the_title(); ?></h1>
 		</div>
 		<div class="entry-meta">
 			<p><?php the_entry_meta(); ?></p>

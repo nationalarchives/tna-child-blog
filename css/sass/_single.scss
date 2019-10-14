@@ -1,4 +1,7 @@
 .single {
+  .blog-toolbar {
+    margin-bottom: 1.6em;
+  }
   .blog article {
     .entry-header {
       padding: 0;
@@ -19,11 +22,7 @@
       background: none;
     }
     .entry-meta {
-      margin: 0 20px;
-      border-bottom: 1px dotted #ccc;
+      font-family: 'Roboto Mono', sans-serif;
     }
-  }
-  #blogsocial {
-    margin: 0 20px;
   }
 }

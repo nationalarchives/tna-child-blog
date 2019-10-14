@@ -2,16 +2,28 @@ input[type=submit] {
   border-radius: 0;
 }
 
-a.button:focus, input[type=submit]:focus {
-  color: #fff !important;
+.entry-header h1 {
+  margin-bottom: 24px;
+}
+h1 span {
+  color: #555;
+  display: block;
+  font-size: 16px;
+}
+.single {
+  .entry-content, .entry-meta {
+    a {
+      text-decoration: underline;
+    }
+  }
 }
 
 .emphasis-alert {
   margin: 1em 0;
   padding: 1.6em 1em;
   font-size: 1em;
-  background-color: #fff2ae;
-  border-left: #FCE45C 4px solid;
+  background-color: #dde5d5 !important;
+  border-left: #26262a 2px solid;
 }
 
 .page-numbers {
@@ -26,6 +38,19 @@ ul.loop-results {
   }
 }
 
+ul.page-numbers li span {
+  display: block;
+  color: #26262a;
+  background-color: #fff;
+  text-align: center;
+  border: 2px solid #26262a;
+  font-size: 1.25em;
+  line-height: 44px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
 .gallery {
   .gallery-item img {
     display: block;
@@ -37,4 +62,12 @@ ul.loop-results {
 
 .entry-meta span {
   color: #bbb;
+}
+
+.separator-heading {
+  margin-bottom: 24px;
+}
+
+.cards p {
+  margin: 0;
 }
