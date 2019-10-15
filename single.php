@@ -1,10 +1,12 @@
 <?php get_header(); ?>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <?php get_template_part( 'blog-breadcrumb' ); ?>
-                <?php get_template_part( 'partials/toolbar' ); ?>
+    <div class="single-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <?php get_template_part( 'blog-breadcrumb' ); ?>
+                    <?php get_template_part( 'partials/toolbar' ); ?>
+                </div>
             </div>
         </div>
     </div>
