@@ -1,4 +1,7 @@
 .blog-toolbar {
+  background: #dde5d5;
+  width: 100%;
+  padding: 1em 0;
   form {
     color: #444;
     margin: 0;
@@ -8,11 +11,6 @@
   }
   .button {
     padding: 4.5px .9em;
-  }
-  .entry-content {
-    background: #dde5d5;
-    width: 100%;
-    padding: 1em;
   }
   .search-wrapper {
     position: relative;
@@ -56,9 +54,6 @@
     background-position: center center;
     background-size: cover;
     position: relative;
-  }
-  .blog-toolbar .entry-content {
-    padding: 1em 0;
   }
   .h1 {
     display: inline-block;

@@ -73,7 +73,9 @@ ul.page-numbers li span {
   display: table;
   content: " "; }
 
-.single .blog-toolbar {
+.single .single-header {
+  background: #dde5d5;
+  width: 100%;
   margin-bottom: 1.6em; }
 .single .blog article .entry-header {
   padding: 0;
@@ -93,46 +95,46 @@ ul.page-numbers li span {
 .single .blog article .entry-meta {
   font-family: 'Roboto Mono', sans-serif; }
 
-.blog-toolbar form {
-  color: #444;
-  margin: 0; }
-.blog-toolbar select {
-  width: 100%; }
-.blog-toolbar .button {
-  padding: 4.5px .9em; }
-.blog-toolbar .entry-content {
+.blog-toolbar {
   background: #dde5d5;
   width: 100%;
-  padding: 1em; }
-.blog-toolbar .search-wrapper {
-  position: relative;
-  display: block; }
-  .blog-toolbar .search-wrapper label {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0; }
-  .blog-toolbar .search-wrapper input[type="submit"] {
-    color: transparent;
-    position: absolute;
-    right: 0;
-    width: 40px;
-    height: 40px;
-    background-image: url(../img/search-white.png);
-    background-repeat: no-repeat;
-    background-position: center; }
-  .blog-toolbar .search-wrapper input[type="text"] {
-    float: right;
-    padding: 4px 45px 4px 4px;
-    width: 100%;
-    max-width: 100%;
-    height: 40px;
-    text-indent: 10px;
-    border-radius: 0; }
+  padding: 1em 0; }
+  .blog-toolbar form {
+    color: #444;
+    margin: 0; }
+  .blog-toolbar select {
+    width: 100%; }
+  .blog-toolbar .button {
+    padding: 4.5px .9em; }
+  .blog-toolbar .search-wrapper {
+    position: relative;
+    display: block; }
+    .blog-toolbar .search-wrapper label {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0; }
+    .blog-toolbar .search-wrapper input[type="submit"] {
+      color: transparent;
+      position: absolute;
+      right: 0;
+      width: 40px;
+      height: 40px;
+      background-image: url(../img/search-white.png);
+      background-repeat: no-repeat;
+      background-position: center; }
+    .blog-toolbar .search-wrapper input[type="text"] {
+      float: right;
+      padding: 4px 45px 4px 4px;
+      width: 100%;
+      max-width: 100%;
+      height: 40px;
+      text-indent: 10px;
+      border-radius: 0; }
 
 .blog-header {
   background: #dde5d5; }
@@ -142,8 +144,6 @@ ul.page-numbers li span {
     background-position: center center;
     background-size: cover;
     position: relative; }
-  .blog-header .blog-toolbar .entry-content {
-    padding: 1em 0; }
   .blog-header .h1 {
     display: inline-block;
     background-color: rgba(38, 38, 42, 0.6);
