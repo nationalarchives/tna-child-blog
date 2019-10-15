@@ -45,6 +45,18 @@
       border-radius: 0;
     }
   }
+  @media (max-width: 992px) {
+    .toolbar-col {
+      margin-bottom: 7px;
+    }
+  }
+}
+.single .blog-toolbar {
+  @media (max-width: 992px) {
+    .toolbar-col {
+      display: none;
+    }
+  }
 }
 .blog-header {
   background: #dde5d5;
