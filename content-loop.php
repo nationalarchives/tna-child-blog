@@ -23,7 +23,7 @@
                 }
 
 
-                $image = get_feature_image_url( get_the_ID(), 'medium' );
+                $image = get_feature_image_url( get_the_ID(), 'large' );
                 $title   = get_the_title();
                 $url     = get_permalink();
                 $excerpt = trim(substr(get_the_excerpt(), 0,160)).'...';
