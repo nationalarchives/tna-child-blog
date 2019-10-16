@@ -27,4 +27,22 @@
       font-family: 'Roboto Mono', sans-serif;
     }
   }
+
+  a.simple-footnote {
+    text-decoration: none;
+  }
+
+  .simple-footnotes {
+    margin: 1em 0;
+    padding: 1em;
+    font-size: 1em;
+    background-color: #dde5d5;
+
+    a {
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
 }
