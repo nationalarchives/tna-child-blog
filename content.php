@@ -13,7 +13,7 @@
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<?php get_template_part( 'partials/player' ); ?>
 		<div class="entry-header">
-			<h1><?php the_title(); ?></h1>
+			<h1 class="separator-heading"><?php the_title(); ?></h1>
 		</div>
 		<div class="entry-meta">
 			<p><?php the_entry_meta(); ?></p>

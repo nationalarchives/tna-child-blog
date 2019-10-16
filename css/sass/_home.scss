@@ -27,6 +27,15 @@ a.feature-img:focus {
   background-color: #ddd;
   border-radius: 0;
 }
+
+.tab-content {
+  margin-bottom: 1.6em;
+}
+
+.nav-pills {
+  margin-bottom: 1em;
+}
+
 .nav-pills>li.active>a {
   background-color: #26262a;
   border-radius: 0;

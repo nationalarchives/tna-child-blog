@@ -49,19 +49,23 @@ $selected_categories = array(
 			$the_query = new WP_Query( $args ); ?>
 
 			<?php if ( $the_query->have_posts() ) : ?>
-				<div role="tabpanel" class="row tab-pane cards <?php echo $active; ?>" id="<?php echo $cat->slug; ?>">
+				<div role="tabpanel" class="tab-pane <?php echo $active; ?>" id="<?php echo $cat->slug; ?>">
+                    <div class="cards">
+                        <div class="row">
+                            <!-- the loop -->
+                            <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 
-					<!-- the loop -->
-					<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+                                <?php get_template_part( 'content-item' ); ?>
 
-						<?php get_template_part( 'content-item' ); ?>
-
-					<?php endwhile; ?>
-					<!-- end of the loop -->
-
-					<div class="col-md-12">
-						<a href="<?php echo esc_url( get_category_link( $cat->term_id ) ); ?>" class="button pull-right">View all '<?php echo $cat->name; ?>' posts</a>
-					</div>
+                            <?php endwhile; ?>
+                            <!-- end of the loop -->
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <a href="<?php echo esc_url( get_category_link( $cat->term_id ) ); ?>" class="button pull-right">View all '<?php echo $cat->name; ?>' posts</a>
+                        </div>
+                    </div>
 				</div>
 				<?php wp_reset_postdata(); ?>
 
