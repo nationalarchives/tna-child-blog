@@ -28,7 +28,7 @@
             <form action="" method="get" class="month-list">
                 <label class="sr-only" for="month">Select month</label>
                 <select name="month" id="month">
-                    <option value="">Select month</option>
+                    <option value="">Select a month</option>
                     <?php wp_get_archives( array( 'type' => 'monthly', 'format' => 'option', 'show_post_count' => 1 ) ); ?>
                 </select>
                 <noscript>

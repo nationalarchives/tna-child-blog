@@ -103,7 +103,8 @@ ul.page-numbers li span {
     color: #444;
     margin: 0; }
   .blog-toolbar select {
-    width: 100%; }
+    width: 100%;
+    text-indent: 7px; }
   .blog-toolbar .button {
     padding: 4.5px .9em; }
   .blog-toolbar .search-wrapper {
