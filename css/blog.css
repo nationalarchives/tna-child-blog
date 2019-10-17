@@ -17,8 +17,7 @@ h1 span {
   margin: 1em 0;
   padding: 1.6em 1em;
   font-size: 1em;
-  background-color: #dde5d5 !important;
-  border-left: #26262a 2px solid; }
+  background-color: #f9f7e2 !important; }
 
 .page-numbers {
   padding: 0 4px; }
@@ -94,6 +93,17 @@ ul.page-numbers li span {
   background: none; }
 .single .blog article .entry-meta {
   font-family: 'Roboto Mono', sans-serif; }
+.single a.simple-footnote {
+  text-decoration: none; }
+.single .simple-footnotes {
+  margin: 1em 0;
+  padding: 1em;
+  font-size: 1em;
+  background-color: #dde5d5; }
+  .single .simple-footnotes a {
+    text-decoration: none; }
+    .single .simple-footnotes a:hover {
+      text-decoration: underline; }
 
 .blog-toolbar {
   background: #dde5d5;
@@ -103,7 +113,8 @@ ul.page-numbers li span {
     color: #444;
     margin: 0; }
   .blog-toolbar select {
-    width: 100%; }
+    width: 100%;
+    text-indent: 7px; }
   .blog-toolbar .button {
     padding: 4.5px .9em; }
   .blog-toolbar .search-wrapper {
