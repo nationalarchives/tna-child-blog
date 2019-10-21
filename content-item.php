@@ -13,12 +13,18 @@ if (in_array('Audio', $cat_list)) {
     $label   = $cat_list[0];
 }
 
+$image = get_feature_image_url( get_the_ID(), 'large' );
+
+if ( !$image ) {
+    $image = get_stylesheet_directory_uri().'/img/card-'.rand(1,2).'.jpg';
+}
+
 $args = array(
     'id'            => get_the_ID(),
     'url'           => get_permalink(),
     'title'         => get_the_title(),
     'description'   => trim(substr(get_the_excerpt(), 0,160)).'...',
-    'image'         => get_feature_image_url( get_the_ID(), 'large' ),
+    'image'         => $image,
     'author'        => '',
     'pub_date'      => get_the_date( 'l j F Y' ),
     'label'         => $label
