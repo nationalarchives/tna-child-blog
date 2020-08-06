@@ -55,6 +55,15 @@ ul.page-numbers li span {
 .cards p {
   margin: 0; }
 
+.entry-content .wp-caption-text, .wp-block-image figcaption {
+  margin: 0 0 1.6em 0;
+  color: #222;
+  font-size: .9em;
+  clear: both;
+  padding: .5em;
+  text-align: center;
+  background: #eee; }
+
 .comments-area {
   margin-bottom: 24px; }
   .comments-area cite {
