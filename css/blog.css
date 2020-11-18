@@ -27,6 +27,9 @@ h1 span {
 .page-numbers {
   padding: 0 4px;
 }
+.page-numbers li a:hover {
+  outline: none;
+}
 
 ul.loop-results {
   padding: 0;
