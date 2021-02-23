@@ -29,16 +29,15 @@ a.feature-img:focus {
   border-radius: 0;
   outline: 2px solid #26262a;
 }
-
-
 .tab-content {
   margin-bottom: 1.6em;
 }
-
 .nav-pills {
   margin-bottom: 1em;
 }
-
+.nav-pills>li {
+  margin-left: 0 !important;
+}
 .nav-pills>li.active>a {
   background-color: #ffffff;
   outline: 2px solid #26262a;
@@ -48,7 +47,6 @@ a.feature-img:focus {
 .nav-pills>li>a:focus {
   color: #134571 !important;
   background: #eee;
-  text-decoration: underline;
   outline: 5px solid #1d70b8;
 }
 .nav-pills>li.active>a:focus {
@@ -61,14 +59,16 @@ a.feature-img:focus {
   outline: 2px solid #26262a;
   border-radius: 0;
   color: #26262a !important;
-  text-decoration: underline;
 }
 .nav-pills>li>a {
   border-radius: 0;
   background: #26262a;
   color: #ffffff;
-  margin-right: 0.3em;
+  font-family: "Roboto Mono", monospace;
+  outline: 2px solid black;
+  margin-right: 0.5em;
   margin-bottom: 0.3em;
+  text-decoration: none;
 }
 .no-js .tab-content>.tab-pane {
   display: block;
