@@ -292,13 +292,13 @@ a.feature-img:focus {
 }
 
 .nav-pills > li > a:focus {
-  color: #000;
+  color: #26262a;
   background: #fff;
   outline: 5px solid #1d70b8;
 }
 
 .nav-pills > li.active > a:focus {
-  color: #000;
+  color: #26262a;
   background-color: #fff;
   outline: 5px solid #1d70b8;
 }
