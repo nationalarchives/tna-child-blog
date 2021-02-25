@@ -38,8 +38,8 @@ function get_blog_image_caption( $caption, $url='' ) {
 
 	if (!empty($caption)) { ?>
         <div class="feature-img-caption img-caption-top">
-            <button class="eye_caption"><span class="sr-only">Feature image caption</span><span class="icon-circle icon-info icon-size-32"></span></button>
-            <div class="image_caption_back">
+            <button class="eye_caption" aria-expanded="false" aria-label="View image description"><span class="sr-only">Feature image caption</span><span class="icon-circle icon-info icon-size-32"></span></button>
+            <div class="image_caption_back" aria-hidden="true">
                 <span class="clearfix"><?php echo $caption; ?></span>
         <?php if ($url) { ?>
                 <a href="<?php echo $url ?>" target="_blank">
