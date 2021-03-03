@@ -14,7 +14,7 @@ get_header(); ?>
 				<div class="col-md-12">
 					<article>
 						<div class="entry-header">
-							<h1>Latest posts</h1>
+							<h2>Latest posts</h2>
 						</div>
 						<div class="entry-content clearfix">
 							<?php get_template_part('content', 'latest'); ?>
