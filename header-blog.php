@@ -10,7 +10,7 @@
 			<div class="col-md-12">
                 <?php get_template_part('blog-breadcrumb'); ?>
                 <div class="entry-header" style="background-image: url(<?php echo esc_attr( https_this( get_option('blog_header_img') ) ); ?>);">
-                    <div class="h1">
+                    <h1 class="h1">
                         <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
                             <?php if ( is_amp() ) {
                                 echo 'Archives Media Player';
@@ -18,7 +18,7 @@
                                 echo 'Blog';
                             } ?>
                         </a>
-                    </div>
+                    </h1>
                     <?php get_blog_image_caption(
                         esc_attr( get_option('blog_img_caption') ),
                         esc_url( get_option('blog_img_url') )

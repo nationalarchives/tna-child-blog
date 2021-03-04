@@ -16,7 +16,7 @@
     <?php } else {?>
         <div class="col-xs-12 col-sm-4 col-md-3 toolbar-col">
             <form action="" method="get" id="category-list">
-                <label class="sr-only" for="month">Select a category</label>
+                <label class="sr-only" for="cat">Select a category</label>
                 <?php wp_dropdown_categories( array('show_option_none' => __( 'Select a category' ),'orderby' => 'name','exclude' => '1')); ?>
                 <noscript>
                     <input type="submit" name="submit" value="view" />
