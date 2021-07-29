@@ -2,19 +2,29 @@
 
 Child theme for TNA's blog.
 
+## Blog dashboard security
+
+### IP whitelist
+
+Blog dashboard is restricted to whitelisted IP addresses. To add a new IP address: 
+
+WP dashboard -> Settings -> TNA AWS -> Whitelist
+
+Note: IP address must be comma separated.
+
 ## Blog Configuration
 
-### 1. Date format
+### Date format
 
 WP dashboard -> Settings -> General -> Date Format -> Custom = 'D j M Y'
 
-### 2. Header image
+### Header image
 
 WP dashboard -> Blog settings -> Blog header
 
 Add image URL and caption
 
-### 3. Front page displays - A static page
+### Front page displays - A static page
 
 WP dashboard -> Settings -> Reading
 
@@ -30,15 +40,15 @@ WP dashboard -> Blog settings -> All posts
 
 Add URL for 'View all posts' button on home page
 
-### 4. Homepage template
+### Homepage template
 
 Edit 'Blog' page and change template to 'Blog home'
 
-### 5. Co-authors
+### Co-authors
 
 Add [Co-Authors Plus plugin](https://en-gb.wordpress.org/plugins/co-authors-plus/)
 
-### 6. Widgets
+### Widgets
 
 WP dashboard -> Appearance -> Widgets
 
@@ -52,19 +62,19 @@ Add Recent Posts, Recent Comments, Categories, Tag Cloud and Links widgets
 
 ## AMP Configuration
 
-### 1. Change blog type
+### Change blog type
 
 WP dashboard -> Blog settings -> Blog type
 
 Select 'Archives Media Player'
 
-### 2. Header image
+### Header image
 
 WP dashboard -> Blog settings -> Blog header
 
 Add image URL and caption
 
-### 3. Front page displays - A static page
+### Front page displays - A static page
 
 Create a new page named 'Home'
 
@@ -86,11 +96,11 @@ WP dashboard -> Blog settings -> All posts
 
 Add 'All posts' URL to 'View all posts' button on home page
 
-### 4. Co-authors
+### Co-authors
 
 If not installed and enabled: [Co-Authors Plus plugin](https://en-gb.wordpress.org/plugins/co-authors-plus/)
 
-### 6. Widgets
+### Widgets
 
 WP dashboard -> Appearance -> Widgets
 
