@@ -10,7 +10,7 @@ Blog dashboard is restricted to whitelisted IP addresses. To add a new IP addres
 
 WP dashboard -> Settings -> TNA AWS -> Whitelist
 
-Note: IP address must be comma separated.
+Note: IP addresses must be comma separated.
 
 ## Blog Configuration
 
