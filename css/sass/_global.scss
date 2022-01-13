@@ -87,3 +87,19 @@ ul.page-numbers li span {
   text-align: center;
   background: #eee;
 }
+
+.content-area {
+  .simple-footnote {
+    display: inline-block;
+    sup {
+      vertical-align: super !important;
+    }
+  }
+
+  figure {
+    img {
+      display: inline-block;
+      width: 100%;
+    }
+  }
+}
