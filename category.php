@@ -12,8 +12,8 @@
                             <?php _e( '<span>Category: </span>', 'tna-base' ); ?><?php single_cat_title(); ?>
                         </h1>
                     </div>
-<?php if (is_category('Podcasts')) { ?>
-<div class="">
+<?php if (is_category('Podcasts') || is_category('Video')) { ?>
+<div class="entry-content clearfix">
 <?php echo category_description();?>
 </div>
 <?php } ?>
