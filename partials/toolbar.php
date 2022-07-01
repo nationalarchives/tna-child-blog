@@ -2,14 +2,14 @@
     <div class="row">
     <?php if ( is_amp() ) {
         $video_id = get_cat_ID( 'video' );
-        $audio_id = get_cat_ID( 'audio' );
+        $audio_id = get_cat_ID( 'podcasts' );
         ?>
         <div class="hidden-xs col-sm-4 col-md-3 toolbar-col">
             <div class="media-buttons">
                 <a href="<?php echo get_category_link( $video_id ) ; ?>" class="button">
                     Video
                 </a> <a href="<?php echo get_category_link( $audio_id ) ; ?>" class="button">
-                    Audio
+                    Podcasts
                 </a>
             </div>
         </div>

@@ -12,6 +12,12 @@
                             <?php _e( '<span>Category: </span>', 'tna-base' ); ?><?php single_cat_title(); ?>
                         </h1>
                     </div>
+<?php if (is_category('Podcasts')) { ?>
+<div class="">
+<?php echo category_description();?>
+</div>
+<?php } ?>
+
                     <div class="entry-content clearfix">
 	                    <?php get_template_part('content', 'loop'); ?>
                     </div>
