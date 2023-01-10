@@ -79,17 +79,10 @@ if (post_password_required()) {
     <?php
     comment_form(array(
         'title_reply_before' => '<h2 id="reply-title" class="comment-reply-title">',
-        'title_reply_after' => '</h2>',
+        'title_reply_after'  => '</h2><div class="disclaimer clearfix"><div class="emphasis-alert"><a href="https://www.nationalarchives.gov.uk/contact-us/make-a-records-and-research-enquiry/">Visit this page for family history research enquiries</a>. and do not post personal information. See our <a href="https://blog.nationalarchives.gov.uk/moderation-policy/">moderation policy</a> for more details.</div></div>',
         'comment_notes_after' => '',
         'title_reply'       => __( 'Leave a comment' ),
     ));
     ?>
-
-    <div class="disclaimer clearfix">
-        <div class="emphasis-alert">
-            We will not be able to respond to personal family history research questions on this platform.<br>
-            See our <a href="<?php if ( is_amp() ) { echo '/index.php'; } ?>/moderation-policy">moderation policy</a> for more details.
-        </div>
-    </div>
 
 </div><!-- .comments-area -->
