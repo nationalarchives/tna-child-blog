@@ -25,7 +25,7 @@ on:
 
 jobs:
   deployment-run:
-    uses: nationalarchives/ds-github-actions/.github/workflows/wp-theme-deploy.yml@main
+    uses: nationalarchives/ds-github-actions/.github/workflows/blog-theme-deploy.yml@main
     with:
       deploy-repo: "${{ github.event.repository.name }}"
       deploy-environment: "${{ inputs.deploy-environment }}"
