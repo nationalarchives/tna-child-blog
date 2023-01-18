@@ -112,3 +112,6 @@ Add Recent Comments and Tag Cloud widgets
 
 Add Recent Comments, Tag Cloud, Help and Subscribe widgets
 
+## GitHub Actions
+
+GitHub Actions can be used to deploy this theme to the dev, staging, nad live environments of the blog and media sites 
