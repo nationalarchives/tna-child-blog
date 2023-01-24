@@ -31,13 +31,9 @@ jobs:
       deploy-environment: "${{ inputs.deploy-environment }}"
       release: "${{ inputs.release }}"
       branch: "${{ inputs.branch }}"
-    steps:
-      - name: dev
-        if: ${{ inputs.deploy-environment  == 'dev' }}
-        secrets:
-          AWS_ROLE_ARN: ${{ secrets.AWS_MEDIA_ROLE_ARN_DEV }}
-      - name: staging
-        if: ${{ inputs.deploy-environment  == 'staging' }}
-        secrets:
-          AWS_ROLE_ARN: ${{ secrets.AWS_MEDIA_ROLE_ARN_STAGING }}
+    secrets:
+      - AWS_ROLE_ARN: ${{ secrets.AWS_MEDIA_ROLE_ARN_DEV }}
+        if: ${{ inputs.deploy-environment == 'dev' }}
+      - AWS_ROLE_ARN: ${{ secrets.AWS_MEDIA_ROLE_ARN_STAGING }}
+        if: ${{ inputs.deploy-environment == 'staging' }}
 ...
