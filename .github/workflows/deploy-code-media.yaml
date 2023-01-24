@@ -32,6 +32,7 @@ jobs:
       deploy-environment: "${{ inputs.deploy-environment }}"
       release: "${{ inputs.release }}"
       branch: "${{ inputs.branch }}"
+      github-environment: "dev-deploy"
     secrets:
       AWS_ROLE_ARN: ${{ secrets.AWS_MEDIA_ROLE_ARN_DEV }}
   deployment-run-staging:
@@ -42,6 +43,7 @@ jobs:
       deploy-environment: "${{ inputs.deploy-environment }}"
       release: "${{ inputs.release }}"
       branch: "${{ inputs.branch }}"
+      github-environment: "staging-deploy"
     secrets:
       AWS_ROLE_ARN: ${{ secrets.AWS_MEDIA_ROLE_ARN_STAGING }}
 ...
