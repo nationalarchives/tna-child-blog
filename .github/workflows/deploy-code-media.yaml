@@ -24,26 +24,18 @@ on:
         default: ""
 
 jobs:
-  deployment-run:
-    steps:
-      - name: dev
-        uses: nationalarchives/ds-github-actions/.github/workflows/media-theme-deploy.yml@main
-        with:
-          deploy-repo: "${{ github.event.repository.name }}"
-          deploy-environment: "${{ inputs.deploy-environment }}"
-          release: "${{ inputs.release }}"
-          branch: "${{ inputs.branch }}"
-        if: ${{ inputs.deploy-environment  == 'dev' }}
-        secrets:
-          AWS_ROLE_ARN: ${{ secrets.AWS_MEDIA_ROLE_ARN_DEV }}
-      - name: staging
-        uses: nationalarchives/ds-github-actions/.github/workflows/media-theme-deploy.yml@main
-        with:
-          deploy-repo: "${{ github.event.repository.name }}"
-          deploy-environment: "${{ inputs.deploy-environment }}"
-          release: "${{ inputs.release }}"
-          branch: "${{ inputs.branch }}"
-        if: ${{ inputs.deploy-environment  == 'staging' }}
-        secrets:
-          AWS_ROLE_ARN: ${{ secrets.AWS_MEDIA_ROLE_ARN_STAGING }}
+  deployment-run-dev:
+    if: ${{ inputs.deploy-environment  == 'dev' }}
+    uses: nationalarchives/ds-github-actions/.github/workflows/media-theme-deploy.yml@main
+    with:
+      deploy-repo: "${{ github.event.repository.name }}"
+      deploy-environment: "${{ inputs.deploy-environment }}"
+      release: "${{ inputs.release }}"
+      branch: "${{ inputs.branch }}"
+    secrets:
+      AWS_ROLE_ARN: ${{ secrets.AWS_MEDIA_ROLE_ARN_DEV }}
+#      - name: staging
+#        if: ${{ inputs.deploy-environment  == 'staging' }}
+#        secrets:
+#          AWS_ROLE_ARN: ${{ secrets.AWS_MEDIA_ROLE_ARN_STAGING }}
 ...
