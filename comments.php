@@ -14,7 +14,7 @@ if (post_password_required()) {
     return;
 }
 ?>
-
+<?php if (!is_amp()) : ?>
 <div id="comments" class="comments-area">
 
     <?php if (have_comments()) : ?>
@@ -86,3 +86,4 @@ if (post_password_required()) {
     ?>
 
 </div><!-- .comments-area -->
+<?php endif; ?>
