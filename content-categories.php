@@ -20,7 +20,7 @@ $categories = get_categories(); ?>
 		$the_query = new WP_Query( $args ); ?>
 
 		<?php if ( $the_query->have_posts() ) : ?>
-			<h3 id="<?php echo $cat->slug; ?>"><?php $cat->name ?></h3>
+			<h3 id="<?php echo $cat->slug; ?>"><?php echo $cat->name; ?></h3>
 			<div class="cards">
 				<div class="row">
 					<!-- the loop -->
