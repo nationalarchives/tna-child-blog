@@ -6,8 +6,6 @@ $categories = get_categories(); ?>
 
 	if ( $cat->slug != 'uncategorized' ) {
 
-		$active = ($cat->slug == 'records-research') ? 'active' : '';
-
 		$args = array(
 			'category_name'  => $cat->slug,
 			'post_type'      => 'post',

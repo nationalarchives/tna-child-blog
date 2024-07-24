@@ -11,21 +11,6 @@ $selected_categories = array(
 );
 
 ?>
-<ul class="nav nav-pills" role="tablist">
-	<?php foreach ( $selected_categories as $cat_name ) {
-		$cat_object = get_term_by( 'name', $cat_name, 'category');
-		if (isset($cat_object->slug)) {
-            $slug = $cat_object->slug;
-        } else {
-            $slug = '';
-        }
-		$active = ($slug == 'family-history') ? ' class="active"' : '';
-		?>
-		<li<?php echo $active ?>>
-			<a  href="#<?php echo $slug ?>" role="tab" data-toggle="pill"><?php echo $cat_name ?></a>
-		</li>
-	<?php } ?>
-</ul>
 <div class="tab-content clearfix">
 	<?php
 
@@ -34,8 +19,6 @@ $selected_categories = array(
 		$cat = get_term_by( 'name', $cat_name, 'category');
 
 		if ( $cat ) {
-
-			$active = ($cat->slug == 'family-history') ? 'active' : '';
 
 			$args = array(
 				'category_name'  => $cat->slug,
@@ -49,32 +32,26 @@ $selected_categories = array(
 			$the_query = new WP_Query( $args ); ?>
 
 			<?php if ( $the_query->have_posts() ) : ?>
-				<div role="tabpanel" class="tab-pane <?php echo $active; ?>" id="<?php echo $cat->slug; ?>">
-                    <div class="cards">
-                        <div class="row">
-                            <!-- the loop -->
-                            <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 
-                                <?php get_template_part( 'content-item' ); ?>
 
-                            <?php endwhile; ?>
-                            <!-- end of the loop -->
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <a href="<?php echo esc_url( get_category_link( $cat->term_id ) ); ?>" class="button pull-right">View all '<?php echo $cat->name; ?>' posts</a>
-                        </div>
-                    </div>
+
+				<h2 id="<?php echo $cat->slug; ?>" class="separator-heading">Posts in '<?php echo $cat->name; ?>'</h2>
+				<div class="cards">
+					<div class="row">
+						<!-- the loop -->
+						<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+							<?php get_template_part( 'content-item' ); ?>
+						<?php endwhile; ?>
+						<!-- end of the loop -->
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<a href="<?php echo esc_url( get_category_link( $cat->term_id ) ); ?>" class="button pull-right">View all '<?php echo $cat->name; ?>' posts</a>
+					</div>
 				</div>
 				<?php wp_reset_postdata(); ?>
 
-			<?php else : ?>
-				<div role="tabpanel" class="row tab-pane <?php echo $active; ?>" id="<?php echo $cat->slug; ?>">
-					<div class="col-md-12">
-						<p><?php esc_html_e( 'Sorry, no posts matched the category.' ); ?></p>
-					</div>
-				</div>
 			<?php endif;
 		}
 	} ?>
